@@ -86,12 +86,11 @@
 
 (expect/expect 21 (get-tri 6))
 
-(expect/expect [1 3 7 21] (get-factors-new 21))
+(expect/expect [1 3 7 21] (get-factors1 21))
 
-(expect/expect [1 3 7 21] (get-factors-helper 21 1 []))
+;(expect/expect [1 3 7 21] (get-factors-helper 21 1 []))
 
 (expect/expect 4 (get-factors-count 21))
-
 (expect/expect 6 (get-factors-count 28))
 
 (expect/expect 6 (factor-of-triangle 7))
@@ -100,3 +99,44 @@
 
 (expect/expect [3 6 9] (mod-no 3 10))
 
+(expect/expect 5 (pytho-triplet 3 4))
+
+(expect/expect 60 (prod-pytho-triplet 12))
+
+(expect/expect false (my-prime? 1))
+
+(expect/expect false (my-prime? 0))
+
+(expect/expect false (my-prime? 4))
+
+(expect/expect false (my-prime? 9))
+
+(expect/expect false (my-prime? 12))
+
+(expect/expect false (my-prime? 15))
+
+(expect/expect false (my-prime? 10))
+
+(expect/expect 13 (prime-at-pos1 6))
+
+;(expect/expect 104743 (prime-at-pos1 10001))
+
+(expect/expect 34144 (mult-right grid-20x20 0 0))
+
+(expect/expect 1651104 (mult-down grid-20x20 0 0))
+
+(expect/expect 279496 (mult-down-right grid-20x20 0 0))
+
+(expect/expect 8 (mult-down-left grid-20x20 0 0))
+
+(expect/expect 24468444 (max-prod [[8 2 22 97] [49 49 99 40] [81 49 31 73] [52 70 95 23]] 4))
+
+(expect/expect 70600674 (max-prod grid-20x20 20))
+
+(expect/expect true (correct-trans 30 120.0))
+
+(expect/expect false (correct-trans 42 120.0))
+
+(expect/expect false (correct-trans 130 120.0))
+
+(expect/expect true (correct-trans 120 120.5))
