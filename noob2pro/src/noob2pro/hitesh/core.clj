@@ -1,6 +1,7 @@
 (ns noob2pro.hitesh.core
   (:gen-class)
-  (:require [clojure.math.numeric-tower :as math]))
+  (:require [clojure.math.numeric-tower :as math]
+            [clojure.string :as str]))
 
 (defn -main
   "I don't do a whole lot ... yet."
@@ -135,22 +136,13 @@
 (defn convert-to-list [num]
   (map #(Character/getNumericValue %) (str num)))
 
-
 (defn check-highest
   "Compares the old and new product"
-  [product mylist]
-  (if (empty? (drop 13 mylist))
-    product
-      (let [newproduct (reduce * (take 13 mylist))]
-        (if (< product newproduct)
-          (recur newproduct (rest mylist))
-          (recur product (rest mylist))))))
+  [mylist step]
+  (apply max (map #(reduce * %)
+                  (partition step 1 mylist))))
 
-(defn get-highest-product
-  "Returns the highest product from given input"
-  []
-  (let  [mylist (convert-to-list num)]
-    (check-highest (reduce * (take 13 mylist)) (rest mylist))))
+
 
 
 
@@ -281,3 +273,83 @@
               (= n (count (factors %))))
            %)
         (range)))
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;CODECHEF PROBLEMS
+
+;;First Prob
+(def dir "/home/hitesh/tech-team/noob2pro/resources/hitesh_ip.txt")
+
+
+(defn withdraw
+  "Accepts the amount to withdraw and balance"
+  []
+  (let [amount (read-string (first (str/split (slurp dir) #"\n")))
+        balance (read-string (second (str/split (slurp dir) #"\n")))]
+    (if (and
+         (zero? (mod amount 5))
+         (< amount balance))
+      (- balance amount 0.50)
+      balance)))
+
+;;;;;;;;;;;;;;;;;;;;;;
+;;Prob-2
+
+(defn divisible
+  "Accepts no and a divisor and returns count of divisible nos"
+  []
+  (let [arr (drop 2 (str/split (slurp dir) #"\n"))
+        counter (read-string (first (str/split (slurp dir) #"\n")))
+        divisor (read-string (second (str/split (slurp dir) #"\n")))]
+    (count (filter #(zero? (mod (read-string %) divisor)) arr))))
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;Prob 3
+(defn factorial [arr]
+  (map #(reduce *' (range 1 (inc (read-string %)))) arr))
+
+
+(defn count-zero
+  "Counts the no of zeros in tail"
+  []
+  (let [arr (rest (str/split (slurp dir) #"\n"))
+        fact-arr (factorial arr)]
+    (map #(count (last (re-seq #"[0]+" (str %))))
+         fact-arr)))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;Prob 4
+
+(defn small-fact
+  "Returns the factorial of all the elemnts"
+  []
+  (let [arr (str/split (slurp dir) #"\n")]
+    (factorial arr)))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;Prob 5
+
+(defn turbo
+  "Returns a set of ascending nos"
+  []
+  (let [arr (str/split (slurp dir) #"\n")]
+    (sort (into #{} arr))))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;Prob 6
+
+(defn lead
+  "Checks the lead and decides who is the winner"
+  []
+  (let [arr (rest (str/split (slurp dir) #"\n"))
+        leads (map #(-
+               (read-string (first (str/split % #" ")))
+               (read-string (second (str/split % #" ")))) arr)
+        posi (apply max (filter #(pos? %) leads))
+        neg (apply min (filter #(neg? %) leads))]
+    (if (< posi (- neg))
+      (str "Winner is 2 with lead " neg)
+      (str "Winner is 1 with lead " posi))))

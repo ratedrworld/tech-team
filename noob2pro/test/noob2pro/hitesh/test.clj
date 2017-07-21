@@ -75,3 +75,27 @@
   (expect/expect 3 (factors 6))
   (expect/expect false (tri? 20))
   (expect/expect 28 (find-number 6)))
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;Codechef
+
+;;Prob 1
+;;(expect/expect 89.5 (withdraw))
+;;(expect/expect 120 (withdraw))
+
+;;Prob 2
+;;(expect/expect 4 (divisible))
+
+;;Prob 3
+;;(expect/expect (0 14 24 253 5861 2183837) (count-zero))
+;;(expect/expect (1 2 6 24) (factorial '(1 2 3 4)))
+
+;;Prob 4
+;;(expect/expect (1 2 2) (small-fact))
+
+;;Prob 5
+;;(expect/expect {1 3 5 6 7} (turbo))
+
+;;Prob 6
+;;(expect/expect 1 58 (lead))
