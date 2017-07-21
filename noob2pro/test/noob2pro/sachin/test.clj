@@ -71,3 +71,27 @@
 
 (expect/expect '(28) (highly-div-tri 5))
 (expect/expect '(73920) (highly-div-tri 100))
+
+;;;;;;;;;;;; Code chef Problems
+
+;;;;Problem 1
+
+(expect/expect 89.5 (atm "atm-input.txt"))
+
+;;;;Problem 2
+
+(expect/expect 4 (enormos "enormos-input.txt"))
+
+;; Problem 3
+
+(expect/expect '(0 14 24 253 5861 2183837) (trailing "trailing-input.txt"))
+
+;;Problem 4
+
+(expect/expect '(1 2 120 6) (small-factorials "small-factorials-input"))
+
+;;Problem 5
+
+(expect/expect 1118 (cielab "cielab-input.txt"))
+
+
