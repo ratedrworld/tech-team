@@ -1,4 +1,6 @@
-(ns noob2pro.bhavesh.core)
+(ns noob2pro.bhavesh.core
+  (:require [clojure.java.io :refer :all]
+            [clojure.string :as str]))
 
 
 ;;problem 1
@@ -238,3 +240,86 @@
   (first (drop-while
          #(< (count (n-divisors %)) 100)
          (lazy-triag))))
+
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; codechef problems start herer
+
+;;problem 1 , ATM
+
+(defn take-ip
+  "Reads space separated strings from file, returns a list of corresponding number"
+  [fname]
+  (let [content (slurp (str "resources/" fname))
+        input (str/split content #"[\s]")]
+    (map #(Integer/parseInt %) input)))
+
+
+(defn atm
+  "Reads input from given file name, input has two parts
+  1. Withdrawal amount
+  2. Initial account balance
+  Returns the account balance after attempted transaction."
+  [fname]
+  (let [input (take-ip "problem1")
+        withdraw (first input)
+        balance (second input)]
+    (if (not= 0 (rem withdraw 5)) ;; withdrawal amount should be a multiple of 5
+      balance
+      (if (> withdraw balance)
+        balance
+        ;;0.5 is the transaction fees which gets subracted from balance
+        (- balance withdraw 0.5)))))
+
+
+;; problem 2; function returns the number of intergers divisible by the given number in input.
+
+
+(defn inputs-div-k
+  "The input begins with two positive integers n k The next n lines of input contain one positive integer each.
+  Function returns the number of integers divisible by k"
+  [fname]
+  (let [input (take-ip "problem2")
+        k (second input)]
+    (count (filter
+            #(= 0 (rem % k))
+            (drop 2 input)))))
+
+
+;;;;;; problem 3
+
+#_(defn fact
+  "Returns factorial of a number"
+  [num]
+  (reduce * (range 1 (inc num))))
+
+
+(defn n-zero
+  "Returns number of trailing zero's in the factorial of a number"
+  ([num] (n-zero num 0 5))
+  ([num  zeros power-5]
+   (let [q (quot num power-5)]
+     (if (>= q 1)
+       (n-zero num (+ zeros q) (* 5 power-5))
+       zeros))))
+
+
+(defn prob3-cc
+  "Returns number of zeros in the factorial of each number from the input file."
+  []
+  (let [input (take-ip "problem3")]
+    (map n-zero input)))
+
+
+#_(defn f
+  []
+  (mapcat #(list %1 0) [1 2 3 4]))
+
+
+(defn drop-nth
+  ([arr n] (drop-nth arr n [] ))
+  ([arr n result]
+   (if (empty? arr)
+     result
+     (drop-nth (drop n arr) n (concat result (take (- n 1) arr))))))
