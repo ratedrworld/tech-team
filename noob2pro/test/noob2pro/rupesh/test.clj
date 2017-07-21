@@ -102,4 +102,4 @@
 
 (expect/expect 142913828922 (sum-of-primes 2000000))
 
-(expect/expect 73920 (div-tri-num))
+(expect/expect 25200 (div-tri-num))
