@@ -198,3 +198,69 @@
   (apply max (for [x (range 20)
                     y (range 20)]
                 (apply max [(down-product grid x y) (right-product grid x y) (leftd-product grid x y) (rightd-product grid x y)]))))
+
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;Codechef problems
+
+(defn ATM
+  "take input from file and then processes it"
+  [fname]
+  (let [x (slurp (str "resources/" fname))
+        y (clojure.string/split x #" ")
+        a (read-string (first y))
+        b (read-string (second y))]
+    (if (and  (= 0 (mod a 5)) (> b a) (not= b a))
+      (- b a 0.50)
+      b
+      )))
+
+
+
+(defn Input
+  "for processing input"
+  [fname]
+  (let [x (slurp (str "resources/" fname))
+        y (clojure.string/split x #"[\s]")]
+    (map #(Integer/parseInt %) y)))
+
+
+(defn InputTest
+  "Problem on codechef  https://www.codechef.com/problems/INTEST"
+  [fname]
+  (let [x (Input fname)
+        y (second x)
+        z (drop 2 x)]
+    (count (filter #(= 0 (mod % y)) z))))
+
+
+;;;;;;;;;;;4 CLOJURE PROBLEMS;;;;;
+                                        ;
+(defn nilkey [key map]
+  (if (contains? map key)
+    (nil? (key map))
+    false
+    ))
+
+(fn maps [key vector1]
+  (zipmap vector1 (into [] (repeat (count vector1) key)) ) )
+
+(defn ad [vector1]
+  (apply concat (map #(repeat 2 %) vector1)))
+
+(fn  [a b]
+  (loop[a a
+        ret []]
+    (if(= a b)
+      (seq ret)
+      (recur (inc a) (concat ret [a])))))
+
+
+#_(defn unique
+  [a]
+  (if (string? a)
+    (distinct a)
+
+
+))
