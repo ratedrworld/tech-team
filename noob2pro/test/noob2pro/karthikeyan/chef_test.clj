@@ -1,7 +1,7 @@
 (ns noob2pro.karthikeyan.chef_test
   (:require #_[clojure.test :refer :all]
             [noob2pro.karthikeyan.codechef1 :as chef1]
-	    [noob2pro.karthikeyan.codechef2 :as chef2]
+            [noob2pro.karthikeyan.codechef2 :as chef2]
             [expectations :as expect]))
 
 (expect/expect "Hello" "Hello")

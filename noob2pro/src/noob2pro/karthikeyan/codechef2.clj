@@ -16,3 +16,17 @@
         k (read-string (second (str1/split txt #" ")))
         arr (map #(read-string %) splitxt)]
     (divisible arr k)))
+
+
+
+
+(fn compress
+  [lis]
+  (if (string? lis)
+    (distinct lis)
+    (reduce (fn [a b]
+              (if-not (= (last a) b)
+                (conj a b)
+                a))
+            []
+            lis)))
