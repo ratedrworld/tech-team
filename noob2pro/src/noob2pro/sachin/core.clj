@@ -6,6 +6,9 @@
   [& args]
   (println "Hello, World!"))
 
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;PROJECT EULER SUMS
+
 ;; Problem 1
 
 (defn sum-of-multi

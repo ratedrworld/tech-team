@@ -3,13 +3,10 @@
             [noob2pro.sachin.core :refer :all]
             [expectations :as expect]))
 
-#_(deftest a-test
-  (testing "FIXME, I fail."
-    (is (= 0 1))))
 ;; Problem 1 Test Cases
-#_(expect/expect 23 (sum-of-multi 10))
+(expect/expect 23 (sum-of-multi 10))
 
-#_(expect/expect 233168 (sum-of-multi 1000))
+(expect/expect 233168 (sum-of-multi 1000))
 
 ;; Problem 2 Test Cases
 
@@ -47,10 +44,30 @@
 
 ;; Problem 8 Test
 
+#_(expect/expect '(1 2 3) (multiply-parts [[1 1 2] [1 1 3] [1 1 4]]))
+#_(expect/expect [1 2 3] (split-digits [123]))
+#_(expect/expect [[1 2 3 4] [5 6 7 8]] (split-parts 4))
+
 ;; Problem 9 Test Cases
 
-;;(expect/expect true (triplet? 3 4 5))
-;;(expect/expect false (triplet? 6 7 8))
+#_(expect/expect true (triplet? 3 4 5))
+#_(expect/expect false (triplet? 6 7 8))
 
-#_(expect/expect 12 (special-triplet 1 2 3))
+(expect/expect 31875000 (special-triplet 1000))
 
+;; Problem 10 Test Cases
+
+(expect/expect 17 (prime-sum 10))
+
+;; Problem 11 Test Cases
+
+(expect/expect 1651104 (down 0 0))
+(expect/expect 34144 (right 0 0))
+(expect/expect 279496 (diagonal-right 0 0))
+(expect/expect 8 (diagonal-left 0 0 ))
+(expect/expect 70600674 (largest-prod-grid grid))
+
+;; Problem 12 Test Cases
+
+(expect/expect '(28) (highly-div-tri 5))
+(expect/expect '(73920) (highly-div-tri 100))
