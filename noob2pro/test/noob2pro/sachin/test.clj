@@ -54,7 +54,7 @@
 #_(expect/expect true (triplet? 3 4 5))
 #_(expect/expect false (triplet? 6 7 8))
 
-(expect/expect 31875000 (special-triplet 1000))
+#_(expect/expect 31875000 (special-triplet 1000))
 
 ;; Problem 10 Test Cases
 
@@ -66,7 +66,7 @@
 (expect/expect 34144 (right 0 0))
 (expect/expect 279496 (diagonal-right 0 0))
 (expect/expect 8 (diagonal-left 0 0 ))
-(expect/expect 70600674 (largest-prod-grid grid))
+#_(expect/expect 70600674 (largest-prod-grid grid))
 
 ;; Problem 12 Test Cases
 
@@ -90,17 +90,17 @@
 
 ;;Problem 4
 
-;(expect/expect '(1 2 120 6) (small-factorials "small-factorials-input"))
+(expect/expect '(1 2 120 6) (small-factorials "small-factorials-input"))
 
 ;;Problem 5
 
-;(expect/expect 1118 (cielab "cielab-input.txt"))
+(expect/expect 1118 (cielab "cielab-input.txt"))
 
 ;;Problem 6
 
-;(expect/expect '(4 1 1 2 4 1 2 2 3 1 1) (take-input "sum-tri-input"))
-;(expect/expect [[1] [1 2] [4 1 2] [2 3 1 1]] (convert-inp (take-input "sum-tri-input")))
-;(expect/expect 9 (sum-tri (convert-inp (take-input "sum-tri-input"))))
+(expect/expect '(4 1 1 2 4 1 2 2 3 1 1) (take-input "sum-tri-input"))
+(expect/expect [[1] [1 2] [4 1 2] [2 3 1 1]] (convert-inp (take-input "sum-tri-input")))
+(expect/expect 9 (sum-tri (convert-inp (take-input "sum-tri-input"))))
 
 
 ;;Problem 7
@@ -108,3 +108,10 @@
 (expect/expect '((1 2 1) (3 2 3) (3 7 2)) (get-moves "two-numbers-input"))
 (expect/expect 2 (apply-move '(3 7 2)))
 (expect/expect '(1 3 2) (int-divison "two-numbers-input"))
+
+
+;;Problem 8
+
+(expect/expect '("3" "gandhi" "mahatma gandhI" "Mohndas KaramChand gandhi") (take-input-nitika "nitika-input"))
+(expect/expect "S. Harpalani" (fix-format "sachin harpalani"))
+(expect/expect '("Gandhi" "M. Gandhi" "M. K. Gandhi") (fix-nitika "nitika-input"))

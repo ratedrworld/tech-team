@@ -1,6 +1,4 @@
-
-(ns noob2pro.sachin.code_chef
-(:gen-class))
+(ns noob2pro.sachin.code_chef)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; CODE CHEF PROBLEMS
 ;;;;;;;;;;;BEGINNER LEVEL
@@ -136,3 +134,37 @@
   ([filename] (int-divison filename (get-moves filename)))
   ([filename input]
    (map #(apply-move %) input)))
+
+
+;;;;PROBLEM 8
+;;;;https://www.codechef.com/problems/NITIKA
+
+(defn take-input-nitika
+  "Accepts input from resources/input.txt"
+  [filename]
+  (let [input (slurp (str  "resources/"filename))
+        num (clojure.string/split input #"[\n]")]
+    (map str num)))
+
+(defn get-fix-name
+  "Fixes name that is takes initial of first and middle"
+  [inp cnt]
+  (if (= 2 cnt)
+    (str (nth (first inp) 0) ". "(second inp))
+    (str (nth (first inp) 0) ". "(nth (second inp) 0)". "(last inp))))
+
+
+
+(defn fix-format
+  "Note- HAVE CONSIDERED NAME TO ALWAYS BE DIVIDED INTO FIRST NAME, MIDDLE NAME AND LAST NAME.
+  Fixes the wrong format accoridng to the rules"
+  ([input] (fix-format (map clojure.string/capitalize (clojure.string/split input #"\s")) []))
+  ([inp out]
+   (if (= (count inp) 1)
+     (first inp)
+     (get-fix-name inp (count inp)))))
+
+(defn fix-nitika
+  "Fixes format for all input"
+  [filename]
+  (map fix-format (rest  (take-input-nitika filename))))
