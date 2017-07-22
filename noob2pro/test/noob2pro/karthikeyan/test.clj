@@ -7,6 +7,8 @@
              :as clo4-39]
             [noob2pro.karthikeyan.4clojure049
              :as clo4-49]
+            [noob2pro.karthikeyan.4clojure061
+             :as clo4-61]
             [expectations :as expect]))
 
 (expect/expect "hello world" "hello world")
@@ -51,3 +53,11 @@
 (expect/expect [[1 2 3] [4 5]] (clo4-49/my-split-at 3 [1 2 3 4 5]))
 
 (expect/expect nil (clo4-49/my-split-at 7 [1 2 3 4 5 6]))
+
+(expect/expect {:a 1, :b 2,:c 3} (clo4-61/map-construct [:a :b :c] [1 2 3]))
+
+;(expect/expect {:a , :b , :c} (clo4-61/map-construct [:a :b :c] []))
+
+
+
+;(expect/expect nil (clo4-61/map-construct [] [:a :b :c]))
