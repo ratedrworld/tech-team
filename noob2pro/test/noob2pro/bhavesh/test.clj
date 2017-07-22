@@ -55,3 +55,15 @@
 
 
 (expect/expect [10 1 2 5] (n-divisors 10))
+
+
+(expect/expect 89.5 (atm "problem1"))
+
+(expect/expect 4 (inputs-div-k "problem2"))
+
+
+(expect/expect '(0 14 24 253 5861 2183837) (prob3-cc))
+
+(expect/expect [1 0 2 0 3] (my-interpose [1 2 3]))
+
+(expect/expect [1 2 4 5 7 8] (drop-nth [1 2 3 4 5 6 7 8 9] 3))

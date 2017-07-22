@@ -296,7 +296,7 @@
 
 
 (defn n-zero
-  "Returns number of trailing zero's in the factorial of a number"
+  "Returns number of trailing zero's in the factorial of a number by counting number of 5's and 2's in the factors of the number"
   ([num] (n-zero num 0 5))
   ([num  zeros power-5]
    (let [q (quot num power-5)]
@@ -312,12 +312,18 @@
     (map n-zero input)))
 
 
-#_(defn f
-  []
-  (mapcat #(list %1 0) [1 2 3 4]))
+
+;;;;;;;;;;4clojure problems
+
+
+
+(defn my-interpose
+  [arr]
+  (drop-last (mapcat #(list %1 0) arr)))
 
 
 (defn drop-nth
+  "Drops every nth element from the list"
   ([arr n] (drop-nth arr n [] ))
   ([arr n result]
    (if (empty? arr)
