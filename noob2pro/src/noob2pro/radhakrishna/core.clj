@@ -372,3 +372,220 @@
       (- bal amt 0.5)
       bal)
     ))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;;codechef problem
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;;;;;;;;;prob atm
+
+;;https://www.codechef.com/problems/FIRE
+
+(defn correct-trans [amt bal]
+  (and  (zero? (mod amt 5))
+        (not (neg? (- bal amt 0.5)))))
+
+(defn parse-int [s]
+  (Integer. (re-find  #"\d+" s )))
+
+(defn take-ip1 [filename]
+  (ret-bal (slurp filename)))
+
+(defn ret-bal [strin]
+  (let [inp (str/split (strin)
+                        #" ")
+        amt (parse-int (first inp))
+        bal (parse-int (second inp))]
+    (if (correct-trans amt bal)
+      (- bal amt 0.5)
+      bal)))
+
+;;;;;; prob 2 enormous ip test
+
+;;;;;;https://www.codechef.com/problems/INTEST
+
+
+(defn take-ip2 [filename]
+  (enormous (slurp filename)))
+
+(defn enormous [filename]
+  (let [inp  (str/split (take-ip filename)
+                        #" ")
+        fir (read-string (first inp))
+        sec-vec (str/split (second inp)
+                           #"\n")
+        sec (read-string (first sec-vec))
+        third-vec (rest sec-vec)]
+    (count (filter #(zero? (mod (read-string %)
+                                sec))
+                   third-vec))))
+
+;;;;prob 3 factorial
+
+;;https://www.codechef.com/problems/FCTRL
+
+(defn no-of-zeros [no]
+  (count (last (re-seq #"[0]+" (str no)))))
+
+(defn fact [no]
+  (reduce *' (range 1 (inc no))))
+
+(defn fact-count-0 [filename]
+  (let [inp (str/split (slurp (str filename))
+                       #"\n")
+        sec-vec (map read-string (rest inp))]
+    (map no-of-zeros
+         (map fact
+              sec-vec))))
+
+;;;;;;;;;;;;;;;;
+;;;;;; prob get lead
+
+;;https://www.codechef.com/problems/TLG
+
+(defn give-sub [arr]
+  (- (read-string (first arr))
+     (read-string (second arr))))
+
+(defn lead [filename]
+  (let [inp (str/split (slurp (str filename))
+                       #"\n")
+        fir (read-string (first inp))
+        sec-vec (map #(str/split % #" ")
+                     (rest inp))
+        third-vec (map give-sub sec-vec)
+        posi (filter pos? third-vec)
+        negi (map - (filter neg? third-vec))]
+    (if (> (apply max posi) (apply max negi))
+      (println 1 (apply max posi))
+      (println 2 (apply max negi)))))
+
+;;;;;;;;;;;;;;;;;;;;
+
+;;;;;;prob first and last
+
+;;https://www.codechef.com/problems/FLOW001
+
+(defn sfl [stri]
+  (let [inp (map #(- % 48) (map int (vec stri)))
+        fir (first inp)
+        sec (last inp)]
+    (+ fir sec)))
+
+(defn fal [filename]
+  (let [inp (str/split (slurp (str filename))
+                       #"\n")
+        sec-vec (rest inp)]
+    (map sfl sec-vec)))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;; whats the name
+
+;;https://www.codechef.com/problems/NITIKA
+
+(defn first-dot [arr]
+  (let [cap-arr (map str/capitalize arr)
+        arr-drop (drop-last cap-arr)]
+    (str (apply str (map #(str (first %) ". ") arr-drop))
+         (last cap-arr))))
+
+(defn wtn [filename]
+  (let [inp (str/split (slurp (str filename))
+                       #"\n")
+        fir (read-string (first inp))
+        sec-vec (map #(str/split % #" ") (rest inp))]
+    (map first-dot sec-vec )))
+
+;;;;;;;;;;sum of digits
+
+;;;https://www.codechef.com/problems/FLOW006
+
+(defn sum-dig [stri]
+  (reduce +
+          (map #(- % 48)
+               (map int
+                    (vec stri)))))
+
+(defn sod [filename]
+  (let [inp (str/split (slurp (str filename))
+                       #"\n")
+        sec-vec (rest inp)]
+    (map sum-dig sec-vec)))
+
+;;;;;;;;;;;;;;;;;;;
+
+;;;;;temple land
+
+
+;;;;;;;easy
+
+;;;;;ceil and A-B prob
+
+;;https://www.codechef.com/problems/CIELAB
+
+(defn ceil [filename]
+  (let [inp (str/split (slurp (str filename))
+                       #" ")
+        sec-vec (map read-string inp)]
+    (- (first sec-vec)
+       (second sec-vec)
+       1)))
+
+;;;;;;;clean up
+
+;;;https://www.codechef.com/problems/CLEANUP
+
+(defn clean-up [arr1 arr2]
+  (let [ind (read-string (first arr1))
+        done-jobs (map read-string
+                       arr2)
+        rem-jobs (remove (set done-jobs)
+                         (range 1
+                                (inc ind)))]
+    rem-jobs))
+
+(defn clean-list [lis arr]
+  (if (empty? lis)
+    arr
+    (recur (drop 2 lis) (conj arr (clean-up (first lis)
+                                            (second lis))))))
+
+(defn assign-helper [arr chef assist]
+  (if (empty? (rest arr))
+    (cons (conj chef (first arr)) assist)
+    (recur (drop 2 arr)
+           (conj chef (first arr))
+           (conj assist (second arr)))))
+
+(defn assign [lis]
+  (assign-helper lis [] []))
+
+(defn clean [filename]
+  (let [inp (str/split (slurp (str filename))
+                       #"\n")
+        sec-vec (rest inp)
+        th-vec (map #(str/split %
+                                #" ")
+                    sec-vec)]
+    (map assign (clean-list th-vec []))))
+
+;;;;;;;;;;;;;;;racing horse
+
+;;https://www.codechef.com/problems/HORSES
+
+(defn min-diff [lis]
+  (- (last lis)
+     (first lis)))
+
+(defn horse [filename]
+  (let [inp (str/split (slurp (str filename))
+                       #"\n")
+        lis (map read-string
+                 (str/split (drop 2 inp)
+                            #" "))]
+    (apply min (map min-diff
+                    (partition 2 1 (sort lis))))))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;dump

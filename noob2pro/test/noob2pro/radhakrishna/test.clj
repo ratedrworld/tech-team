@@ -140,3 +140,27 @@
 (expect/expect false (correct-trans 130 120.0))
 
 (expect/expect true (correct-trans 120 120.5))
+
+(expect/expect true (correct-trans 100 120))
+
+(expect/expect false (correct-trans 101 120))
+
+(expect/expect false (correct-trans 120 120))
+
+(expect/expect 2 (no-of-zeros 100))
+
+(expect/expect 720 (fact 6))
+
+(expect/expect 1 (give-sub ["3" "2"]))
+
+(expect/expect 6 (sum-dig "123"))
+
+(expect/expect 4 (sfl "123"))
+
+;;(expect/expect "S. Bcjsdbcskd" (first-dot ["sadfsrg" "bcjsdbcskd"]))
+
+(expect/expect "" (first-dot ""))
+
+(expect/expect [3 5 6] (clean-up ["6" "3"] ["2" "4" "1"]))
+
+(expect/expect 5 (min-diff [4 9]))
