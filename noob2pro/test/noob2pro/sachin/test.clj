@@ -13,7 +13,7 @@
 
 (expect/expect '(1 2 3 5 8 13 21 34 55 89) (take 10 (get-fibo-num)))
 #_(expect/expect 44 (sum-even-fibo 10))
-(expect/expect 4613732 (sum-even-fibo))
+#_(expect/expect 4613732 (sum-even-fibo))
 
 ;; Problem 3 Test Cases
 
@@ -24,7 +24,7 @@
 
 ;; Problem 4 Test Cases
 
-(expect/expect [906609] (largest-palin))
+#_(expect/expect [906609] (largest-palin))
 
 ;; Problem 5 Test Cases
 
@@ -121,3 +121,8 @@
 
 #_(expect/expect [8 2 (3 8)] (input-chef "chef-input"))
 (expect/expect '((1 4 6) (2 5 7)) (assign-jobs (input-chef "chef-input")))
+
+
+;;Problem 10
+
+(expect/expect 3 (racing-horses "racing-horses-input"))

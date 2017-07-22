@@ -197,3 +197,18 @@
      (map (fn [x]
             (get rem-jobs x))
           (filter odd? (range 0 (count rem-jobs)))))))
+
+
+;;;;PROBLEM 10
+;;;;https://www.codechef.com/problems/HORSES
+
+(defn racing-horses
+  "Returns the minimum differences betwen each horse skills"
+  [filename]
+  (let [inp (rest (take-input filename))
+        no (second inp)
+        skills (sort  (drop 1 inp))]
+    (apply min (filter pos? (flatten  (map (fn [x]
+                                             (map (fn [y] (- y x))
+                                                  skills))
+                                           skills))))))
