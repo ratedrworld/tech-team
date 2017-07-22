@@ -1,6 +1,7 @@
 (ns noob2pro.sachin.test
   (:require #_[clojure.test :refer :all]
             [noob2pro.sachin.core :refer :all]
+            [noob2pro.sachin.code_chef :refer :all]
             [expectations :as expect]))
 
 ;; Problem 1 Test Cases
@@ -94,4 +95,6 @@
 
 ;(expect/expect 1118 (cielab "cielab-input.txt"))
 
+;;Problem 6
 
+(expect/expect 9 (sum-tri (convert-inp (take-input "sum-tri-input"))))

@@ -1,3 +1,4 @@
+
 (ns noob2pro.sachin.code_chef
 (:gen-class))
 
@@ -89,3 +90,18 @@
 ;;;;PROBLEM 6
 ;;;;https://www.codechef.com/problems/SUMTRIAN
 
+(defn convert-inp
+  "COnverts input into set of vectors in vector accordint to levels of triangle. For eg '(1 2 3) -> [[1] [1 2]] "
+  ([input] (convert-inp (rest input) [] 1))
+  ([input out cnt ]
+   (if (empty? input)
+     out
+     (recur (drop cnt input) (conj out (apply vector (take cnt input))) (inc cnt)))))
+
+(defn sum-tri
+  [input]
+  (reduce (fn [m a]
+            (apply max
+                   (map #(+ m %) (vector (get a (.indexOf input m) 0)
+                                         (get a (inc (.indexOf input m)) 0)))))
+          1 input))
