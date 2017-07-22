@@ -360,3 +360,35 @@
   [f]
   (fn [& args]
     (apply f (reverse args))))
+
+
+(defn take-ip-string
+  [fname]
+  (let [content (slurp (str "resources/" fname))
+        input (str/split content #"[\n]")]
+    input))
+#_(def a (take-ip-string "problem4"))
+
+
+(defn initials
+  "Takes a name as an input and returns initial letter in capital followed by a period."
+  [name]
+  (str (str/capitalize (first name)) ". " ))
+
+
+(defn trim-string
+  "Takes name as input, either only first name, or first and last or first middle and last
+  ans returns formatted name with initials and lastname."
+  [ipstring]
+  (if (= 1 (count ipstring))
+    (str/capitalize (first ipstring))
+    (let [lastname (str/capitalize (last ipstring))
+          prefix (map initials (drop-last ipstring))]
+      (str (apply str prefix) lastname))))
+
+
+(defn what-in-name
+  [fname]
+  (let [input (take-ip-string fname)
+        ipstring (map #(str/split % #" ") input)]
+    (map trim-string ipstring)))

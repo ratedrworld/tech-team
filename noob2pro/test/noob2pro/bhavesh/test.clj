@@ -78,3 +78,10 @@
 (expect/expect [4 5 1 2 3] (rotate -2 [1 2 3 4 5]))
 
 (expect/expect [1 2 3 4 5] (rotate 5 [1 2 3 4 5]))
+
+
+(expect/expect "M. Gandhi" (trim-string ["mohandas" "gandhi"]))
+
+
+
+(expect/expect "M. K. Gandhi" (trim-string ["moHandas" "karamchand" "gandhi"]))
