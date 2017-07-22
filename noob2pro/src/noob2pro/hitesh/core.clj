@@ -280,14 +280,17 @@
 ;;CODECHEF PROBLEMS
 
 ;;First Prob
-(def dir "/home/hitesh/tech-team/noob2pro/resources/hitesh_ip.txt")
+(defn input-file
+  "takes the file name and slurp"
+  [file]
+  (slurp (str "/home/hitesh/tech-team/noob2pro/resources/" file) ))
 
 
 (defn withdraw
   "Accepts the amount to withdraw and balance"
-  []
-  (let [amount (read-string (first (str/split (slurp dir) #"\n")))
-        balance (read-string (second (str/split (slurp dir) #"\n")))]
+  [file]
+  (let [amount (read-string (first (str/split (input-file file) #"\n")))
+        balance (read-string (second (str/split (input-file file) #"\n")))]
     (if (and
          (zero? (mod amount 5))
          (< amount balance))
@@ -299,10 +302,10 @@
 
 (defn divisible
   "Accepts no and a divisor and returns count of divisible nos"
-  []
-  (let [arr (drop 2 (str/split (slurp dir) #"\n"))
-        counter (read-string (first (str/split (slurp dir) #"\n")))
-        divisor (read-string (second (str/split (slurp dir) #"\n")))]
+  [file]
+  (let [arr (drop 2 (str/split (input-file file) #"\n" ))
+        counter (read-string (first (str/split (input-file file) #"\n" )))
+        divisor (read-string (second (str/split (input-file file) #"\n" )))]
     (count (filter #(zero? (mod (read-string %) divisor)) arr))))
 
 
@@ -314,8 +317,8 @@
 
 (defn count-zero
   "Counts the no of zeros in tail"
-  []
-  (let [arr (rest (str/split (slurp dir) #"\n"))
+  [file]
+  (let [arr (rest (str/split (input-file file) #"\n"))
         fact-arr (factorial arr)]
     (map #(count (last (re-seq #"[0]+" (str %))))
          fact-arr)))
@@ -325,8 +328,8 @@
 
 (defn small-fact
   "Returns the factorial of all the elemnts"
-  []
-  (let [arr (str/split (slurp dir) #"\n")]
+  [file]
+  (let [arr (str/split (input-file file) #"\n")]
     (factorial arr)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -334,20 +337,20 @@
 
 (defn turbo
   "Returns a set of ascending nos"
-  []
-  (let [arr (str/split (slurp dir) #"\n")]
+  [file]
+  (let [arr (str/split (input-file file) #"\n")]
     (sort (into #{} arr))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;Prob 6
 
-(defn lead
+(defn winner
   "Checks the lead and decides who is the winner"
-  []
-  (let [arr (rest (str/split (slurp dir) #"\n"))
+  [file]
+  (let [arr (rest (str/split (input-file file) #"\n"))
         leads (map #(-
-               (read-string (first (str/split % #" ")))
-               (read-string (second (str/split % #" ")))) arr)
+                     (read-string (first (str/split % #" ")))
+                     (read-string (second (str/split % #" ")))) arr)
         posi (apply max (filter #(pos? %) leads))
         neg (apply min (filter #(neg? %) leads))]
     (if (< posi (- neg))
