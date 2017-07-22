@@ -287,7 +287,7 @@
             (drop 2 input)))))
 
 
-;;;;;; problem 3
+;;;;; problem 3  ;;trailing zeros in the factorial of a number
 
 #_(defn fact
   "Returns factorial of a number"
@@ -318,6 +318,7 @@
 
 
 (defn my-interpose
+  "interposes zero within elements of a sequence"
   [arr]
   (drop-last (mapcat #(list %1 0) arr)))
 
@@ -344,11 +345,11 @@
             (let [tail (take n arr)
                   head (drop n arr)]
               (concat head tail)))]
-    (if (> n 0)
+    (if (> n 0) ;; for negative rotation
       (rot-help (mod n
                      (count arr))
                 arr)
-      (reverse (rot-help (mod (- n)
+      (reverse (rot-help (mod (- n)  ;; mod n is to make rotation larger than size of array.
                               (count arr))
                          (reverse arr))))))
 
