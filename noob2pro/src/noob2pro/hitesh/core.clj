@@ -52,11 +52,13 @@
 ;;THIRD
 ;;Finding the largest prime factor of a no
 
-(defn isprime? [b a]
-  (some #(zero? (mod num %)) (range 1 (/ num 2))))
+(defn isprime? [a]
+  (if (> (count (filter #(zero? (mod a %)) (range 2 a))) 0)
+    false
+    true))
 
 (defn filter-prime [arr]
-  (filter #(isprime?  %) arr))
+  (filter #(isprime? %) arr))
 
 (defn prime-generator [n]
   (filter-prime (filter
@@ -120,7 +122,7 @@
 ;;Calculates the given prime no
 
 (defn find-prime [no]
-  (last (take (inc no) (filter #(isprime? 2 %) (rest (range))))))
+  (last (take no (filter #(isprime? %) (drop 2 (range))))))
 
 
 
@@ -128,13 +130,13 @@
 ;;EIGHT
 ;;Find the highest product of 13 digits in a 1000 digit no.
 
-(def num 7316717653133062491922511967442657474235534919493496983520312774506326239578318016984801869478851843858615607891129494954595017379583319528532088055111254069874715852386305071569329096329522744304355766896648950445244523161731856403098711121722383113622298934233803081353362766142828064444866452387493035890729629049156044077239071381051585930796086670172427121883998797908792274921901699720888093776657273330010533678812202354218097512545405947522435258490771167055601360483958644670632441572215539753697817977846174064955149290862569321978468622482839722413756570560574902614079729686524145351004748216637048440319989000889524345065854122758866688116427171479924442928230863465674813919123162824586178664583591245665294765456828489128831426076900422421902267105562632111110937054421750694165896040807198403850962455444362981230987879927244284909188845801561660979191338754992005240636899125607176060588611646710940507754100225698315520005593572972571636269561882670428252483600823257530420752963450)
+(def numb 7316717653133062491922511967442657474235534919493496983520312774506326239578318016984801869478851843858615607891129494954595017379583319528532088055111254069874715852386305071569329096329522744304355766896648950445244523161731856403098711121722383113622298934233803081353362766142828064444866452387493035890729629049156044077239071381051585930796086670172427121883998797908792274921901699720888093776657273330010533678812202354218097512545405947522435258490771167055601360483958644670632441572215539753697817977846174064955149290862569321978468622482839722413756570560574902614079729686524145351004748216637048440319989000889524345065854122758866688116427171479924442928230863465674813919123162824586178664583591245665294765456828489128831426076900422421902267105562632111110937054421750694165896040807198403850962455444362981230987879927244284909188845801561660979191338754992005240636899125607176060588611646710940507754100225698315520005593572972571636269561882670428252483600823257530420752963450)
 
 
 
 
-(defn convert-to-list [num]
-  (map #(Character/getNumericValue %) (str num)))
+(defn convert-to-list [numb]
+  (map #(Character/getNumericValue %) (str numb)))
 
 (defn check-highest
   "Compares the old and new product"
@@ -269,10 +271,10 @@
   [n]
   (some #(when
              (and
-              (tri? %)
+              (tri? arr %)
               (= n (count (factors %))))
            %)
-        (range)))
+        (drop 2 (range))))
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -280,6 +282,9 @@
 ;;CODECHEF PROBLEMS
 
 ;;First Prob
+;;https://www.codechef.com/problems/HS08TEST
+
+
 (defn input-file
   "takes the file name and slurp"
   [file]
@@ -289,8 +294,8 @@
 (defn withdraw
   "Accepts the amount to withdraw and balance"
   [file]
-  (let [amount (read-string (first (str/split (input-file file) #"\n")))
-        balance (read-string (second (str/split (input-file file) #"\n")))]
+  (let [amount (read-string (first (str/split (input-file file) #" ")))
+        balance (read-string (second (str/split (input-file file) #" ")))]
     (if (and
          (zero? (mod amount 5))
          (< amount balance))
@@ -298,7 +303,7 @@
       balance)))
 
 ;;;;;;;;;;;;;;;;;;;;;;
-;;Prob-2
+;;https://www.codechef.com/problems/INTEST
 
 (defn divisible
   "Accepts no and a divisor and returns count of divisible nos"
@@ -310,7 +315,8 @@
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;Prob 3
+;;https://www.codechef.com/problems/FCTRL
+
 (defn factorial [arr]
   (map #(reduce *' (range 1 (inc (read-string %)))) arr))
 
@@ -324,7 +330,7 @@
          fact-arr)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;Prob 4
+;;https://www.codechef.com/problems/FCTRL2
 
 (defn small-fact
   "Returns the factorial of all the elemnts"
@@ -333,7 +339,7 @@
     (factorial arr)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;Prob 5
+;;https://www.codechef.com/problems/TSORT
 
 (defn turbo
   "Returns a set of ascending nos"
@@ -342,7 +348,7 @@
     (sort (into #{} arr))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;Prob 6
+;;https://www.codechef.com/problems/TLG
 
 (defn winner
   "Checks the lead and decides who is the winner"
@@ -358,7 +364,7 @@
       (str "Winner is 1 with lead " posi))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;
-;;Prob 7
+;;https://www.codechef.com/problems/TWONMS
 
 (defn getprod [a b c]
   (if (= 0 c)
@@ -382,3 +388,43 @@
   [file]
   (let [arr (rest (str/split (input-file file) #"\n+"))]
     (mult arr [])))
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;https://www.codechef.com/problems/CIELAB
+
+(defn cielab
+  "Based on Codechef problem Ciel and his Restaurant"
+  [file]
+  (let [arr (str/split (input-file file) #" ")
+        ans (- (read-string (first arr)) (read-string (second arr)))]
+    (dec ans)))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;https://www.codechef.com/problems/CLEANUP
+
+(defn assign-job [arr chef asst]
+  (if (empty? (rest arr))
+    (cons  (conj chef (first arr)) asst)
+    (recur (drop 2 arr) (conj chef (first arr)) (conj asst (second arr)))))
+
+(defn cleanup
+  "Based on Codechef prob Cleanup"
+  [file]
+  (let [jobs (range (read-string (first (str/split (input-file file) #" "))))
+        done (str/split (second (str/split (input-file file) #"\n")) #" ")
+        rem (clojure.set/difference (set jobs) (set (map #(read-string %) done)))]
+    (assign-job (into [] rem) [] [])))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;https://www.codechef.com/problems/HORSES
+
+(defn horse
+  "Based on Codechef problem Racing horses"
+  [file]
+  (let [arr (sort (map #(read-string %) (str/split (input-file file) #"\s+")))]
+    (apply min
+           (filter #(pos? %)
+                   (map
+                    #(- (second %) (first %))
+                    (partition 2 1 arr))))))
