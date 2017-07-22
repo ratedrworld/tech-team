@@ -104,7 +104,7 @@
 
 (expect/expect 25200 (div-tri-num))
 
-(expect/expect 120 (atm "atm.txt"))
+(expect/expect 89.5 (atm "atm.txt"))
 
 (expect/expect 5 (enormousInputTest "EIT.txt"))
 
