@@ -67,3 +67,14 @@
 (expect/expect [1 0 2 0 3] (my-interpose [1 2 3]))
 
 (expect/expect [1 2 4 5 7 8] (drop-nth [1 2 3 4 5 6 7 8 9] 3))
+
+(expect/expect '((1 3 5) '(2 4 6) (rev-interleave [1 2 3 4 5 6] 2)))
+
+(expect/expect '((1 4 7) (2 5 8) (3 6 9)) (rev-interleave [1 2 3 4 5 6 7 8 9] 3))
+
+
+(expect/expect [3 4 5 1 2] (rotate 2 [1 2 3 4 5]))
+
+(expect/expect [4 5 1 2 3] (rotate -2 [1 2 3 4 5]))
+
+(expect/expect [1 2 3 4 5] (rotate 5 [1 2 3 4 5]))

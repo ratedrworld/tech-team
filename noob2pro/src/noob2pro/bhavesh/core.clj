@@ -329,3 +329,34 @@
    (if (empty? arr)
      result
      (drop-nth (drop n arr) n (concat result (take (- n 1) arr))))))
+
+(defn rev-interleave
+  "reverse interleaves a sequence into number of sequences"
+  [arr n]
+  (let [part (partition n arr)]
+    (apply map list part)))
+
+
+(defn rotate
+  "Rotates a sequence in either direction"
+  [n arr]
+  (letfn [(rot-help [n arr]
+            (let [tail (take n arr)
+                  head (drop n arr)]
+              (concat head tail)))]
+    (if (> n 0)
+      (rot-help (mod n
+                     (count arr))
+                arr)
+      (reverse (rot-help (mod (- n)
+                              (count arr))
+                         (reverse arr))))))
+
+
+
+;; funciton which returns another function with its arguments flipped.
+
+(defn fn-flip
+  [f]
+  (fn [& args]
+    (apply f (reverse args))))
