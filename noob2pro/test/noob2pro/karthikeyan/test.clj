@@ -42,4 +42,4 @@
 
 ;(expect/expect 120.00 (chef1/atm 42 120.00))
 
-(expect/expect '(1 :a 2 :b 3 :c) (clo4-39/interleav [1 2 3] [:a :b :c]))
+;(expect/expect '(1 :a 2 :b 3 :c) (clo4-39/interleav [1 2 3] [:a :b :c]))

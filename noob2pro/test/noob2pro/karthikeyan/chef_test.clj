@@ -2,8 +2,7 @@
   (:require #_[clojure.test :refer :all]
             ;[noob2pro.karthikeyan.codechef1 :as chef1]
             ;[noob2pro.karthikeyan.codechef2 :as chef2]
-            #_[noob2pro.karthikeyan.4clojure039
-             :as 4clo39]
+
             [expectations :as expect]))
 
 ;(expect/expect "Hello" "Hello")
@@ -11,6 +10,3 @@
 ;(expect/expect 89.50 (chef1/atm 30 120.0))
 
 ;(expect/expect 120.00 (chef1/atm 42 120.00))
-
-
-;(expect/expect '(1 :a  :b 3 :c) (4clo39/interleav [1 2 3] [:a :b :c]))
