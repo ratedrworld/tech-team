@@ -311,3 +311,69 @@
   (map #(f %)
        (drop 1
              (take-input filename))))
+
+
+
+
+;;;;; 4clojure problems
+
+
+;; Nth Element
+
+(defn nth-element
+  [col n]
+  (if (zero? n)
+    (first col)
+    (recur (rest col) (dec n))))
+
+
+;;; count a sequence
+
+(defn cnt-a-seq
+  ([col]
+   (cnt-a-seq col 0))
+  ([col out]
+   (if (empty? col)
+     out
+     (recur (rest col) (inc out)))))
+
+
+
+;;; Reverse a sequence
+
+(defn rev-a-seq
+  [col]
+  (into () col))
+
+
+;;; Sum it all up
+
+(defn sum-it-all-up
+  [col]
+  (reduce + col))
+
+
+;;; find the odd no
+
+(defn odd-no
+  [col]
+  (filter odd? col))
+
+
+
+
+
+;;; Interleave 2 seq
+
+(defn interleave-seq
+  [a b]
+  (mapcat vector a b))
+
+
+;;; Interpose 2 seq
+
+(defn interpose-seq
+  [v coll]
+  (butlast (mapcat #(vector % v) coll)))
+
+

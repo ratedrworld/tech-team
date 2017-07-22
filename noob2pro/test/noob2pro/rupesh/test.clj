@@ -103,3 +103,21 @@
 (expect/expect 142913828922 (sum-of-primes 2000000))
 
 (expect/expect 25200 (div-tri-num))
+
+(expect/expect 120 (atm "atm.txt"))
+
+(expect/expect 5 (enormousInputTest "EIT.txt"))
+
+(expect/expect '(1 2 120 6) (fact "factorial.txt"))
+
+(expect/expect 1 (nth-element '(1 2 3 4) 0))
+
+(expect/expect 3 (nth-element '(1 2 3 4) 2))
+
+(expect/expect 5 (cnt-a-seq '(1 2 3 4 5)))
+
+(expect/expect 0 (cnt-a-seq '()))
+
+(expect/expect '(3 2 1) (rev-a-seq '(1 2 3)))
+
+(expect/expect '(1 :a 2 :b 3 :c) (interleave-seq [1 2 3] [:a :b :c]))
