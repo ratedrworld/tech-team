@@ -105,3 +105,7 @@
                    (map #(+ m %) (vector (get a (.indexOf input m) 0)
                                          (get a (inc (.indexOf input m)) 0)))))
           1 input))
+
+
+;;;;PROBLEM 7
+;;;;
