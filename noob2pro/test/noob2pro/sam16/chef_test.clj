@@ -19,3 +19,16 @@
 
 ;; Prob 5
 (exlib/expect '(1 3 5 6 7) (tsort "chef5.txt"))
+
+;; Prob 6
+(exlib/expect '("mahatma" "gandhi") (split_spaces "mahatma gandhi"))
+(exlib/expect ". " (cap_dot ""))
+(exlib/expect "M. K. Gandhi" (format_name ["mohandaSAS" "koarnshkbfa" "ganDHI"]))
+(exlib/expect '("Gandhi" "M. Gandhi" "M. K. Gandhi") (nitika "chef6.txt"))
+
+;; Prob 7
+(exlib/expect 4623 (cielAB "chef7.txt"))
+
+;; Prob 8
+(exlib/expect '((3 6) (5)) (assignjobs '("6 3" "2 4 1")))
+(exlib/expect '((3 6) (5) (1) () (1 4 6) (2 5 7)) (cleanup "chef8.txt"))
