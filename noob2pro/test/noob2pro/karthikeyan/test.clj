@@ -9,6 +9,8 @@
              :as clo4-49]
             [noob2pro.karthikeyan.4clojure061
              :as clo4-61]
+            [noob2pro.karthikeyan.4clojure081
+             :as clo4-81]
             [expectations :as expect]))
 
 (expect/expect "hello world" "hello world")
@@ -58,6 +60,6 @@
 
 ;(expect/expect {:a , :b , :c} (clo4-61/map-construct [:a :b :c] []))
 
-
-
 ;(expect/expect nil (clo4-61/map-construct [] [:a :b :c]))
+
+(expect/expect #{2 3} (clo4-81/set-inter #{2 3 4 5} #{2 3}))
