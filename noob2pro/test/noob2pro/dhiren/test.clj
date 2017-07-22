@@ -30,3 +30,23 @@
 (expect/expect 17 (sum-prime 10))
 
 (expect/expect 28 (prob12 6))
+
+;;Codechef tests
+
+#_(expect/expect 89.5 (ATM test.txt))
+
+(expect/expect 6 (factorial 3))
+
+(expect/expect 120 (factorial 5))
+
+(expect/expect '(1 2 3 5) (my-interleave [1 3] [2 5]))
+
+(expect/expect '(1 1 2 2 3 3) (replicate1 [1 2 3] 2))
+
+(expect/expect [1 0 2 0 3] (my-interpose 0 [1 2 3]))
+
+(expect/expect '((1 1)(2)) (pack [1 1 2]))
+
+(expect/expect [1 2 3 5 6] (drop-nth [1 2 3 4 5 6] 4))
+
+(expect/expect ['(1 2) '(3 4 5)] (my-splitat 2 [1 2 3 4 5]))

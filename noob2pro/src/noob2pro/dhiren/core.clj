@@ -263,4 +263,47 @@
     (distinct a)
 
 
-))
+    ))
+
+
+(defn unique []
+  #(map first
+        (partition-by identity %)))
+
+(defn factorial
+  [x]
+  (reduce * (range 1 (inc x))) )
+
+(defn my-interleave
+  [a b]
+  (mapcat vector a b))
+
+(defn replicate1
+  [a b]
+  (mapcat #(repeat b %) a))
+
+(defn my-interpose
+  [a b]
+  (conj (into []
+              (mapcat #(vector % a)
+                      (drop-last b)))
+        (last b) ) )
+
+
+(defn pack
+  [vector1]
+  (partition-by identity vector1))
+
+(defn drop-nth
+  [b a]
+  (if (= 0 (mod (count b) a))
+    (mapcat drop-last (partition-all a b))
+    (conj (into []
+                (mapcat drop-last
+                        (partition-all a b)))
+          (last b)) ))
+
+(defn my-splitat
+  [a b]
+  [(take a b) (drop a b)]
+  )
