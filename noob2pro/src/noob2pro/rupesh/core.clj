@@ -261,11 +261,10 @@
 
 
 
-
-
 ;;;;;;;;; Codechef problems  Begineer level
 
 ;;;;; ATM
+;;https://www.codechef.com/problems/HS08TEST
 
 (defn take-input
   [filename]
@@ -273,12 +272,14 @@
   (def r (map #(Integer/parseInt %)
               (str/split file #"[\s]"))) r)
 
+
 (defn atm
   "Reading input from file which is amount to withdraw and balance."
   [filename]
   (let [withdraw (first (take-input filename))
         balance (second (take-input filename))]
-    (if (< balance withdraw)
+    (if (< balance
+           withdraw)
       balance
       (if (= 0 (rem withdraw 5))
         (- balance withdraw 0.5)
@@ -287,7 +288,7 @@
 
 
 ;;;; Enormous Input Test
-
+;; https://www.codechef.com/problems/INTEST
 (defn enormousInputTest
   "print count of numbers which are divisible by k from n elements"
   [filename]
@@ -298,6 +299,7 @@
 
 
 ;;;; Factorial
+;;https://www.codechef.com/problems/FCTRL
 
 (defn f
   [n]
@@ -313,12 +315,11 @@
              (take-input filename))))
 
 
-
-
 ;;;;; 4clojure problems
 
 
 ;; Nth Element
+;;http://www.4clojure.com/problem/21
 
 (defn nth-element
   [col n]
@@ -328,6 +329,7 @@
 
 
 ;;; count a sequence
+;;http://www.4clojure.com/problem/22
 
 (defn cnt-a-seq
   ([col]
@@ -340,6 +342,7 @@
 
 
 ;;; Reverse a sequence
+;;http://www.4clojure.com/problem/23
 
 (defn rev-a-seq
   [col]
@@ -347,6 +350,7 @@
 
 
 ;;; Sum it all up
+;;http://www.4clojure.com/problem/24
 
 (defn sum-it-all-up
   [col]
@@ -354,6 +358,7 @@
 
 
 ;;; find the odd no
+;;http://www.4clojure.com/problem/25
 
 (defn odd-no
   [col]
@@ -361,9 +366,8 @@
 
 
 
-
-
 ;;; Interleave 2 seq
+;;http://www.4clojure.com/problem/39
 
 (defn interleave-seq
   [a b]
@@ -371,9 +375,46 @@
 
 
 ;;; Interpose 2 seq
+;;http://www.4clojure.com/problem/40
 
 (defn interpose-seq
   [v coll]
   (butlast (mapcat #(vector % v) coll)))
+
+
+;;; drop every nth item
+;;http://www.4clojure.com/problem/41
+
+(defn drop-nth
+  [col n]
+  #(mapcat (fn [a]
+             (take (- %2 1) a)
+             (partition-all %2 %1))) col n)
+
+
+
+;;http://www.4clojure.com/problem/19
+
+(defn last-element
+  [col]
+  (nth col (dec (count col))))
+
+
+;;http://www.4clojure.com/problem/20
+
+(defn second-last-element
+  [col]
+  #(first (take-last 2 %)col))
+
+
+;;http://www.4clojure.com/problem/22
+
+(defn count-seq
+  [col]
+  (let [b col]
+    (alength (to-array b))))
+
+
+
 
 
