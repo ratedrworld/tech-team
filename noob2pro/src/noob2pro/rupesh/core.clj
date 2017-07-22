@@ -258,3 +258,56 @@
 (defn largest-product-of-all
   [size]
   (max (largest-product-at-right size) (largest-product-at-bottom size) (diag-sum size) (rev-diag-sum size)))
+
+
+
+
+
+;;;;;;;;; Codechef problems  Begineer level
+
+;;;;; ATM
+
+(defn take-input
+  [filename]
+  (def file (slurp (str "resources/" filename)))
+  (def r (map #(Integer/parseInt %)
+              (str/split file #"[\s]"))) r)
+
+(defn atm
+  "Reading input from file which is amount to withdraw and balance."
+  [filename]
+  (let [withdraw (first (take-input filename))
+        balance (second (take-input filename))]
+    (if (< balance withdraw)
+      balance
+      (if (= 0 (rem withdraw 5))
+        (- balance withdraw 0.5)
+        balance))))
+
+
+
+;;;; Enormous Input Test
+
+(defn enormousInputTest
+  "print count of numbers which are divisible by k from n elements"
+  [filename]
+  (def k (second (take-input filename)))
+  (count (filter #(= 0
+                     (rem % k)) (drop 2
+                                      (take-input filename)))))
+
+
+;;;; Factorial
+
+(defn f
+  [n]
+  (if (= n 1)
+    n
+    (* n (f (dec n)))))
+
+(defn fact
+  "It prints factorial of a number"
+  [filename]
+  (map #(f %)
+       (drop 1
+             (take-input filename))))
