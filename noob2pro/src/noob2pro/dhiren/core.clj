@@ -1,6 +1,4 @@
 (ns noob2pro.dhiren.core)
-
-
 (defn b
   "calculate fibonacci series upto a terms"
   [a]
@@ -237,19 +235,23 @@
 
 ;;;;;;;;;;;4 CLOJURE PROBLEMS;;;;;
                                         ;
-(defn nilkey [key map]
+(defn nilkey
+  "http://www.4clojure.com/problem/134"
+  [key map]
   (if (contains? map key)
     (nil? (key map))
     false
     ))
 
-(fn maps [key vector1]
+#_(fn maps
+  ""
+  [key vector1]
   (zipmap vector1 (into [] (repeat (count vector1) key)) ) )
 
-(defn ad [vector1]
+#_(defn ad [vector1]
   (apply concat (map #(repeat 2 %) vector1)))
 
-(fn  [a b]
+#_(fn  [a b]
   (loop[a a
         ret []]
     (if(= a b)
@@ -262,7 +264,6 @@
   (if (string? a)
     (distinct a)
 
-
     ))
 
 
@@ -271,14 +272,17 @@
         (partition-by identity %)))
 
 (defn factorial
+  "http://www.4clojure.com/problem/42"
   [x]
   (reduce * (range 1 (inc x))) )
 
 (defn my-interleave
+  "http://www.4clojure.com/problem/39"
   [a b]
   (mapcat vector a b))
 
 (defn replicate1
+  " problem for replicating a times"
   [a b]
   (mapcat #(repeat b %) a))
 
@@ -291,10 +295,12 @@
 
 
 (defn pack
+  "http://www.4clojure.com/problem/31"
   [vector1]
   (partition-by identity vector1))
 
 (defn drop-nth
+  "http://www.4clojure.com/problem/41"
   [b a]
   (if (= 0 (mod (count b) a))
     (mapcat drop-last (partition-all a b))
@@ -304,6 +310,7 @@
           (last b)) ))
 
 (defn my-splitat
+  "implementation of function split-at"
   [a b]
   [(take a b) (drop a b)]
   )

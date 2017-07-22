@@ -1,7 +1,9 @@
 (ns noob2pro.dhiren.test
   (:require #_[clojure.test :refer :all]
             [noob2pro.dhiren.core :refer :all]
-            [expectations :as expect]))
+            [noob2pro.dhiren.4clojure :refer :all]
+            [expectations :as expect]
+            ))
 
 #_(deftest a-test
   (testing "FIXME, I fail."
@@ -50,3 +52,7 @@
 (expect/expect [1 2 3 5 6] (drop-nth [1 2 3 4 5 6] 4))
 
 (expect/expect ['(1 2) '(3 4 5)] (my-splitat 2 [1 2 3 4 5]))
+
+(expect/expect {:a 1 :b 2} (my-zipmap [:a :b] [1 2]))
+(expect/expect #{3 2} (my-intersection [0 1 2 3] [2 3 4 5]))
+#_(expect/expect 1 (my-powerfn 1 3))
