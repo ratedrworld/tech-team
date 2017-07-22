@@ -62,21 +62,31 @@
 ;;Codechef
 
 ;;Prob 1
-;;(expect/expect 89.5 (withdraw hitesh_count-zero.txt))
-;;(expect/expect 120 (withdraw hitesh_count-zero.txt))
+;;(expect/expect 89.5 (withdraw "hitesh_count-zero.txt))
+;;(expect/expect 120 (withdraw "hitesh_count-zero.txt"))
 
 ;;Prob 2
-;;(expect/expect 4 (divisible hitesh_divisible.txt))
+;;(expect/expect 4 (divisible "hitesh_divisible.txt"))
 
 ;;Prob 3
-;;(expect/expect (0 14 24 253 5861 2183837) (count-zero hitesh_count-zero.txt))
+;;(expect/expect (0 14 24 253 5861 2183837) (count-zero "hitesh_count-zero.txt"))
 ;;(expect/expect (1 2 6 24) (factorial '(1 2 3 4)))
 
 ;;Prob 4
-;;(expect/expect (1 2 2) (small-fact hitesh_small-fact.txt))
+;;(expect/expect '(24 1 2 120 6) (small-fact "hitesh_small-fact.txt"))
+
 
 ;;Prob 5
-;;(expect/expect {1 3 5 6 7} (turbo hitesh_turbo.txt))
+;;(expect/expect {1 3 5 6 7} (turbo "hitesh_turbo.txt"))
+
 
 ;;Prob 6
-;;(expect/expect 1 58 (winner hitesh_winner.txt))
+;;(expect/expect 1 58 (winner "hitesh_winner.txt"))
+
+;;Prob 7
+;;(expect/expect (1 3 2) (two-nos "hitesh_twonos.txt"))
+;;(expect/expect '(1 3 2) (mult ("1 2 1" "3 2 3" "3 7 2") []))
+;;(expect/expect 1 (getprod 4 7 2))
+
+
+;;Prob 8

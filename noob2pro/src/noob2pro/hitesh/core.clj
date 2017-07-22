@@ -356,3 +356,29 @@
     (if (< posi (- neg))
       (str "Winner is 2 with lead " neg)
       (str "Winner is 1 with lead " posi))))
+
+;;;;;;;;;;;;;;;;;;;;;;;;
+;;Prob 7
+
+(defn getprod [a b c]
+  (if (= 0 c)
+    (quot (max a b) (min a b))
+    (if (= (dec c) 0)
+      (recur (* a 2) b (dec c))
+      (recur (* a 2) (* b 2) (- c 2)))))
+
+(defn mult
+  "Multiplies the element of array by 2 based on count"
+  [arr ans]
+  (if (empty? arr)
+    ans
+    (let [alice (read-string (first (str/split (first arr) #" ")))
+          bob (read-string (second (str/split (first arr) #" ")))
+          counter (read-string (last (str/split (first arr) #" ")))]
+      (recur (rest arr) (conj ans (getprod alice bob counter))))))
+
+(defn two-nos
+  "Based on Codechef Problem TWO NUMBERS"
+  [file]
+  (let [arr (rest (str/split (input-file file) #"\n+"))]
+    (mult arr [])))
