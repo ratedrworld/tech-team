@@ -288,7 +288,7 @@
 (defn input-file
   "takes the file name and slurp"
   [file]
-  (slurp (str "/home/hitesh/tech-team/noob2pro/resources/" file) ))
+  (slurp (str "resources/" file) ))
 
 
 (defn withdraw
