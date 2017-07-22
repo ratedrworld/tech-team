@@ -99,6 +99,7 @@
      (recur (drop cnt input) (conj out (apply vector (take cnt input))) (inc cnt)))))
 
 (defn sum-tri
+  "Returns the max sum moving along triangle path"
   [input]
   (reduce (fn [m a]
             (apply max
@@ -108,4 +109,30 @@
 
 
 ;;;;PROBLEM 7
-;;;;
+;;;;https://www.codechef.com/problems/TWONMS
+
+(defn get-moves
+  "Converts input to vector of moves"
+  [filename]
+  (let [inp (take-input filename)
+        no (first inp)
+        arr (rest inp)]
+    (partition no arr)))
+
+(defn apply-move
+  "Applies moves on each player and returns int division"
+  [input]
+  (let [a (first input)
+        b (second input)
+        n (last input)
+        na (int (Math/ceil (float (/ n 2))))
+        nb (int (Math/floor (float (/ n 2))))
+        c (reduce (fn [a n] (* a n)) a (repeat na 2))
+        d (reduce (fn [a n] (* a n)) b (repeat nb 2))]
+    (int  (/ (apply max (vector c d)) (apply min (vector c d))))
+    #_(println (str  na nb c d))))
+(defn int-divison
+  "Calculates the integer divison for all the moves"
+  ([filename] (int-divison filename (get-moves filename)))
+  ([filename input]
+   (map #(apply-move %) input)))

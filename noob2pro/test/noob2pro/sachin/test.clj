@@ -20,7 +20,7 @@
 (expect/expect '(1 3 5) (get-factors 15))
 (expect/expect 29 (largest-prime-factor 13195))
 (expect/expect 29 (largest-prime-factor-1 13195))
-(expect/expect 6857 (largest-prime-factor-1 600851475143))
+#_(expect/expect 6857 (largest-prime-factor-1 600851475143))
 
 ;; Problem 4 Test Cases
 
@@ -71,17 +71,18 @@
 ;; Problem 12 Test Cases
 
 (expect/expect '(28) (highly-div-tri 5))
-(expect/expect '(73920) (highly-div-tri 100))
+#_(expect/expect '(73920) (highly-div-tri 100))
 
 ;;;;;;;;;;;; Code chef Problems
 
 ;;;;Problem 1
 
-;(expect/expect 89.5 (atm "atm-input.txt"))
+(expect/expect 89.5 (atm "atm-input.txt"))
 
 ;;;;Problem 2
 
-;(expect/expect 4 (enormos "enormos-input.txt"))
+(expect/expect 4 (enormos "enormos-input.txt")
+               )
 
 ;; Problem 3
 
@@ -97,4 +98,13 @@
 
 ;;Problem 6
 
-(expect/expect 9 (sum-tri (convert-inp (take-input "sum-tri-input"))))
+;(expect/expect '(4 1 1 2 4 1 2 2 3 1 1) (take-input "sum-tri-input"))
+;(expect/expect [[1] [1 2] [4 1 2] [2 3 1 1]] (convert-inp (take-input "sum-tri-input")))
+;(expect/expect 9 (sum-tri (convert-inp (take-input "sum-tri-input"))))
+
+
+;;Problem 7
+
+(expect/expect '((1 2 1) (3 2 3) (3 7 2)) (get-moves "two-numbers-input"))
+(expect/expect 2 (apply-move '(3 7 2)))
+(expect/expect '(1 3 2) (int-divison "two-numbers-input"))
