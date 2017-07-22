@@ -115,3 +115,9 @@
 (expect/expect '("3" "gandhi" "mahatma gandhI" "Mohndas KaramChand gandhi") (take-input-nitika "nitika-input"))
 (expect/expect "S. Harpalani" (fix-format "sachin harpalani"))
 (expect/expect '("Gandhi" "M. Gandhi" "M. K. Gandhi") (fix-nitika "nitika-input"))
+
+
+;;Problem 9
+
+#_(expect/expect [8 2 (3 8)] (input-chef "chef-input"))
+(expect/expect '((1 4 6) (2 5 7)) (assign-jobs (input-chef "chef-input")))

@@ -168,3 +168,32 @@
   "Fixes format for all input"
   [filename]
   (map fix-format (rest  (take-input-nitika filename))))
+
+
+;;;;PROBLEM 9
+;;;;https://www.codechef.com/problems/CLEANUP
+
+(defn input-chef
+  "Splits input into total jobs, completed jobs and list of jobs"
+  [filename]
+  (let [inp (rest (take-input filename))
+        total-jobs (first inp)
+        no-comp-jobs (second inp)
+        comp-jobs (drop 2 inp)]
+    (vector total-jobs no-comp-jobs comp-jobs)))
+
+
+(defn assign-jobs
+  "Returns a nested list that contains the list of jobs by chef and then assistant i.e ((Jobs by chef ) (Jobs by assistant))"
+  [input]
+  (let [tot (first input)
+        no-comp (second input)
+        comp-jobs (set (last input))
+        rem-jobs (into []  (remove comp-jobs (range 1 (inc tot))))]
+    (list
+     (map (fn [x]
+            (get rem-jobs x))
+          (filter even? (range 0 (count rem-jobs))))
+     (map (fn [x]
+            (get rem-jobs x))
+          (filter odd? (range 0 (count rem-jobs)))))))
