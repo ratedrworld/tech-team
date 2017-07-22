@@ -353,26 +353,6 @@
 #_(defn my-fn [& args])
 
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-;;;;codechef
-
-;;atm problem
-
-(defn correct-trans [amt bal]
-  (and  (zero? (mod amt 5))
-        (not (neg? (- bal amt 0.5)))))
-
-(defn ret-bal [filename]
-  (let [inp (str/split  (slurp (str filename))
-                    #" ")
-        amt (first inp)
-        bal (second inp)]
-    (if (correct-trans amt bal)
-      (- bal amt 0.5)
-      bal)
-    ))
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;codechef problem
@@ -382,6 +362,8 @@
 ;;;;;;;;;prob atm
 
 ;;https://www.codechef.com/problems/FIRE
+
+;;resources/first-ip1-atm.txt
 
 (defn correct-trans [amt bal]
   (and  (zero? (mod amt 5))
@@ -406,6 +388,7 @@
 
 ;;;;;;https://www.codechef.com/problems/INTEST
 
+;;resources/second-ip1-enormous.txt
 
 (defn take-ip2 [filename]
   (enormous (slurp filename)))
@@ -426,6 +409,8 @@
 
 ;;https://www.codechef.com/problems/FCTRL
 
+;;resources/third-ip1-fact.txt
+
 (defn no-of-zeros [no]
   (count (last (re-seq #"[0]+" (str no)))))
 
@@ -444,6 +429,8 @@
 ;;;;;; prob get lead
 
 ;;https://www.codechef.com/problems/TLG
+
+;;resources/fourth-ip1-lead.txt
 
 (defn give-sub [arr]
   (- (read-string (first arr))
@@ -468,6 +455,8 @@
 
 ;;https://www.codechef.com/problems/FLOW001
 
+;;resources/fifth-ip1-fal.txt
+
 (defn sfl [stri]
   (let [inp (map #(- % 48) (map int (vec stri)))
         fir (first inp)
@@ -485,6 +474,8 @@
 
 ;;https://www.codechef.com/problems/NITIKA
 
+;;resources/seventh-ip1-wtn.txt
+
 (defn first-dot [arr]
   (let [cap-arr (map str/capitalize arr)
         arr-drop (drop-last cap-arr)]
@@ -501,6 +492,8 @@
 ;;;;;;;;;;sum of digits
 
 ;;;https://www.codechef.com/problems/FLOW006
+
+;;resources/sixth-ip1-sum-of-digits.txt
 
 (defn sum-dig [stri]
   (reduce +
@@ -525,6 +518,8 @@
 
 ;;https://www.codechef.com/problems/CIELAB
 
+;;resources/eighth-ip1-ciel.txt
+
 (defn ceil [filename]
   (let [inp (str/split (slurp (str filename))
                        #" ")
@@ -536,6 +531,8 @@
 ;;;;;;;clean up
 
 ;;;https://www.codechef.com/problems/CLEANUP
+
+;;resources/ninth-ip1-clean.txt
 
 (defn clean-up [arr1 arr2]
   (let [ind (read-string (first arr1))
@@ -574,6 +571,8 @@
 ;;;;;;;;;;;;;;;racing horse
 
 ;;https://www.codechef.com/problems/HORSES
+
+;;resources/tenth-ip1-horse.txt
 
 (defn min-diff [lis]
   (- (last lis)
