@@ -588,3 +588,112 @@
                     (partition 2 1 (sort lis))))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;dump
+
+
+
+
+
+
+
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; 
+
+;;;;clock problem
+
+(def init [10 10])
+(def hour 6)
+(def minute 9)
+
+(defn calc-coord
+"calculates coordinates for a given length and degree"
+  [len deg]
+  (let [opp (* len (Math/sin (* (/ deg 180) Math/PI)))
+        adj (* len (Math/cos (* (/ deg 180) Math/PI)))]
+    (map + init [opp adj])))
+
+#_(defn get-final-deg
+  "gives angle between hour hand and minute hand"
+  [hour minute]
+  (let [sub (- (max hour minute)
+               (min hour minute))]
+    (if (> sub 180)
+      (- 360 sub)
+      sub)))
+
+(defn get-coord
+"takes time and returns degree"
+  [stri]
+  (let [inp (map read-string (str/split stri #":"))
+        hrs (first inp)
+        minut (second inp)
+        min-deg (* (/ minut 5) 30)
+        hr-deg (+ (* hrs 30) (* minut 0.5))]
+    [(calc-coord hour  hr-deg)
+     (calc-coord minute min-deg)]))
+
+(defn take-ip
+"this function takes file as an input"
+  [filename]
+  (slurp (str "resources/" filename)))
+
+(defn my-main [filename]
+  (map get-coord
+       (rest (str/split (take-ip filename) #"\n"))))
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;;game of life
+
+(defn my-board
+  "creates a board of dynamic size"
+  [size]
+  #_(vec )
+  (let [board (vec (map vec
+                        (partition 5
+                                   (for [i (range size)
+                                         j (range size)
+                                         :let [x (rand-int 2)]]
+                                     x))))]
+    board))
+
+(defn count-alive
+  "Takes board and (i,j) Counts the no of alive nodes"
+  [board i j]
+  (+ (get-in board [(+ i 1) j] 0)
+     (get-in board [(+ i 1) (- j 1)] 0)
+     (get-in board [(+ i 1) (+ j 1)] 0)
+     (get-in board [(- i 1) (- j 1)] 0)
+     (get-in board [(- i 1) j] 0)
+     (get-in board [(- i 1) (+ j 1)] 0)
+     (get-in board [i (- j 1)] 0)
+     (get-in board [i (+ j 1)] 0)))
+
+(defn game
+  "calculate board of next iteration"
+  [board size]
+  (vec
+   (map vec
+        (partition 5
+                   (for [i (range size)
+                         j (range size)
+                         :let [sum (count-alive board i j)]]
+                     (if (or (= 2 sum)
+                             (= 3 sum))
+                       1
+                       0))))))
+(defn iterator
+  "Iterates the game n times"
+  [n board no]
+  (println board)
+  (if (= n 0)
+    "End of game"
+    (recur (dec n)
+           (game board no)
+           no)))
+
+(defn start-game [n no]
+  (let [board (my-board no)]
+    (iterator n board no)))
+

@@ -164,3 +164,27 @@
 (expect/expect [3 5 6] (clean-up ["6" "3"] ["2" "4" "1"]))
 
 (expect/expect 5 (min-diff [4 9]))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(expect/expect [10.0 16.0] (calc-coord 6 0))
+
+(expect/expect [19.0 10.0] (calc-coord 9 90))
+
+(expect/expect [[16.0 10.0] [10.0 19.0]] (get-coord "3:00"))
+
+(expect/expect [[10.0 4.0] [10.0 19.0]] (get-coord "6:00"))
+
+;;(expect/expect 172.5 (get-final-deg 277.5 90))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(expect/expect 2 (count-alive [[0 1 0 1 0] [1 0 1 0 1] [0 1 1 0 0] [1 0 0 0 1] [0 1 0 1 1]] 0 0))
+
+(expect/expect [[1 1 1 1 1] [1 0 0 0 0] [1 0 1 0 1] [1 0 0 0 1] [1 0 1 1 1]] (game [[0 1 0 1 0] [1 0 1 0 1] [0 1 1 0 0] [1 0 0 0 1] [0 1 0 1 1]] 5))
+
+(expect/expect [] (my-board -1))
+
+(expect/expect [] (my-board -100))
+
+
+
