@@ -393,3 +393,138 @@
   (let [input (take-ip-string fname)
         ipstring (map #(str/split % #" ") input)]
     (map trim-string ipstring)))
+
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;;clock hand problem
+
+(defn take-ip
+  "Reads colan separated strings from file, returns a list of [hh mm] vectors"
+  [fname]
+  (let [content (slurp (str "resources/" fname))
+        input (str/split content #"[\s]")]
+    (map #(str/split % #":") input)))
+
+
+
+(defn angles-in-rad
+  "Takes hour and minutes and returns the corresponding angle in radians"
+  [hh mm]
+  (let [hr-angle-d (- (+
+                       (* hh 30)
+                       (/ mm 12))
+                      90)
+        mm-angle-d  (- (* mm 6) 90)]
+    (list  (Math/toRadians (- hr-angle-d)) (Math/toRadians (-  mm-angle-d)))))
+
+
+(defn co-ordinates
+  "takes angle and length of clock hands and returns the co-ordinates with respect to
+  origin, which is (10,10) in this case"
+  [angle len]
+  (let [x  (+ 10 (* len  (Math/cos angle)))
+        y  (+ 10 (* len  (Math/sin angle)))]
+    [(Math/round x) (Math/round y)]))
+
+
+(defn time-to-angle
+  "converts string into numerical time gets angles, through function call
+  Then maps the co-ordinates of all the times."
+  [time]
+  (let [ [hh mm] (map #(Integer/parseInt %) time)
+         angles  (angles-in-rad hh mm)]
+    (map co-ordinates angles [6 9])))
+
+
+
+(first (take-ip "clock-hand"))
+
+(defn main-clock
+  [fname]
+  (let [input (take-ip fname)]
+    (print input)
+    (map time-to-angle input)))
+
+
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; game of life
+
+
+
+(defn create-board
+  "creates a nxn board, i.e. a nested vector with 1 and 0's"
+  ([n] (create-board [] []  n) )
+  ([arr sub-arr n]
+   (if (= n (count arr))
+     arr
+     (if (= n  (count sub-arr))
+       (recur (conj arr sub-arr) []  n)
+       (recur arr (conj sub-arr
+                        (rand-int 2)) n)))))
+
+
+(defn get-neighbours
+  "Returns the sum of neighbours"
+  [arr x y]
+  (reduce +
+          (map (fn [i j]
+                 (get-in arr [i j] 0))
+               [(- x 1) x (+ x 1)
+                (- x 1) (+ x 1)
+                (- x 1) x (+ x 1)]
+               [(- y 1) (- y 1) (- y 1)
+                 y  y
+                (+ y 1) (+ y 1) (+ y 1)])))
+
+
+
+(defn upd-board
+  "calls get-neighbours and updates the board according to the condition."
+  ([arr n] (upd-board arr n 0 0 [] []))
+  ([arr n x y sub-arr new-arr]
+   (if (= n (count new-arr))
+     new-arr
+     (if (= n (count sub-arr))
+       (upd-board arr n (inc x) 0 [] (conj new-arr sub-arr))
+       (let [sum-nbr (get-neighbours arr x y)]
+         (if (or (= sum-nbr 2) (= sum-nbr 3))
+           (upd-board arr n x (inc y)
+                      (conj sub-arr 1)
+                      new-arr)
+           (upd-board arr n x (inc  y)
+                      (conj sub-arr 0)
+                      new-arr)))))))
+
+
+(defn print-arr
+  [arr]
+  (when (not (empty? arr))
+    (println (first arr))
+    (recur (rest arr))))
+
+
+
+
+(defn encrypt-help
+  "takes sorted key, then according to the index of each element of the sorted key, in actual key
+  rearranges the sub-arrays in plain text"
+  [plain key sort-key cipher]
+  (if (empty? key)
+    cipher
+    (let [next-pos (.indexOf sort-key
+                             (first key))
+          next-ele (nth plain next-pos)]
+      (recur plain (rest key) sort-key (str cipher (apply str next-ele))))))
+
+
+
+(defn encrypt
+  [plain key]
+  (let [sort-key (sort key)
+        key-len (count key)]
+    (encrypt-help (partition key-len plain) key  sort-key "")))
+
