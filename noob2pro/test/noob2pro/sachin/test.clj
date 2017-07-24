@@ -126,3 +126,15 @@
 ;;Problem 10
 
 (expect/expect 3 (racing-horses "racing-horses-input"))
+
+
+;;;;;;;;;;;;;;;;;4clojure
+
+;;Problem 32
+
+(expect/expect '(1 1 2 2 3 3) (dup [1 2 3]))
+
+;;Problem 34
+
+(expect/expect '(-2 -1 0 1) (my-range -2 2))
+(expect/expect '() (my-range 0 0))

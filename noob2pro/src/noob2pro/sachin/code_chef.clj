@@ -212,3 +212,22 @@
                                              (map (fn [y] (- y x))
                                                   skills))
                                            skills))))))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;4CLOJURE SUMS
+
+;;;;Problem No 32
+;;;;http://www.4clojure.com/problem/32
+
+(defn dup [y]
+  (mapcat (fn [x]
+            (vector x x))
+          y))
+
+
+;;;;Problem No 34
+;;;;
+
+(defn my-range [x y]
+  (take-while (fn [z](if(< z y)
+                       true
+                       false)) (iterate inc x)))
