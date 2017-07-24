@@ -15,6 +15,8 @@
              :as clo4-62]
             [noob2pro.karthikeyan.4clojure090
              :as clo4-90]
+            [noob2pro.karthikeyan.4clojure099
+             :as clo4-99]
             [expectations :as expect]))
 
 (expect/expect "hello world" "hello world")
@@ -72,3 +74,5 @@
 
 
 (expect/expect #{[1 4] [2 4] [3 4] [1 5] [2 5] [3 5]} (clo4-90/cartesian #{1 2 3} #{4 5}))
+
+(expect/expect [8 9 1] (clo4-99/product-digits 99 9))
