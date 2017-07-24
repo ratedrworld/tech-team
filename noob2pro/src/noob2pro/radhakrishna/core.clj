@@ -372,9 +372,6 @@
 (defn parse-int [s]
   (Integer. (re-find  #"\d+" s )))
 
-(defn take-ip1 [filename]
-  (ret-bal (slurp filename)))
-
 (defn ret-bal [strin]
   (let [inp (str/split (strin)
                         #" ")
@@ -384,17 +381,17 @@
       (- bal amt 0.5)
       bal)))
 
+(defn take-ip1 [filename]
+  (ret-bal (slurp filename)))
+
 ;;;;;; prob 2 enormous ip test
 
 ;;;;;;https://www.codechef.com/problems/INTEST
 
 ;;resources/second-ip1-enormous.txt
 
-(defn take-ip2 [filename]
-  (enormous (slurp filename)))
-
 (defn enormous [filename]
-  (let [inp  (str/split (take-ip filename)
+  (let [inp  (str/split (filename)
                         #" ")
         fir (read-string (first inp))
         sec-vec (str/split (second inp)
@@ -404,6 +401,9 @@
     (count (filter #(zero? (mod (read-string %)
                                 sec))
                    third-vec))))
+
+(defn take-ip2 [filename]
+  (enormous (slurp filename)))
 
 ;;;;prob 3 factorial
 
