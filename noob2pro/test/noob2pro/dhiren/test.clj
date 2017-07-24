@@ -63,18 +63,18 @@
 
 ;;;Clock game test cases;;;;;;;;
 
-(expect/expect [10.0 19.0] (min-hand 30))
+(expect/expect [10.0 19.0] (min-hand '(1 30)))
 
-(expect/expect [19.0 10.0] (min-hand 15))
+(expect/expect [19.0 10.0] (min-hand '(1 15)))
 
-(expect/expect [1.0 10.0] (min-hand 45))
+(expect/expect [1.0 10.0] (min-hand '(1 45)))
 
-(expect/expect [16.36396103067893 16.36396103067893] (min-hand 22.5))
+(expect/expect [16.36396103067893 16.36396103067893] (min-hand '(1 22.5)))
 
-(expect/expect [10.0 4.0] (hour-hand 12 0))
+(expect/expect [10.0 4.0] (hour-hand '(12 0)))
 
-(expect/expect [16.0 10.0] (hour-hand 3 0))
+(expect/expect [16.0 10.0] (hour-hand '(3 0)))
 
-(expect/expect [10.0 16.0] (hour-hand 6 0))
+(expect/expect [10.0 16.0] (hour-hand '(6 0)))
 
-(expect/expect [4.0 10.0] (hour-hand 9 0))
+(expect/expect [4.0 10.0] (hour-hand '(9 0) ))

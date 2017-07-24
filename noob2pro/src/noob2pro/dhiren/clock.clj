@@ -74,5 +74,5 @@
   [& args]
   (let [a (Input1 "clock.txt")]
     (map vector (map hour-hand a)
-            (map min-hand a))
+         (map min-hand a))
     ))
