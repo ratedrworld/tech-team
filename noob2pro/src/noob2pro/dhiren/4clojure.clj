@@ -26,10 +26,19 @@
   (into #{} (mapcat (fn [x]
                       (map #(vector % x) a))
                     b)))
-
-#_(defn sep-digits
+;;http://www.4clojure.com/problem/99
+(defn sep-digits
   "seperates the digits after multiplying"
   [a b]
-    (str (* a b))
-    ;;not completed
-  )
+  (into [] (map read-string
+                (clojure.string/split (str (* a b)) #""))))
+
+;;http://www.4clojure.com/problem/63
+
+(defn my-groupby
+  [f s]
+  (map f s))
+
+(defn deg-to-rad
+  [x]
+  (Math/sin (Math/toRadians x)))

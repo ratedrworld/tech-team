@@ -2,6 +2,7 @@
   (:require #_[clojure.test :refer :all]
             [noob2pro.dhiren.core :refer :all]
             [noob2pro.dhiren.4clojure :refer :all]
+            [noob2pro.dhiren.clock :refer :all]
             [expectations :as expect]
             ))
 
@@ -56,3 +57,24 @@
 (expect/expect {:a 1 :b 2} (my-zipmap [:a :b] [1 2]))
 (expect/expect #{3 2} (my-intersection [0 1 2 3] [2 3 4 5]))
 #_(expect/expect 1 (my-powerfn 1 3))
+
+(expect/expect '(1 2) (sep-digits 2 6))
+
+
+;;;Clock game test cases;;;;;;;;
+
+(expect/expect [10.0 19.0] (min-hand 30))
+
+(expect/expect [19.0 10.0] (min-hand 15))
+
+(expect/expect [1.0 10.0] (min-hand 45))
+
+(expect/expect [16.36396103067893 16.36396103067893] (min-hand 22.5))
+
+(expect/expect [10.0 4.0] (hour-hand 12 0))
+
+(expect/expect [16.0 10.0] (hour-hand 3 0))
+
+(expect/expect [10.0 16.0] (hour-hand 6 0))
+
+(expect/expect [4.0 10.0] (hour-hand 9 0))
