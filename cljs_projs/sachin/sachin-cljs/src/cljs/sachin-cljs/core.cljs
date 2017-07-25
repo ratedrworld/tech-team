@@ -23,5 +23,3 @@
         enc (encrypt plaintext key)]
     (set! (.-value (.getElementById js/document "output"))
           enc)))
-
-()

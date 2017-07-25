@@ -27,14 +27,14 @@ return cljs.core.get_in.call(null,sachin_cljs.core.split_plaintext.call(null,pla
  */
 sachin_cljs.core.main = (function sachin_cljs$core$main(var_args){
 var args__8118__auto__ = [];
-var len__8111__auto___8549 = arguments.length;
-var i__8112__auto___8550 = (0);
+var len__8111__auto___8586 = arguments.length;
+var i__8112__auto___8587 = (0);
 while(true){
-if((i__8112__auto___8550 < len__8111__auto___8549)){
-args__8118__auto__.push((arguments[i__8112__auto___8550]));
+if((i__8112__auto___8587 < len__8111__auto___8586)){
+args__8118__auto__.push((arguments[i__8112__auto___8587]));
 
-var G__8551 = (i__8112__auto___8550 + (1));
-i__8112__auto___8550 = G__8551;
+var G__8588 = (i__8112__auto___8587 + (1));
+i__8112__auto___8587 = G__8588;
 continue;
 } else {
 }
@@ -54,10 +54,9 @@ return document.getElementById("output").value = enc;
 
 sachin_cljs.core.main.cljs$lang$maxFixedArity = (0);
 
-sachin_cljs.core.main.cljs$lang$applyTo = (function (seq8548){
-return sachin_cljs.core.main.cljs$core$IFn$_invoke$arity$variadic(cljs.core.seq.call(null,seq8548));
+sachin_cljs.core.main.cljs$lang$applyTo = (function (seq8585){
+return sachin_cljs.core.main.cljs$core$IFn$_invoke$arity$variadic(cljs.core.seq.call(null,seq8585));
 });
 
-cljs.core.List.EMPTY;
 
 //# sourceMappingURL=core.js.map
