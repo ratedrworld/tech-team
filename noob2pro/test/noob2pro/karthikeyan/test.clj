@@ -19,6 +19,8 @@
              :as clo4-99]
             [noob2pro.karthikeyan.game
              :refer :all]
+            [noob2pro.karthikeyan.transpose
+             :as transpose]
             [expectations :as expect]))
 
 (expect/expect "hello world" "hello world")
@@ -83,3 +85,5 @@
 
 (expect/expect [[0 0] [0 1] [1 0] [1 1]]
                (index-list 2))
+
+(expect/expect ["a" "b"] (transpose/split-letters "ab"))
