@@ -400,7 +400,7 @@
 
 ;;clock hand problem
 
-(defn take-ip
+(defn take-ip2
   "Reads colan separated strings from file, returns a list of [hh mm] vectors"
   [fname]
   (let [content (slurp (str "resources/" fname))
@@ -439,11 +439,11 @@
 
 
 
-(first (take-ip "clock-hand"))
+(first (take-ip2 "clock-hand"))
 
 (defn main-clock
   [fname]
-  (let [input (take-ip fname)]
+  (let [input (take-ip2 fname)]
     (print input)
     (map time-to-angle input)))
 
@@ -527,4 +527,3 @@
   (let [sort-key (sort key)
         key-len (count key)]
     (encrypt-help (partition key-len plain) key  sort-key "")))
-
