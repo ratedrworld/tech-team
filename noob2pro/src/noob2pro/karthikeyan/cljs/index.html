@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Mindseed</title>
+    </head>
+    <body>
+        <div id="app"></div>
+        <form action="#" onSubmit="learn_cljs.core.encryption()">
+            <input type="text" id="plaintext"/>
+            <input type="text" id="key"/>
+            <input type="text" id="cipher"/>
+            <input type="submit" value="Encrypt"/>
+        </form>
+        <form action="#" onSubmit="learn_cljs.core.decryption()">
+            <input type="text" id="cipher"/>
+            <input type="text" id="key1"/>
+            <input type="text" id="plain"/>
+            <input type="submit" value="Decrypt"/>
+        </form>
+        <script type="text/javascript" src="js/app/app.js"></script>
+    </body>
+</html>
