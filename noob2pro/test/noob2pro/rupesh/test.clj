@@ -121,3 +121,11 @@
 (expect/expect '(3 2 1) (rev-a-seq '(1 2 3)))
 
 (expect/expect '(1 :a 2 :b 3 :c) (interleave-seq [1 2 3] [:a :b :c]))
+
+(expect/expect 5 (count-seq '(1 2 3 4 5)))
+
+
+(expect/expect '([16 10] [10 19]) (time-to-angle '("3" "00")))
+
+(expect/expect '(([16 10] [10 19]) ([5 13] [5 18])) (main-clock "clock-hand"))
+
