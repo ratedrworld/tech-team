@@ -527,3 +527,29 @@
   (let [sort-key (sort key)
         key-len (count key)]
     (encrypt-help (partition key-len plain) key  sort-key "")))
+
+
+
+(defn encrypt-2
+  "Without using recursion
+  Returns cipher text when passed plain text and key"
+  [plain key]
+  (let [sort-key (sort key)
+        plain-p (partition (/ (count plain)
+                              (count key))
+                           plain)
+        zmap (zipmap sort-key plain-p )]
+    (apply str (map #(apply str
+                            (get zmap %)) key))))
+
+(defn decrypt
+  "returns plain text when passed cipher and key"
+  [cipher key]
+  (let [sort-key (sort key)
+        key-char (seq (char-array key))
+        cipher-p (partition (/ (count cipher)
+                               (count key))
+                            cipher)
+        zmap (zipmap key-char cipher-p)]
+    (apply str (map #(apply str
+                            (get zmap %)) sort-key))))
