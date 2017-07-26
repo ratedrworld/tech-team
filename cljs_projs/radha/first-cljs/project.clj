@@ -20,8 +20,8 @@
                 :compiler {:main first-cljs.core
                            :asset-path "js/app"
                            :output-to "resources/public/js/app/app.js"
-                           :optimizations :none
-                           :pretty-print :whitespace}}]}
+                           :optimizations :whitespace
+                           :pretty-print false}}]}
   :main ^:skip-aot first-cljs.core
   :target-path "target/%s"
   :profiles {:uberjar {:aot :all}})
