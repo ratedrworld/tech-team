@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>TIC TAC TOE </title>
+        <style>
+         table {
+             width: 450px;
+             height: 450px;
+             border: 1px solid;
+         }
+         td { text-align: center;
+             font-size: 80px;
+             height: 33%;
+             width: 33%;
+             border: 1px solid;}
+        </style>
+    </head>
+    <body>
+        <h1 align="center">TIC TAC TOE</h1>
+        <br>
+        <br>
+        <table align="center">
+            <tr>
+                <td id="box00" onclick="tic_tac_toe.core.ttt_main(0, 0)"></td>
+                <td id="box01" onclick="tic_tac_toe.core.ttt_main(0, 1)"></td>
+                <td id="box02" onclick="tic_tac_toe.core.ttt_main(0, 2)"></td>
+            </tr>
+            <tr>
+                <td id="box10" onclick="tic_tac_toe.core.ttt_main(1, 0)"></td>
+                <td id="box11" onclick="tic_tac_toe.core.ttt_main(1, 1)"></td>
+                <td id="box12" onclick="tic_tac_toe.core.ttt_main(1, 2)"></td>
+            </tr>
+            <tr>
+                <td id="box20" onclick="tic_tac_toe.core.ttt_main(2, 0)"></td>
+                <td id="box21" onclick="tic_tac_toe.core.ttt_main(2, 1)"></td>
+                <td id="box22" onclick="tic_tac_toe.core.ttt_main(2, 2)"></td>
+            </tr>
+        </table>
+        <script type="text/javascript" src="js/app/app.js"></script>
+    </body>
+</html>
