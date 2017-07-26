@@ -9,13 +9,14 @@
 
 ;;first
 ;;(expect/expect 233168 (sum-of-multiples 1000))
+(expect/expect 2318 (sum-of-multiples 100))
 
 ;;second
-;;(expect/expect 1089154 (number-to-fibonacci 32))
-;;(expect/expect 4613732 (sum-calculator 33))
+(expect/expect 2 (number-to-fibonacci 3))
+(expect/expect 2 (sum-calculator 3))
 
 ;;third
-;;(expect/expect 29 (largest-prime-factor 13195))
+(expect/expect 5 (largest-prime-factor 50))
 ;;(expect/expect nil (prime-generator 13))
 (expect/expect '(5 7) (filter-prime [5 6 7 8 9]))
 (expect/expect true (isprime? 13))
