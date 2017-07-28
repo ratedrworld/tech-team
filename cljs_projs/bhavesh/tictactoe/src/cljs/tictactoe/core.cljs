@@ -20,24 +20,16 @@
   (doall (map (fn [id]
                 (set! (.-value (.getElementById js/document id))
                       (get @board id)))
-              (range 1 10)))
-  )
+              (range 1 10))))
 
 
 (defn rev-interleave
-  "reverse interleaves a sequence into number of sequences"
+  "reverse interleaves a sequence into number of sequences
+  This is used to get columns from the board"
   [arr n]
   (let [part (partition n arr)]
     (apply map list part)))
 
-
-(defn upd-board
-  "calls print-b to display the move and updated the board map with the new position"
-  [board id]
-  (let [value (get-in board [id :value])
-        next-mov (get-in board [10 :value])]
-    (print-b next-mov id)
-    (assoc-in board [id :value] next-mov)))
 
 
 (defn equal-array?
@@ -65,7 +57,6 @@
   [id]
   (set! (.-disabled (.getElementById js/document id))
         true)
-
   (let [next-move (get @board :next-move)]
     (swap! board assoc id next-move)
     (if (= next-move "x")
