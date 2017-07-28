@@ -15,6 +15,14 @@
                            :output-dir "resources/public/js/app"
                            :optimizations :none
                            :pretty-print true}}
+               {:id "new_xo"
+                :source-paths ["src/cljs"]
+                :compiler {:main tic_tac_toe.new_xo
+                           :asset-path "js/app_new"
+                           :output-to "resources/public/js/app_new/app_new.js"
+                           :output-dir "resources/public/js/app_new"
+                           :optimizations :none
+                           :pretty-print true}}
                {:id "min"
                 :source-paths ["src/cljs"]
                 :compiler {:main tic_tac_toe.core
