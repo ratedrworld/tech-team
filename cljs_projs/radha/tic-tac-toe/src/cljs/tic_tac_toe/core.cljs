@@ -1,77 +1,90 @@
 (ns tic-tac-toe.core)
 
-(defn get-map []
-  (for [i (range 1 10)
-        :let [prod (.-value (.getElementById js/document i))]]
-    prod))
+(def a (atom {11 {:val ""}
+              12 {:val ""}
+              13 {:val ""}
+              21 {:val ""}
+              22 {:val ""}
+              23 {:val ""}
+              31 {:val ""}
+              32 {:val ""}
+              33 {:val ""}}))
 
-(defn clear [no]
-  (set! (.-value (.getElementById js/document no)) ""))
+(def value-to-put (atom "X"))
 
-(defn reset []
-  (loop [i 9]
-    (when (> i 0)
-      (clear i)
-      (recur (dec i))))
-  (js/alert "play again"))
+(defn swap-complement
+  "Switches the value of atom as X or O"
+  [myvalue]
+  (if (= myvalue "X")
+    (reset! value-to-put "O")
+    (reset! value-to-put "X")))
 
-(defn check []
-  (or (= "X" (.-value (.getElementById js/document 1))
-             (.-value (.getElementById js/document 2))
-             (.-value (.getElementById js/document 3)))
-          (= "X" (.-value (.getElementById js/document 4))
-             (.-value (.getElementById js/document 5))
-             (.-value (.getElementById js/document 6)))
-          (= "X" (.-value (.getElementById js/document 7))
-             (.-value (.getElementById js/document 8))
-             (.-value (.getElementById js/document 9)))
-          (= "X" (.-value (.getElementById js/document 1))
-             (.-value (.getElementById js/document 4))
-             (.-value (.getElementById js/document 7)))
-          (= "X" (.-value (.getElementById js/document 2))
-             (.-value (.getElementById js/document 5))
-             (.-value (.getElementById js/document 8)))
-          (= "X" (.-value (.getElementById js/document 3))
-             (.-value (.getElementById js/document 6))
-             (.-value (.getElementById js/document 9)))
-          (= "X" (.-value (.getElementById js/document 1))
-             (.-value (.getElementById js/document 5))
-             (.-value (.getElementById js/document 9)))
-          (= "X" (.-value (.getElementById js/document 3))
-             (.-value (.getElementById js/document 5))
-             (.-value (.getElementById js/document 7)))
-          (= "O" (.-value (.getElementById js/document 1))
-             (.-value (.getElementById js/document 2))
-             (.-value (.getElementById js/document 3)))
-          (= "O" (.-value (.getElementById js/document 4))
-             (.-value (.getElementById js/document 5))
-             (.-value (.getElementById js/document 6)))
-          (= "O" (.-value (.getElementById js/document 7))
-             (.-value (.getElementById js/document 8))
-             (.-value (.getElementById js/document 9)))
-          (= "O" (.-value (.getElementById js/document 1))
-             (.-value (.getElementById js/document 4))
-             (.-value (.getElementById js/document 7)))
-          (= "O" (.-value (.getElementById js/document 2))
-             (.-value (.getElementById js/document 5))
-             (.-value (.getElementById js/document 8)))
-          (= "O" (.-value (.getElementById js/document 3))
-             (.-value (.getElementById js/document 6))
-             (.-value (.getElementById js/document 9)))
-          (= "O" (.-value (.getElementById js/document 1))
-             (.-value (.getElementById js/document 5))
-             (.-value (.getElementById js/document 9)))
-          (= "O" (.-value (.getElementById js/document 3))
-             (.-value (.getElementById js/document 5))
-             (.-value (.getElementById js/document 7))))
+(defn read-int [a b]
+
+  #_(+ (* a 10) b)
+  (.log js/console (js->clj (js/parseInt (str a b))))
+  (js->clj (js/parseInt (str a b)))
+
   )
 
-(defn mark [no]
+(defn check-row?
+  "Checks in row for win"
+  [ab]
+  (and (= (get-in @a [(read-int ab 1) :val])
+          (get-in @a [(read-int ab 2) :val])
+          (get-in @a [(read-int ab 3) :val]))
+       (not= "" (get-in @a [(read-int ab 2) :val]))))
+
+
+(defn check-col?
+  "Checks in col for win"
+  [ab]
+  (and (= (get-in @a [(read-int 1 ab) :val])
+          (get-in @a [(read-int 2 ab) :val])
+          (get-in @a [(read-int 3 ab) :val]))
+       (not= "" (get-in @a [(read-int 2 ab) :val]))))
+
+
+(defn check-diag?
+  "Checks for win by diag"
+  []
+  (and (or (= (get-in @a [11 :val])
+              (get-in @a [22 :val])
+              (get-in @a [33 :val]))
+           (= (get-in @a [13 :val])
+              (get-in @a [22 :val])
+              (get-in @a [31 :val])))
+       (not= "" (get-in @a [22 :val]))))
+
+
+
+(defn check
+  "Checks who won"
+  []
+  (some true? (for [i (range 1 4)]
+                (or (check-row? i)
+                    (check-col? i)
+                    (check-diag?)))))
+
+
+
+(defn check-finish?
+  "Checks of the game is finish or not"
+  []
+  (= 9 (count (remove empty? (map #(get-in @a [% :val]) (keys @a))))))
+
+
+
+(defn my-main
+  "It takes id of the selected tile and updates it with X or O"
+  [id]
+  (set! (.-value (.getElementById js/document id)) @value-to-put)
+  (set! (.-disabled (.getElementById js/document id)) true)
+  (swap! a assoc-in [id :val] @value-to-put)
   (if (check)
-    (do (js/alert "you won")
-        (reset))
-    (if (= 9 (count (filter #(not (empty? %)) (get-map))))
-      (reset)
-      (if (even? (count (filter #(not (empty? %)) (get-map))))
-        (set! (.-value (.getElementById js/document no)) "X")
-        (set! (.-value (.getElementById js/document no)) "O")))))
+    (do (js/alert (str @value-to-put " Won"))
+        (.reload js/location true))
+    (if (check-finish?)
+      (do (js/alert "GAME SAMAPT! KRPIYA DOBARA SHURU KARE")
+          (.reload js/location true))
+      (swap-complement @value-to-put))))
