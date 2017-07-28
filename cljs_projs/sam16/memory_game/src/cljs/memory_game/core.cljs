@@ -84,8 +84,7 @@
               (filter (fn [x] (= "yes" (get-in x [:matched])))
                       @board)))
     (js/alert "GAME OVER")
-    (.reload (.-location js/window))
-    ))
+    (.reload js/location true)))
 
 (init (rand-alphs 4))
 
