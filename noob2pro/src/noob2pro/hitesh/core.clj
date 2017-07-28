@@ -428,3 +428,59 @@
                    (map
                     #(- (second %) (first %))
                     (partition 2 1 arr))))))
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;LUHN ALGORITHM
+
+(defn take-input [filename]
+  (slurp (str "resources/" filename)))
+
+
+(defn part-add [part]
+  (if (>= (* 2 (second part)) 10)
+    (+ (first part) (- (* 2 (second part)) 9))
+    (+ (first part) (* 2 (second part)))))
+
+
+(defn part? [no]
+  (zero? (mod no 10)))
+
+
+(defn check? [stri]
+  (part?  (reduce +
+                  (map part-add
+                       (partition 2
+                                  (map read-string
+                                       (clojure.string/split (string/reverse stri)
+                                                             #"")))))))
+(defn check-sum [arr]
+  (if (clojure.string/includes? arr "?")
+    (some #(when (check? %) %) (for [i (range 10)]
+                                 (clojure.string/replace arr
+                                                         #"\?"
+                                                         (str i))))))
+
+
+
+(defn swapping
+  "Gives the valid ans after swapping"
+  [num]
+  (let [arr (mapv read-string (string/split (str num) #""))]
+    (first (remove nil? (for [i (range (dec (count arr)))
+                              :let [mynum
+                                    (flatten
+                                     [(take i arr)
+                                      (get arr (inc i))
+                                      (get arr i)
+                                      (drop (+ i 2) arr)])]]
+                          (if (valid? mynum)
+                            (read-string (apply str mynum))))))))
+
+(defn valid?
+  "Checks whether the number is valid or not"
+  [arr]
+  (if (zero? (mod (reduce +
+                          (map part-add
+                               (partition 2 (reverse arr)))) 10))
+    true
+    false))
