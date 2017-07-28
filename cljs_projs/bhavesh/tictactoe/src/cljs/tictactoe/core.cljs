@@ -3,24 +3,25 @@
 
 
 (defn make-board
-  "makes a board map using the values of input tags"
-  ([arr] (make-board arr {} 1))
-  ([arr new-board id]
-   (if (> id 10)
-     new-board
-     (make-board (rest arr)
-                 (assoc-in new-board [id :value] (first arr))
-                 (inc id)))))
-(defn print-b
-  "sets the value of clicked tag and alos sets the next move"
-  [next-mov id]
-  (set! (.-value (.getElementById js/document id))
-          next-mov)
-    (if (= "x" next-mov)
-      (set! (.-value (.getElementById js/document 10))
-            "o")
-      (set! (.-value (.getElementById js/document 10))
-            "x")))
+  "Returns a map with 9 indexes and empty positions"
+  ([] (make-board {} 1))
+  ([bmap index]
+   (if (= index 9)
+     (assoc bmap :next-move "x")
+     (recur (assoc bmap index "") (inc index)))))
+
+(def board (atom (make-board)))
+
+
+
+(defn print-board
+  "sets the value of all elements , taking value from the atom board"
+  []
+  (doall (map (fn [id]
+                (set! (.-value (.getElementById js/document id))
+                      (get @board id)))
+              (range 1 10)))
+  )
 
 
 (defn rev-interleave
@@ -49,8 +50,8 @@
 
 (defn game-over
   "divides the board into rows, columns and two diagnols and calls equal-array on each of them"
-  [board]
-  (let [values (map #(get-in board [% :value]) (range 1 10))
+  []
+  (let [values (map #(get @board %) (range 1 10))
         [r1 r2 r3] (partition 3 values)
         [c1 c2 c3] (rev-interleave values 3)
         d1 (map #(nth values %) [0 4 8])
@@ -64,16 +65,18 @@
   [id]
   (set! (.-disabled (.getElementById js/document id))
         true)
-  (let [value-arr (map #(.-value (.getElementById js/document %))
-                       (range 1 11))
-        board     (make-board value-arr)
-        new-board (upd-board board id)]
 
-    (when (game-over new-board)
-      (let [winner (get-in new-board [10 :value])]
-        (js/alert (str "Game over! Player " winner " won")))
-      (loop [x 1]
-        (when (< x 10)
-          (set! (.-disabled (.getElementById js/document x))
-                true)
-          (recur (+ x 1)))))))
+  (let [next-move (get @board :next-move)]
+    (swap! board assoc id next-move)
+    (if (= next-move "x")
+      (swap! board assoc :next-move "o")
+      (swap! board assoc :next-move "x"))
+    (set! (.-value (.getElementById js/document 10))
+          (get @board :next-move))
+    (print-board)
+    (when (game-over)
+      (js/alert (str "Game over! Player " next-move " won"))
+      (doall
+       (map (fn [id]
+              (set! (.-disabled (.getElementById js/document id))
+                    true)) (range 1 10))))))
