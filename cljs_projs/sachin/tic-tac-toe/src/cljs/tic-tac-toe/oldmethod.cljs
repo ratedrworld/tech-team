@@ -1,4 +1,4 @@
-(ns tic-tac-toe.core)
+(ns tic-tac-toe.oldmethod)
 
 #_(defn -main
   "I don't do a whole lot ... yet."
