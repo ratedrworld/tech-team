@@ -1,0 +1,1 @@
+web: java $JVM_OPTS -cp target/r-tic-tac-toe.jar clojure.main -m r-tic-tac-toe.server
