@@ -1,5 +1,6 @@
 (ns r-tic-tac-toe.core
     (:require [reagent.core :as reagent :refer [atom]]))
+
 (defn hmap
   [size]
   (apply vector (cons 0 (for [i (range size)]
@@ -43,10 +44,8 @@
       (check-column)
       (check-diagonal)))
 
-
 (defn set-x-o
   [index val]
-  (.log js/console (str index val))
   (swap! board assoc-in [index :value] val))
 
 (defn get-x-o
@@ -56,7 +55,6 @@
       "O"
       "X")))
 
-
 (defn get-index
   [i j]
   (inc (+ (* 3 i) j)))
@@ -64,14 +62,12 @@
 (defn update-board
   [index]
   (let [c (first @board)]
-    (if (= 0 (mod c 2))
+    (if (zero? (mod c 2))
       (set-x-o index "X")
       (set-x-o index "O"))
     (swap! board update-in [0] inc)
     (when (check-win)
       (js/alert (str  "GAME OVER!!! Player " (get-x-o) " Wins....")))))
-
-
 
 (defn home-page []
   [:div
