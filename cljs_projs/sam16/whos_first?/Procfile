@@ -1,0 +1,1 @@
+web: java $JVM_OPTS -cp target/whos_first?.jar clojure.main -m whos-first?.server
