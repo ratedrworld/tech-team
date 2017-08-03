@@ -7,13 +7,15 @@
                       y (range size)]
                   {:pos-x x :pos-y y :value ""})))
 
+(def board (atom {:current-pos [0 0]
+                  :dir :right
+                  :board []}))
+
+
 (defn fill-board
   [size]
   (map #(swap! board assoc-in [:board % :value] %) (range (* size size))))
 
-(def board (atom {:current-pos [0 0]
-                  :dir :right
-                  :board []}))
 
 (defn init-board
   [size]
@@ -27,7 +29,7 @@
                      (and
                       (= i (first values))
                       (= j (second values)))))
-                 (get-in @board [:board]))))
+                 (:board @board))))
 
 (defn get-position
   [value]
@@ -35,14 +37,53 @@
                         (= value (:value x)))
                       (get-in @board [:board]))
         val-map (flatten (map vals map1))]
-    (vector (first val-map) (second val-map))))
+    [(first val-map) (second val-map)]))
 
 
 (defn change-dir-indexes
   [size]
-  (flatten (cons size (reverse (vec  (zipmap (range 1 size) (range 1 size)))))))
+  (drop 1 (reverse (mapcat (fn [x y] [x y]) (range 1 (inc size)) (range 1 (inc size))))))
 
-(defn move-right
+(defn update-current-position
+  [x y]
+  (swap! board assoc-in [:current-pos] [x y]))
+
+
+(defn move-player
+  [steps direction]
+  (let [[x-pos y-pos] (:current-pos @board)]
+    (condp = direction
+      :right (let [ans (mapv (fn [y]
+                               (:value (get-element x-pos y)))
+                             (range y-pos (+ y-pos steps)))
+                   [x y] (get-position (last ans))]
+               (update-current-position (inc x) y)
+               ans)
+
+      :down (let [ans (mapv (fn [x]
+                              (:value (get-element x y-pos)))
+                            (range x-pos (+ x-pos steps)))
+                  [x y] (get-position (last ans))]
+              (update-current-position x (dec  y))
+              ans)
+
+      :left (let [ans (mapv (fn [y]
+                              (:value (get-element x-pos y)))
+                            (reverse  (range (- (inc  y-pos) steps) (inc y-pos))))
+                  [x y] (get-position (last ans))]
+              (update-current-position (dec x) y)
+              ans)
+
+      :up (let [ans (mapv (fn [x]
+                            (:value (get-element x y-pos)))
+                          (reverse (range (- (inc  x-pos) steps) (inc x-pos))))
+                [x y] (get-position (last ans))]
+            (update-current-position x (inc y))
+            ans))))
+
+
+
+#_(defn move-right
   [steps]
   (let [cur-pos (get-in @board [:current-pos])
         [x-pos y-pos] cur-pos
@@ -54,7 +95,7 @@
     #_(println "!" cur-pos x-pos y-pos "!" last-pos x y "!")
     (swap! board assoc-in [:current-pos] [(inc x) y])
     ans))
-(defn move-down
+#_(defn move-down
   [steps]
   (let [cur-pos (get-in @board [:current-pos])
         [x-pos y-pos] cur-pos
@@ -67,7 +108,7 @@
     ans))
 
 
-(defn move-left
+#_(defn move-left
   [steps]
   (let [cur-pos (get-in @board [:current-pos])
         [x-pos y-pos] cur-pos
@@ -79,7 +120,7 @@
     (swap! board assoc-in [:current-pos] [(dec x) y])
     ans))
 
-(defn move-up
+#_(defn move-up
   [steps]
   (let [cur-pos (get-in @board [:current-pos])
         [x-pos y-pos] cur-pos
@@ -104,18 +145,22 @@
 (defn execute-spiral
   [size]
   (mapcat (fn [x]
-            (let [dir (get-in @board [:dir])
+            (let [dir (:dir @board)
                   cur-pos (get-in @board [:current-pos])]
               (condp = dir
-                :right (do (change-direction :down)
-                           (move-right x))
+                :right (do
+                         (change-direction :down)
+                         (move-player x :right))
 
-                :down  (do (change-direction :left)
-                           (move-down x))
+                :down  (do
+                         (change-direction :left)
+                         (move-player x :down))
 
-                :left (do (change-direction :up)
-                          (move-left x))
+                :left (do
+                        (change-direction :up)
+                        (move-player x :left))
 
-                :up (do (change-direction :right)
-                        (move-up x)))))
+                :up (do
+                      (change-direction :right)
+                      (move-player x :up)))))
           (change-dir-indexes size)))
