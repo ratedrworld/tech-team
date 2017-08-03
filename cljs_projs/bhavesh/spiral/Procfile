@@ -1,0 +1,1 @@
+web: java $JVM_OPTS -cp target/spiral.jar clojure.main -m spiral.server
