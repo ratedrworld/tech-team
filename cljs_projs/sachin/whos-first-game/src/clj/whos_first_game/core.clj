@@ -7,10 +7,10 @@
                       y (range size)]
                   {:pos-x x :pos-y y :value ""})))
 
+
 (def board (atom {:current-pos [0 0]
                   :dir :right
                   :board []}))
-
 
 (defn fill-board
   [size]
@@ -83,63 +83,14 @@
 
 
 
-#_(defn move-right
-  [steps]
-  (let [cur-pos (get-in @board [:current-pos])
-        [x-pos y-pos] cur-pos
-        ans (map (fn [y]
-                   (:value (get-element x-pos y)))
-                 (range y-pos (+ y-pos steps)))
-        last-pos (get-position (last ans))
-        [x y] last-pos]
-    #_(println "!" cur-pos x-pos y-pos "!" last-pos x y "!")
-    (swap! board assoc-in [:current-pos] [(inc x) y])
-    ans))
-#_(defn move-down
-  [steps]
-  (let [cur-pos (get-in @board [:current-pos])
-        [x-pos y-pos] cur-pos
-        ans (map (fn [x]
-                   (:value (get-element x y-pos)))
-                 (range x-pos (+ x-pos steps)))
-        last-pos (get-position (last ans))
-        [x y] last-pos]
-    (swap! board assoc-in [:current-pos] [x (dec  y)])
-    ans))
-
-
-#_(defn move-left
-  [steps]
-  (let [cur-pos (get-in @board [:current-pos])
-        [x-pos y-pos] cur-pos
-        ans (map (fn [y]
-                   (:value (get-element x-pos y)))
-                 (reverse  (range (- (inc  y-pos) steps) (inc y-pos))))
-        last-pos (get-position (last ans))
-        [x y] last-pos]
-    (swap! board assoc-in [:current-pos] [(dec x) y])
-    ans))
-
-#_(defn move-up
-  [steps]
-  (let [cur-pos (get-in @board [:current-pos])
-        [x-pos y-pos] cur-pos
-        ans (map (fn [x]
-                   (:value (get-element x y-pos)))
-                 (reverse (range (- (inc  x-pos) steps) (inc x-pos))))
-        last-pos (get-position (last ans))
-        [x y] last-pos]
-    (swap! board assoc-in [:current-pos] [x (inc  y)])
-    ans))
-
 (defn change-direction
   [dir]
   (swap! board assoc-in [:dir] dir))
 
 (defn create-fill-board
   [size]
-  (init-board 8)
-  (fill-board 8))
+  (init-board size)
+  (fill-board size))
 
 
 (defn execute-spiral
@@ -164,3 +115,12 @@
                       (change-direction :right)
                       (move-player x :up)))))
           (change-dir-indexes size)))
+
+
+;;NOT USED IN THIS PROBLEM STATEMENT
+#_(defn get-path-dir
+  [size]
+  (reverse (drop 1
+                 (drop-last (mapcat
+                             (fn [x y] [x y])
+                             (range 2 (+ 2 size) 2) (range 2 (+ 2 size) 2))))))
