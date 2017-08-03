@@ -119,8 +119,8 @@
 
 ;;NOT USED IN THIS PROBLEM STATEMENT
 #_(defn get-path-dir
-  [size]
-  (reverse (drop 1
-                 (drop-last (mapcat
-                             (fn [x y] [x y])
-                             (range 2 (+ 2 size) 2) (range 2 (+ 2 size) 2))))))
+    [size]
+    (reverse (drop 1
+                   (drop-last (mapcat
+                               (fn [x y] [x y])
+                               (range 2 (+ 2 size) 2) (range 2 (+ 2 size) 2))))))
