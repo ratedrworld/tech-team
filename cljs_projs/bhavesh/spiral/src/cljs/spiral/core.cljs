@@ -9,24 +9,22 @@
 
 
 (def status-a (r/atom {:direction :right
-                     :cur-pos {:x -1
-                               :y 0}
-                     :count 0}))
+                   :cur-pos {:x -1
+                             :y 0}
+                   :count 0}))
 
 (def status-b (r/atom {:direction :left
-                     :cur-pos {:x 6
-                               :y 5}
+                     :cur-pos {:x 10
+                               :y 9}
                      :count 0}))
 
 
-
-
-(defn arr-maker
+(defn arr-maker-2
   "Returns count on which direction needs to be changed
   for two player spiral game.
   Almost similar to arr-maker excpet that it decrements the
   size by 2 instead of 1"
-  ([size] (arr-maker (- size 2) [size] 1))
+  ([size] (arr-maker-2 (- size 2) [size] 1))
   ([size arr toggle]
    (if (zero? size)
      arr
@@ -34,7 +32,7 @@
        (recur (- size 2) (conj arr (+ (last arr) size)) 1)
        (recur size (conj arr (+ (last arr) size)) 0)))))
 
-(def change-on (arr-maker 10))
+(def change-on (atom (arr-maker-2 10)))
 
 (defn change-direction
   "changes the direction to next-dir"
@@ -51,7 +49,6 @@
   (if (some #(= % (get @status :count)) @change-on)
     (change-direction status next-dir)))
 
-
 (defn upd-pos
   "Main function which will be called when button is clicked
   will update the current position in the status atom"
@@ -66,40 +63,100 @@
 
 
 
-(defn path
+(defn test-func
   "Test function to test for a board of size 6
   calls upd-pos untill all postions are done."
-  [status board]
-  (if-not (= 50 (:count @status))
+  [at-status  board rep]
+  (if-not (zero? rep)
     (do
-      (upd-pos status)
-      (print board)
-      (path status (conj board (vector (get-in @status [:cur-pos :x])
-                           (get-in @status [:cur-pos :y])))))
+      (upd-pos at-status)
+      (recur at-status (conj board (vector (get-in @at-status [:cur-pos :x])
+                                           (get-in @at-status [:cur-pos :y])))
+             (dec rep)))
     board))
 
-(def path-a (r/atom (path status-a [])))
 
-(def path-b (r/atom (path status-b [])))
+
+
+
+(def path-a (test-func status-a [] 50))
+(def path-b (test-func status-b [] 50))
+
+(reset! status-a {:direction :right
+                  :cur-pos {:x -1
+                            :y 0}
+                  :count 0})
+(reset! status-b {:direction :left
+                  :cur-pos {:x 10
+                            :y 9}
+                  :count 0})
+
+
+(defn current-pos
+  "Returns true if x and y are current position of A or B"
+  [x y]
+  (or (and (= x
+              (get-in @status-a [:cur-pos :x]))
+           (= y
+              (get-in @status-a [:cur-pos :y])))
+      (and (= x
+              (get-in @status-b [:cur-pos :x]))
+           (= y
+              (get-in @status-b [:cur-pos :y])))))
+
 
 (defn get-color
+  "returns the color depending upon the position of the element
+  if the element is the current position , it is white
+  else it is red or blue depending on the path"
   [x y]
-  (if (some (fn [arr] (= [x y] arr))
-            path-a)
-    "red"
-    "blue"))
+  (if (current-pos x y)
+    "white"
+    (if (some (fn [arr] (= [x y] arr))
+              path-b)
+      "red"
+      "blue")))
 
+
+(defn toggle-buttons
+  "toggles the buttons (enables one and disables other)"
+  [id1 id2]
+  (set! (.-disabled (.getElementById js/document id1))
+        true)
+  (set! (.-disabled (.getElementById js/document id2))
+        false))
+
+
+(defn change-cur-pos
+  "updates the current postion in atom a or b"
+  [id1 id2]
+  (toggle-buttons id1 id2)
+  (if (= id1 "a")
+     (test-func status-a [] (rand-nth (range 7)))
+     (test-func status-b [] (rand-nth (range 7)))))
 
 
 (defn home-page []
-  [:td
-   (doall (for [x (range 10)]
-            [:tr
-             (doall (for [y (range 10)]
-                      [:input {:type "button"
-                               :style {:background-color (get-color x y)
-                                       :height "50"
-                                       :width "50"}}]))]))])
+  [:div  [:td
+          (doall (for [x (range 10)]
+                   [:tr
+                    (doall (for [y (range 10)]
+                             [:input {:type "button"
+                                      :style {:background-color (get-color y x)
+                                              :height "50"
+                                              :width  "50"}}]))]))]
+   [:input {:id "a"
+            :type "button"
+            :style {:height "50"
+                    :width "100"}
+            :value "Player A"
+            :on-click #(change-cur-pos "a" "b")}]
+   [:input {:id "b"
+            :type "button"
+            :style {:height "50"
+                    :width "100"}
+            :value "Player B"
+            :on-click #(change-cur-pos "b" "a")}]])
 
 
 
