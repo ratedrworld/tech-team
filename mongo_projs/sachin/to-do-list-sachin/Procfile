@@ -1,0 +1,1 @@
+web: java $JVM_OPTS -cp target/uberjar/to-do-list-sachin.jar clojure.main -m to-do-list-sachin.core
