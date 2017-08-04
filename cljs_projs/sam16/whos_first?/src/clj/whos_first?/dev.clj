@@ -7,70 +7,92 @@
          :board []
          :paths {:a-path []
                  :b-path []}
-         :a-pos [0 0]
-         :b-pos [0 0]
+         :multiplier? false
          :table []}))
 
 (defn init [n]
   (let [new-board (vec (for [i (range n)]
                 (vec (for [j (range n)]
-                    (read-string (str i j))))))]
+                       [i j]))))]
     (swap! game-board assoc
            :dir :right
            :current [0 0]
            :count n
-           :board new-board)))
+           :board new-board
+           :table new-board)))
 
 (init 6)
 
-(defn make-move []
+(defn make-move [color]
   (let [[x y] (get-in @game-board [:current])
         n (get-in @game-board [:count])
         dir (get-in @game-board [:dir])]
     (condp = dir
       :right (do
-               (let [arr  (for [i (range y (+ y n))] (get-in @game-board [:board x i]))]
+               (let [arr (for [i (range y (+ y n))]
+                           (do (swap! game-board assoc-in [:table x i]
+                                      {:val "" :color color})
+                               (get-in @game-board [:board x i])))]
                  (swap! game-board assoc
                         :current [(inc x) (+ y (dec n))]
                         :dir :down
                         :count (- n 2))
-                 arr)
-               #_(println "traversed right, Now at " [(inc x) (+ y (dec n))] " count " (get-in @game-board [:count])))
+                 arr))
       :down (do
-              (let [arr  (for [i (range x (+ x n))] (get-in @game-board [:board i y]))]
+              (let [arr (for [i (range x (+ x n))]
+                          (do (swap! game-board assoc-in [:table i y]
+                                     {:val "" :color color})
+                              (get-in @game-board [:board i y])))]
                 (swap! game-board assoc
                        :current [(+ x (dec n)) (dec y)]
                        :dir :left)
-                arr)
-              #_(println "traversed down, Now at" [(+ x (dec n)) (dec y)] " count " (get-in @game-board [:count])))
+                arr))
       :left (do
-              #_(println (for [i (reverse (range (- y (dec n)) n))]
-                           (get-in @game-board [:board x i])))
-              (let [arr  (reverse (drop (- (inc y) n) (take (inc y) (get-in @game-board [:board x]))))]
+              #_(reverse (drop (- (inc y) n) (take (inc y) (get-in @game-board [:board x]))))
+              (let [arr (for [i (range n)]
+                          (do (swap! game-board assoc-in [:table x (- y i)]
+                                     {:val "" :color color})
+                              (get-in @game-board [:board x (- y i)])))]
                 (swap! game-board assoc
                        :current [(dec x) (- y (dec n))]
                        :dir :up
                        :count (- n 2))
-                arr)
-              #_(println "traversed left, Now at" [(dec x) (- y (dec n))] " count " (get-in @game-board [:count])))
+                arr))
       :up (do
             (let [arr (for [i (reverse (range (- (inc x)  n) (inc x)))]
-                        (get-in @game-board [:board i y]))]
+                        (do (swap! game-board assoc-in [:table i y]
+                                   {:pos (get-in @game-board [:board i y])
+                                    :val "" :color color})
+                            (get-in @game-board [:board i y])))]
               (swap! game-board assoc
                      :current [(- x (dec n)) (inc y)]
                      :dir :right)
-              arr)
-            #_(println "traversed up, Now at" [(- x (dec n)) (inc y)] " count " (get-in @game-board [:count]))))
-    #_"MADE A MOVE"
-    ))
+              arr)))))
 
 (defn traverse []
   (while (> (get-in @game-board [:count]) 0)
-    (swap! game-board update-in [:paths :a-path] into (make-move)))
+    (swap! game-board update-in [:paths :a-path] into (make-move "yellow")))
   (swap! game-board assoc
          :dir :left
          :current [5 5]
          :count 6)
   (while (> (get-in @game-board [:count]) 0)
-    (swap! game-board update-in [:paths :b-path] into (make-move)))
+    (swap! game-board update-in [:paths :b-path] into (make-move "green")))
   (get @game-board :paths))
+
+(defn change-pos [player moves path]
+  (let [[i j] (first (get-in @game-board [:paths path]))
+        new-path (drop moves (get-in @game-board [:paths path]))
+        [x y] (first new-path)]
+    (swap! game-board assoc-in [:table i j :val] "")
+    (swap! game-board assoc-in [:table x y :val] player)
+    (swap! game-board assoc-in [:paths path] new-path)
+    ))
+
+(defn play [player]
+  (let [moves (rand-nth [1 2 3 4 5 6])]
+    #_(when (:multiplier))
+    (println moves)
+    (cond (= 1 player) (change-pos "A" moves :a-path)
+          (= 2 player) (change-pos "B" moves :b-path))
+    ))

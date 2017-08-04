@@ -5,8 +5,8 @@
             [to-do-list.config :refer [env]]
             [clojure.tools.cli :refer [parse-opts]]
             [clojure.tools.logging :as log]
-            [mount.core :as mount]
-            [to-do-list.db.core :refer [db]])
+            [to-do-list.db.core :refer [db]]
+            [mount.core :as mount])
   (:gen-class))
 
 (def cli-options
@@ -21,7 +21,8 @@
                       (assoc :handler (handler/app))
                       (update :port #(or (-> env :options :port) %))))
                 :stop
-                (http/stop http-server))
+  (http/stop http-server))
+
 
 (mount/defstate ^{:on-reload :noop}
                 repl-server
