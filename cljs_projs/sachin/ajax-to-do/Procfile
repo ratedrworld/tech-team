@@ -1,0 +1,1 @@
+web: java $JVM_OPTS -cp target/uberjar/ajax-to-do.jar clojure.main -m ajax-to-do.core
