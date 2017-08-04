@@ -1,0 +1,27 @@
+2017-08-04 17:24:37,541 [main] DEBUG org.jboss.logging - Logging Provider: org.jboss.logging.Slf4jLoggerProvider 
+2017-08-04 17:25:22,117 [nREPL-worker-1] INFO  example2.env - 
+-=[example2 started successfully using the development profile]=- 
+2017-08-04 17:25:22,228 [nREPL-worker-1] INFO  luminus.http-server - starting HTTP server on port 3000 
+2017-08-04 17:25:22,275 [nREPL-worker-1] INFO  org.xnio - XNIO version 3.3.6.Final 
+2017-08-04 17:25:22,395 [nREPL-worker-1] INFO  org.projectodd.wunderboss.web.Web - Registered web context / 
+2017-08-04 17:25:22,398 [nREPL-worker-1] INFO  luminus.repl-server - starting nREPL server on port 7000 
+2017-08-04 17:25:22,402 [nREPL-worker-1] INFO  example2.core - #'example2.config/env started 
+2017-08-04 17:25:22,402 [nREPL-worker-1] INFO  example2.core - #'example2.handler/init-app started 
+2017-08-04 17:25:22,403 [nREPL-worker-1] INFO  example2.core - #'example2.core/http-server started 
+2017-08-04 17:25:22,403 [nREPL-worker-1] INFO  example2.core - #'example2.core/repl-server started 
+2017-08-04 17:32:23,443 [XNIO-1 task-11] INFO  example2.env - 
+-=[example2 has shut down successfully]=- 
+2017-08-04 17:32:23,444 [XNIO-1 task-11] INFO  example2.env - 
+-=[example2 started successfully using the development profile]=- 
+2017-08-04 17:32:23,543 [XNIO-1 task-11] INFO  example2.env - 
+-=[example2 has shut down successfully]=- 
+2017-08-04 17:32:23,544 [XNIO-1 task-11] INFO  example2.env - 
+-=[example2 started successfully using the development profile]=- 
+2017-08-04 17:32:23,623 [XNIO-1 task-11] INFO  example2.env - 
+-=[example2 has shut down successfully]=- 
+2017-08-04 17:32:23,623 [XNIO-1 task-11] INFO  example2.env - 
+-=[example2 started successfully using the development profile]=- 
+2017-08-04 17:34:07,478 [main] DEBUG org.jboss.logging - Logging Provider: org.jboss.logging.Slf4jLoggerProvider 
+2017-08-04 17:44:23,956 [Thread-8] INFO  example2.env - 
+-=[example2 has shut down successfully]=- 
+2017-08-04 17:44:23,957 [Thread-8] INFO  example2.core - #'example2.handler/init-app stopped 
