@@ -2,26 +2,26 @@
 
 
 
-(def board (atom {:size 8
-                  :chance 0
-                  :a {:current-pos [0 0]
-                      :dir :right
-                      :color "red"
-                      :path []}
+(defn init-board
+  [size]
+  (def board (atom {:size size
+                    :chance 0
+                    :a {:current-pos [0 0]
+                        :dir :right
+                        :color "red"
+                        :path []}
 
-                  :b {:current-pos [7 7]
-                      :dir :left
-                      :color "yellow"
-                      :path []}
-                  :board (make-board)}))
+                    :b {:current-pos [7 7]
+                        :dir :left
+                        :color "yellow"
+                        :path []}
+                    :board (make-board size)})))
 
 (defn make-board
-  []
-  (let [size (:size @board)]
-    (apply vector (for [x (range size)
+  [size]
+  (apply vector (for [x (range size)
                         y (range size)]
-                    {:pos-x x :pos-y y :value ""}))))
-
+                    {:pos-x x :pos-y y :value ""})))
 (defn fill-board
   []
   (let [size (:size @board)]
@@ -45,7 +45,7 @@
   [value]
   (let [map1  (filter (fn [x]
                         (= value (:value x)))
-                      (get-in @board [:board]))
+                      (:board @board))
         val-map (flatten (map vals map1))]
     [(first val-map) (second val-map)]))
 
@@ -138,3 +138,12 @@
         b-path (apply vector (execute-spiral :b))]
     (swap! board update-in [:a :path] into  a-path)
     (swap! board update-in [:b :path] into  b-path)))
+
+
+(defn get-color
+  [i j]
+  (let [pos (:value (get-element i j))
+        path (:path (:a @board))]
+    (if (contains? path pos)
+      (:color (:a @board))
+      (:color (:b @board)))))
