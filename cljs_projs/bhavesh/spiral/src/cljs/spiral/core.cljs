@@ -64,23 +64,31 @@
 
 
 (defn test-func
-  "Test function to test for a board of size 6
-  calls upd-pos untill all postions are done."
-  [at-status  board rep]
-  (if-not (zero? rep)
-    (do
-      (upd-pos at-status)
-      (recur at-status (conj board (vector (get-in @at-status [:cur-pos :x])
-                                           (get-in @at-status [:cur-pos :y])))
-             (dec rep)))
-    board))
+  "takes an atom and a number 'rep', calls upd-pos 'rep' times. and updates the atom
+   also returns the complete path (cur-pos co-ordinates) as a vector of vector (board)"
+  ([at-status rep]
+   (test-func at-status [] rep))
+  ([at-status  board rep]
+   (if-not (zero? rep)
+     (do
+       (upd-pos at-status)
+       (recur at-status (conj board (vector (get-in @at-status [:cur-pos :x])
+                                            (get-in @at-status [:cur-pos :y])))
+              (dec rep)))
+     board)))
 
 
+;;;
+;; these are used to color the path of a and b
 
-
-
+;; co-ordinates of path of a
 (def path-a (test-func status-a [] 50))
+;; co-ordinates of path of b
 (def path-b (test-func status-b [] 50))
+
+
+;; status-a and status-b were used to generate path-a and path-b
+;; they are also used during the game to get current position and hence are rest.
 
 (reset! status-a {:direction :right
                   :cur-pos {:x -1
@@ -132,8 +140,8 @@
   [id1 id2]
   (toggle-buttons id1 id2)
   (if (= id1 "a")
-     (test-func status-a [] (rand-nth (range 7)))
-     (test-func status-b [] (rand-nth (range 7)))))
+     (test-func status-a (rand-nth (range 7)))
+     (test-func status-b (rand-nth (range 7)))))
 
 
 (defn home-page []
