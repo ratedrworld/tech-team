@@ -13,8 +13,8 @@
 
 (defn get-error-result
   []
-  {:status false
-   :content nil})
+  (layout/render-json {:status false
+                       :content nil}))
 
 
 
@@ -33,3 +33,8 @@
   (if (db/add-task task user)
     (get-result user)
     (get-error-result)))
+
+(defn mark-done
+  [user task]
+  (layout/render-json
+   (db/mark-complete user task)))

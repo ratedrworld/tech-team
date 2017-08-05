@@ -35,4 +35,11 @@
 
 (defn display-all-tasks
   [user]
-  (mc/find-maps db "todos" {:user user}))
+  (mc/find-maps db "todos" {:user user :completed? false}))
+
+
+(defn mark-complete
+  [user task]
+  (mc/update db "todos" {:user user :task task}
+             {$set {:completed? true}})
+  true)

@@ -20,6 +20,10 @@
   [user pass]
   (view/authenticate-user user pass))
 
+(defn change-status
+  [user task]
+  (view/mark-done user task))
+
 
 
 (defroutes home-routes
@@ -33,4 +37,8 @@
 
   (GET "/user-todo"
        [user]
-       (get-todos user)))
+       (get-todos user))
+
+  (GET "/mark-done"
+       [user task]
+       (change-status user task)))

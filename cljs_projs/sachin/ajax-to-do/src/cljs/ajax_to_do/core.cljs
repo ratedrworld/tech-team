@@ -16,7 +16,19 @@
   [id]
   (.-value (.getElementById js/document id)))
 
+(defn get-all-completed
+  [[response]]
+  (log "&&&&&" response))
 
+(defn error-handler
+  [response]
+  (log "@@@@@@@@@@@@" response))
+
+(defn add-todo
+  [[response]]
+  (let [body (:content response)
+        tasks (mapv #(:task %) body)]
+    (swap! task-atom assoc-in [:tasks] tasks)))
 
 (defn user-valid
   [[response]]
@@ -34,6 +46,19 @@
                 :error-handler error-handler}))
       (js/alert "Invalid username / password. Please try again "))))
 
+(defn update-status-done
+  [id]
+  (set! (.-disabled (.getElementById js/document id))
+        true)
+  (GET (str server "mark-done")
+       {:params {:user (:current-user @task-atom)
+                 :task (get-input id)}
+        :format :json
+        :response-format :json
+        :keywords? true
+        :handler get-all-completed
+        :error-handler error-handler}))
+
 
 
 (defn c-todo
@@ -41,17 +66,13 @@
   [:div
    [:h2 "TASK-LIST"]
    (doall  (for [i (range (count (:tasks @task-atom)))]
-             [:input {:type "button" :value (get (:tasks @task-atom) i)}]))])
+             [:input {:type "button"
+                      :id i
+                      :value (get (:tasks @task-atom) i)
+                      :on-click #(update-status-done i)}]))])
 
-(defn add-todo
-  [[response]]
-  (let [body (:content response)
-        tasks (mapv #(:task %) body)]
-    (swap! task-atom assoc-in [:tasks] tasks)))
 
-(defn error-handler
-  [response]
-  (log "@@@@@@@@@@@@" response))
+
 
 (defn login-page []
   [:div
