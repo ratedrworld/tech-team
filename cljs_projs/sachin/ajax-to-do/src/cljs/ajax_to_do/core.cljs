@@ -2,7 +2,9 @@
   (:require [reagent.core :as r]
             [ajax.core :refer [GET POST]]))
 
-(def task-atom (r/atom []))
+(def task-atom (r/atom {:current-user ""
+                        :current-page :login-page
+                        :tasks []}))
 
 (def server "http://localhost:3000/")
 
@@ -15,39 +17,85 @@
   (.-value (.getElementById js/document id)))
 
 
+
+(defn user-valid
+  [[response]]
+  (let [auth (:auth response)
+        user (:user response)]
+    (if auth
+      (do (swap! task-atom assoc-in [:current-user] user)
+          (swap! task-atom assoc-in [:current-page] :to-do-page)
+          (GET (str server "user-todo")
+               {:params {:user user}
+                :format :json
+                :response-format :json
+                :keywords? true
+                :handler add-todo
+                :error-handler error-handler}))
+      (js/alert "Invalid username / password. Please try again "))))
+
+
+
 (defn c-todo
   []
   [:div
    [:h2 "TASK-LIST"]
-   (doall  (for [i (range (count @task-atom))]
-             [:input {:type "button" :value (get @task-atom i)}]))])
+   (doall  (for [i (range (count (:tasks @task-atom)))]
+             [:input {:type "button" :value (get (:tasks @task-atom) i)}]))])
 
 (defn add-todo
   [[response]]
   (let [body (:content response)
         tasks (mapv #(:task %) body)]
-    (reset! task-atom tasks)
-    (log "@@@@@@@@@@@@@@@@@@@@@@@@@@2" @task-atom)))
+    (swap! task-atom assoc-in [:tasks] tasks)))
 
 (defn error-handler
   [response]
   (log "@@@@@@@@@@@@" response))
-(defn home-page []
+
+(defn login-page []
+  [:div
+   [:form {:action "#"
+           :on-submit (fn [e]
+                        (let [u (get-input "user-name")
+                              p (get-input "password")]
+                          (GET (str server "auth")
+                               {:params {:user u
+                                         :pass p}
+                                :format :json
+                                :response-format :json
+                                :keywords? true
+                                :handler user-valid
+                                :error-handler error-handler})))}
+    [:h2 "Login"]
+    [:div [:input {:type "text" :id "user-name"}]]
+    [:div [:input {:type "text" :id "password"}]]
+    [:div [:input {:type "submit" :value "Submit"}]]]])
+
+(defn to-do-page []
   [:div.container
    [:h2 "HELLO AJAX TO DO"]
    [:form {:action "#"
            :on-submit (fn [e]
                         (let [t (get-input "task")]
                           (GET (str server "todo")
-                                {:params {:task t}
+                               {:params {:task t
+                                         :user (:current-user @task-atom)}
                                  :format :json
                                  :response-format :json
                                  :keywords? true
                                  :handler add-todo
                                  :error-handler error-handler})))}
     [:input {:type "text" :id "task"}]
-    [:input {:type "submit" :value "Add"}]]
-    [c-todo]])
+    [:input {:type "submit" :value "Add"}]
+    [:input {:type "button" :value "Log Out" :on-click #(swap! task-atom assoc-in [:current-page] :login-page)}]]
+   [c-todo]])
+
+
+(defn home-page []
+  [:div  (condp = (:current-page @task-atom)
+           :login-page [login-page]
+           :to-do-page [to-do-page])])
 
 ;; -------------------------
 ;; Initialize app

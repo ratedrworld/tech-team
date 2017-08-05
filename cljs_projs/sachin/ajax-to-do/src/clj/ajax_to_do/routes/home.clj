@@ -8,15 +8,29 @@
 (defn home-page []
   (layout/render "home.html"))
 
-(defn add-todo
-  [task]
-  (view/add-todo task))
+(defn get-todos
+  [user]
+  (view/get-result user))
 
+(defn add-todo
+  [task user]
+  (view/add-todo task user))
+
+(defn verify?
+  [user pass]
+  (view/authenticate-user user pass))
 
 
 
 (defroutes home-routes
   (GET "/" []
        (home-page))
-  (GET "/todo" [task]
-       (add-todo task)))
+
+  (GET "/auth" [user pass]
+       (verify? user pass))
+  (GET "/todo" [task user]
+       (add-todo task user))
+
+  (GET "/user-todo"
+       [user]
+       (get-todos user)))
