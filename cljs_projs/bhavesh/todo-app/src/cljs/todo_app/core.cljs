@@ -1,86 +1,136 @@
 (ns todo-app.core
   (:require [reagent.core :as r]
             [reagent.session :as session]
-            [secretary.core :as secretary :include-macros true]
-            [goog.events :as events]
-            [goog.history.EventType :as HistoryEventType]
-            [markdown.core :refer [md->html]]
             [todo-app.ajax :refer [load-interceptors!]]
             [ajax.core :refer [GET POST]])
   (:import goog.History))
 
-(defn nav-link [uri title page collapsed?]
-  [:li.nav-item
-   {:class (when (= page (session/get :page)) "active")}
-   [:a.nav-link
-    {:href uri
-     :on-click #(reset! collapsed? true)} title]])
+(def status (r/atom {}))
 
-(defn navbar []
-  (let [collapsed? (r/atom true)]
-    (fn []
-      [:nav.navbar.navbar-dark.bg-primary
-       [:button.navbar-toggler.hidden-sm-up
-        {:on-click #(swap! collapsed? not)} "☰"]
-       [:div.collapse.navbar-toggleable-xs
-        (when-not @collapsed? {:class "in"})
-        [:a.navbar-brand {:href "#/"} "todo-app"]
-        [:ul.nav.navbar-nav
-         [nav-link "#/" "Home" :home collapsed?]
-         [nav-link "#/about" "About" :about collapsed?]]]])))
+(def cur-page (r/atom "login"))
 
-(defn about-page []
-  [:div.container
-   [:div.row
-    [:div.col-md-12
-     [:img {:src (str js/context "/img/warning_clojure.png")}]]]])
+(def user-atom (r/atom nil))
 
-(defn home-page []
-  [:div.container
-   (when-let [docs (session/get :docs)]
-     [:div.row>div.col-sm-12
-      [:div {:dangerouslySetInnerHTML
-             {:__html (md->html docs)}}]])])
+(defn get-by-id [id] (.-value (.getElementById js/document id)))
 
-(def pages
-  {:home #'home-page
-   :about #'about-page})
+(defn log [& params] (.log js/console (apply str params)))
 
-(defn page []
-  [(pages (session/get :page))])
+(def server "http://localhost:3000/")
 
-;; -------------------------
-;; Routes
-(secretary/set-config! :prefix "#")
+(defn error-handler [] (log "error!"))
 
-(secretary/defroute "/" []
-  (session/put! :page :home))
 
-(secretary/defroute "/about" []
-  (session/put! :page :about))
+(defn h-update-atom!
+  "stores the response from the server into the status atom"
+  [response]
+  (log response)
+  (if (:status response)
+    (reset! status (:content response))
+    (js/alert "Sorry! Task insertion Failed.")))
 
-;; -------------------------
-;; History
-;; must be called after routes have been defined
-(defn hook-browser-navigation! []
-  (doto (History.)
-        (events/listen
-          HistoryEventType/NAVIGATE
-          (fn [event]
-              (secretary/dispatch! (.-token event))))
-        (.setEnabled true)))
 
-;; -------------------------
-;; Initialize app
-(defn fetch-docs! []
-  (GET "/docs" {:handler #(session/put! :docs %)}))
+(defn mark-done
+  "changes the status of a task to complete"
+  [task]
+  (GET (str server "done")
+       {:params {:user @user-atom
+                 :task task}
+        :format :json
+        :response-format :json
+        :keywords? true
+        :handler h-update-atom!
+        :error-handler error-handler}))
+
+
+
+(defn show-tasks
+  "shows the task, the status, and a button to mark the task complete if it is incomplete"
+  [map-task]
+  #_(log map-task)
+  (let [task (:task map-task)
+        status (:status map-task)]
+    [:div
+     [:li [:input {:type "text" :value task}]
+      [:input {:type "text" :value status}]
+      (if-not (= "Complete" status)
+        [:input {:type "button" :value "Mark done" :on-click #(mark-done task)}])]]))
+
+
+
+(defn c-show-output
+  [n]
+  [:ul
+   (doall (map show-tasks @status))])
+
+(defn login-handler
+  [flag]
+  (if flag
+    (do (reset! cur-page "todo")
+        (GET (str server "tasks")
+             {:params {:user @user-atom}
+              :format :json
+              :response-format :json
+              :keywords? true
+              :handler h-update-atom!
+              :error-handler error-handler}))))
+
+(defn login-error
+  [flag]
+  nil)
+
+(defn logout
+  []
+  (reset! cur-page "login"))
+
+(defn login-page []
+  [:div
+   [:h2 "Login Page"]
+   [:form {:action "#" :method "get"
+           :on-submit (fn [e]
+                        (let [user (get-by-id "user")
+                              pass (get-by-id "pass")]
+                          (reset! user-atom user)
+                          (GET (str server "user")
+                               {:params {:user user
+                                         :password pass}
+                                :format :json
+                                :response-format :json
+                                :keywords? true
+                                :handler login-handler
+                                :error-handler login-error})))}
+    [:div [:input {:type "text" :id "user"}]]
+    [:div [:input {:type "text" :id "pass"}]]
+    [:div [:input {:type "submit" :value "Login"}]]]])
+
+
+(defn todo-page []
+  [:div
+   [:h2 "Todo-list"]
+   [:form {:action "#" :method "get"
+           :on-submit (fn [e]
+                        (let [t (get-by-id "todo-input") ]
+                          (GET (str server "todo")
+                               {:params {:task t
+                                         :user @user-atom}
+                                :format :json
+                                :response-format :json
+                                :keywords? true
+                                :handler h-update-atom!
+                                :error-handler error-handler})))}
+    [:div [:input {:type "text"
+                   :id "todo-input"}]
+     [:input {:type "submit" :value "Add-task"}]
+     [:input {:type "button" :value "Logout" :on-click logout}]]
+    [:div [:h2 "all tasks"]
+     [c-show-output]]]])
+
+(defn show-page []
+  (condp = @cur-page
+    "login" [login-page]
+    "todo" [todo-page]))
 
 (defn mount-components []
-  (r/render [#'navbar] (.getElementById js/document "navbar"))
-  (r/render [#'page] (.getElementById js/document "app")))
+  (r/render [show-page] (.getElementById js/document "app")))
 
 (defn init! []
-  (load-interceptors!)
-  (fetch-docs!)
-  (hook-browser-navigation!)
   (mount-components))
