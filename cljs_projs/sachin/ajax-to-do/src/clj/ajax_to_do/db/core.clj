@@ -43,3 +43,9 @@
   (mc/update db "todos" {:user user :task task}
              {$set {:completed? true}})
   true)
+
+(defn update-task
+  [user task new-task]
+  (mc/update db "todos" {:user user :task task}
+             {$set {:task new-task}})
+  true)

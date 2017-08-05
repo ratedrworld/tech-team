@@ -16,9 +16,9 @@
   [id]
   (.-value (.getElementById js/document id)))
 
-(defn get-all-completed
+(defn do-nothing
   [[response]]
-  (log "&&&&&" response))
+  (log "%%%%" response))
 
 (defn error-handler
   [response]
@@ -56,7 +56,7 @@
         :format :json
         :response-format :json
         :keywords? true
-        :handler get-all-completed
+        :handler do-nothing
         :error-handler error-handler}))
 
 
@@ -64,7 +64,7 @@
 (defn c-todo
   []
   [:div
-   [:h2 "TASK-LIST"]
+   [:h3 "TASK-LIST"]
    (doall  (for [i (range (count (:tasks @task-atom)))]
              [:input {:type "button"
                       :id i
@@ -95,22 +95,46 @@
 
 (defn to-do-page []
   [:div.container
-   [:h2 "HELLO AJAX TO DO"]
-   [:form {:action "#"
-           :on-submit (fn [e]
-                        (let [t (get-input "task")]
-                          (GET (str server "todo")
-                               {:params {:task t
-                                         :user (:current-user @task-atom)}
-                                 :format :json
-                                 :response-format :json
-                                 :keywords? true
-                                 :handler add-todo
-                                 :error-handler error-handler})))}
-    [:input {:type "text" :id "task"}]
-    [:input {:type "submit" :value "Add"}]
-    [:input {:type "button" :value "Log Out" :on-click #(swap! task-atom assoc-in [:current-page] :login-page)}]]
-   [c-todo]])
+   [:h1 "TO-DO LIST"]
+   [:table
+     [:tbody
+      [:tr
+       [:td
+        [:h2 "Add Task"]
+        [:form {:action "#"
+                :on-submit (fn [e]
+                             (let [t (get-input "task")]
+                               (GET (str server "todo")
+                                    {:params {:task t
+                                              :user (:current-user @task-atom)}
+                                     :format :json
+                                     :response-format :json
+                                     :keywords? true
+                                     :handler add-todo
+                                     :error-handler error-handler})))}
+         [:input {:type "text" :id "task"}]
+         [:input {:type "submit" :value "Add"}]
+         [:input {:type "button" :value "Log Out" :on-click #(swap! task-atom assoc-in [:current-page] :login-page)}]]]
+       [:td
+        [:h2 "Update Task"]
+        [:form {:action "#"
+                :on-submit (fn [e]
+                             (let [orig (get-input "original-task")
+                                   upd (get-input "updated-task")]
+                               (GET (str server "update-todo")
+                                    {:params {:user (:current-user @task-atom)
+                                              :task orig
+                                              :new-task upd}
+                                     :format :json
+                                     :response-format :json
+                                     :keywords? true
+                                     :handler do-nothing
+                                     :error-handler error-handler})))}
+         [:input {:type "text" :id "original-task"}]
+         [:input {:type "text" :id "updated-task"}]
+         [:input {:type "submit" :value "Update" }]]]]
+      [:tr
+       [c-todo]]]]])
 
 
 (defn home-page []

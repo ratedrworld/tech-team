@@ -24,7 +24,9 @@
   [user task]
   (view/mark-done user task))
 
-
+(defn update-task
+  [user task new-task]
+  (view/update-task user task new-task))
 
 (defroutes home-routes
   (GET "/" []
@@ -41,4 +43,8 @@
 
   (GET "/mark-done"
        [user task]
-       (change-status user task)))
+       (change-status user task))
+
+  (GET "/update-todo"
+       [user task new-task]
+       (update-task user task new-task)))

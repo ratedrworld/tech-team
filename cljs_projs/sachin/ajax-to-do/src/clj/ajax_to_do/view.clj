@@ -38,3 +38,7 @@
   [user task]
   (layout/render-json
    (db/mark-complete user task)))
+
+(defn update-task
+  [user task new-task]
+  (layout/render-json  (db/update-task user task new-task)))
