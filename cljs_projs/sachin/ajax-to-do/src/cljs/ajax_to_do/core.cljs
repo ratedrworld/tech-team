@@ -1,86 +1,61 @@
 (ns ajax-to-do.core
   (:require [reagent.core :as r]
-            [reagent.session :as session]
-            [secretary.core :as secretary :include-macros true]
-            [goog.events :as events]
-            [goog.history.EventType :as HistoryEventType]
-            [markdown.core :refer [md->html]]
-            [ajax-to-do.ajax :refer [load-interceptors!]]
-            [ajax.core :refer [GET POST]])
-  (:import goog.History))
+            [ajax.core :refer [GET POST]]))
 
-(defn nav-link [uri title page collapsed?]
-  [:li.nav-item
-   {:class (when (= page (session/get :page)) "active")}
-   [:a.nav-link
-    {:href uri
-     :on-click #(reset! collapsed? true)} title]])
+(def task-atom (r/atom []))
 
-(defn navbar []
-  (let [collapsed? (r/atom true)]
-    (fn []
-      [:nav.navbar.navbar-dark.bg-primary
-       [:button.navbar-toggler.hidden-sm-up
-        {:on-click #(swap! collapsed? not)} "☰"]
-       [:div.collapse.navbar-toggleable-xs
-        (when-not @collapsed? {:class "in"})
-        [:a.navbar-brand {:href "#/"} "ajax-to-do"]
-        [:ul.nav.navbar-nav
-         [nav-link "#/" "Home" :home collapsed?]
-         [nav-link "#/about" "About" :about collapsed?]]]])))
+(def server "http://localhost:3000/")
 
-(defn about-page []
-  [:div.container
-   [:div.row
-    [:div.col-md-12
-     [:img {:src (str js/context "/img/warning_clojure.png")}]]]])
+(defn log
+  [& msgs]
+  (.log js/console (apply str msgs)))
 
+(defn get-input
+  [id]
+  (.-value (.getElementById js/document id)))
+
+
+(defn c-todo
+  []
+  [:div
+   [:h2 "TASK-LIST"]
+   (doall  (for [i (range (count @task-atom))]
+             [:input {:type "button" :value (get @task-atom i)}]))])
+
+(defn add-todo
+  [[response]]
+  (let [body (:content response)
+        tasks (mapv #(:task %) body)]
+    (reset! task-atom tasks)
+    (log "@@@@@@@@@@@@@@@@@@@@@@@@@@2" @task-atom)))
+
+(defn error-handler
+  [response]
+  (log "@@@@@@@@@@@@" response))
 (defn home-page []
   [:div.container
-   (when-let [docs (session/get :docs)]
-     [:div.row>div.col-sm-12
-      [:div {:dangerouslySetInnerHTML
-             {:__html (md->html docs)}}]])])
-
-(def pages
-  {:home #'home-page
-   :about #'about-page})
-
-(defn page []
-  [(pages (session/get :page))])
-
-;; -------------------------
-;; Routes
-(secretary/set-config! :prefix "#")
-
-(secretary/defroute "/" []
-  (session/put! :page :home))
-
-(secretary/defroute "/about" []
-  (session/put! :page :about))
-
-;; -------------------------
-;; History
-;; must be called after routes have been defined
-(defn hook-browser-navigation! []
-  (doto (History.)
-        (events/listen
-          HistoryEventType/NAVIGATE
-          (fn [event]
-              (secretary/dispatch! (.-token event))))
-        (.setEnabled true)))
+   [:h2 "HELLO AJAX TO DO"]
+   [:form {:action "#"
+           :on-submit (fn [e]
+                        (let [t (get-input "task")]
+                          (GET (str server "todo")
+                                {:params {:task t}
+                                 :format :json
+                                 :response-format :json
+                                 :keywords? true
+                                 :handler add-todo
+                                 :error-handler error-handler})))}
+    [:input {:type "text" :id "task"}]
+    [:input {:type "submit" :value "Add"}]]
+    [c-todo]])
 
 ;; -------------------------
 ;; Initialize app
-(defn fetch-docs! []
-  (GET "/docs" {:handler #(session/put! :docs %)}))
+
+
 
 (defn mount-components []
-  (r/render [#'navbar] (.getElementById js/document "navbar"))
-  (r/render [#'page] (.getElementById js/document "app")))
+  (r/render [home-page] (.getElementById js/document "app")))
 
 (defn init! []
-  (load-interceptors!)
-  (fetch-docs!)
-  (hook-browser-navigation!)
   (mount-components))

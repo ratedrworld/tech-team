@@ -3,7 +3,8 @@
               [monger.collection :as mc]
               [monger.operators :refer :all]
               [mount.core :refer [defstate]]
-              [ajax-to-do.config :refer [env]]))
+              [ajax-to-do.config :refer [env]]
+              [monger.result :refer [acknowledged?]]))
 
 (defstate db*
   :start (-> env :database-url mg/connect-via-uri)
@@ -23,3 +24,13 @@
 
 (defn get-user [id]
   (mc/find-one-as-map db "users" {:_id id}))
+
+
+(defn add-task
+  [task]
+  (let [operation (mc/insert db "todos" {:task task :completed? true} )]
+    (acknowledged? operation)))
+
+(defn display-all-tasks
+  []
+  (mc/find-maps db "todos"))
