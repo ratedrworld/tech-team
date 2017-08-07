@@ -1,68 +1,34 @@
 (ns whos-first-game.core
-    (:require [reagent.core :as reagent :refer [atom]]
-              [secretary.core :as secretary :include-macros true]
-              [accountant.core :as accountant]))
+    (:require [reagent.core :as reagent :refer [atom]]))
 
-;; -------------------------
-;; Views
-
-(defn home-page []
-  [:div [:h2 "Welcome to whos-first-game"]
-   [:input {:type "button" :value "PLAYER A" :style {:height "40"
-                                                     :width "200"}}]
-   [:input {:type "button" :value "PLAYER B" :style {:height "40"
-                                                     :width "200"}}]
-   (for [i (range 10)]
-     [:div (for [j (range 10)]
-             [:input {:type "button" :style {:background-color (get-color (i j))
-                                             :height "50"
-                                             :width "50"}}])])])
+(defn log
+  [& msgs]
+  (.log js/console (apply str msgs)))
 
 
-;; -------------------------
-;; Initialize app
-
-(defn mount-root []
-  (reagent/render [home-page] (.getElementById js/document "app")))
-
-(defn init! []
-  (mount-root))
 
 
-(def board (atom {:size 10
+(def board (reagent/atom {:size 8
                   :chance 0
                   :a {:current-pos [0 0]
                       :dir :right
                       :color "red"
                       :path []}
 
-                  :b {:current-pos [0 0]
-                      :dir :right
-                      :color "red"
+                  :b {:current-pos [7 7]
+                      :dir :left
+                      :color "yellow"
                       :path []}
                   :board []}))
 
+
+
 (defn make-board
   []
-  (let [size (:size @board)])
-  (apply vector (for [x (range size)
-                      y (range size)]
-                  {:pos-x x :pos-y y :value ""})))
-
-(defn fill-board
-  []
   (let [size (:size @board)]
-    (map #(swap! board assoc-in [:board % :value] %) (range (* size size)))))
-
-
-(defn get-position
-  [value]
-  (let [map1  (filter (fn [x]
-                        (= value (:value x)))
-                      (:board @board))
-        val-map (flatten (map vals map1))]
-    [(first val-map) (second val-map)]))
-
+    (swap! board assoc :board  (vec (doall (for [x (range size)
+                                                          y (range size)]
+                                                      {:pos-x x :pos-y y :value ""}))))))
 
 
 (defn get-element
@@ -76,6 +42,40 @@
 
 
 
+(defn get-color
+  [i j]
+  (let [pos (:value (get-element i j))
+        path (:path (:a @board))
+        path1 (:path (:b @board))]
+    (if (some #(= pos %) path)
+      (:color (:a @board))
+      (if  (some #(= pos %) path1)
+        (:color (:b @board))
+        "lime"))))
+
+
+
+
+
+(defn fill-board
+  []
+  (let [size (:size @board)]
+    (doall (map #(swap! board assoc-in [:board % :value] %)
+                (range (* size size))))))
+
+
+
+
+
+
+(defn get-position
+  [value]
+  (let [map1  (filter (fn [x]
+                        (= value (:value x)))
+                      (:board @board))
+        val-map (flatten (map vals map1))]
+    [(first val-map) (second val-map)]))
+
 
 (defn update-current-position
   [x y element]
@@ -86,30 +86,30 @@
   [steps direction element]
   (let [[x-pos y-pos] (:current-pos (element @board))]
     (condp = direction
-      :right (let [ans (mapv (fn [y]
-                               (:value (get-element x-pos y)))
-                             (range y-pos (+ y-pos steps)))
+      :right (let [ans  (doall (mapv (fn [y]
+                                       (:value (get-element x-pos y)))
+                                     (range y-pos (+ y-pos steps))))
                    [x y] (get-position (last ans))]
                (update-current-position (inc x) y element)
                ans)
 
-      :down (let [ans (mapv (fn [x]
-                              (:value (get-element x y-pos)))
-                            (range x-pos (+ x-pos steps)))
+      :down (let [ans (doall (mapv (fn [x]
+                                     (:value (get-element x y-pos)))
+                                   (range x-pos (+ x-pos steps))))
                   [x y] (get-position (last ans))]
               (update-current-position x (dec  y) element)
               ans)
 
-      :left (let [ans (mapv (fn [y]
-                              (:value (get-element x-pos y)))
-                            (reverse  (range (- (inc  y-pos) steps) (inc y-pos))))
+      :left (let [ans (doall (mapv (fn [y]
+                                     (:value (get-element x-pos y)))
+                                   (reverse  (range (- (inc  y-pos) steps) (inc y-pos)))))
                   [x y] (get-position (last ans))]
               (update-current-position (dec x) y element)
               ans)
 
-      :up (let [ans (mapv (fn [x]
-                            (:value (get-element x y-pos)))
-                          (reverse (range (- (inc  x-pos) steps) (inc x-pos))))
+      :up (let [ans (doall (mapv (fn [x]
+                                   (:value (get-element x y-pos)))
+                                 (reverse (range (- (inc  x-pos) steps) (inc x-pos)))))
                 [x y] (get-position (last ans))]
             (update-current-position x (inc y) element)
             ans))))
@@ -157,7 +157,6 @@
                       (move-player x :up element)))))
           (get-path-dir (:size @board))))
 
-
 (defn set-paths
   []
   (let [a-path (apply vector (execute-spiral :a))
@@ -165,20 +164,37 @@
     (swap! board update-in [:a :path] into  a-path)
     (swap! board update-in [:b :path] into  b-path)))
 
+(make-board)
+(fill-board)
+(set-paths)
 
 
 
+;; -------------------------
+;; Views
+
+(defn home-page []
+  #_(log "^^^^^" @board)
+  [:div [:h2 "Welcome to whos-first-game"]
+   [:input {:type "button" :value "PLAYER A" :style {:height "40px"
+                                                     :width "200px"}}]
+   [:input {:type "button" :value "PLAYER B" :style {:height "40px"
+                                                     :width "200px"}}]
+   (doall (for [i (range 8)]
+            ^{:key i} [:div (doall (for [j (range 8)]
+                               ^{:key j} [:input {:type "button"
+                                                  :style {:background-color (do #_(log "i" i "j" j (get-color i j))
+                                                                                (get-color i j))
+                                                          :height "50px"
+                                                          :width "50px"}}]))]))])
 
 
+;; -------------------------
+;; Initialize app
 
+(defn mount-root []
+  (reagent/render [home-page] (.getElementById js/document "app")))
 
+(defn init! []
 
-
-
-(defn get-color
-  [i j]
-  (let [pos (:value (get-element i j))
-        path (:path (:a @board))]
-    (if (contains? path pos)
-      (:color (:a @board))
-      (:color (:b @board)))))
+  (mount-root))
