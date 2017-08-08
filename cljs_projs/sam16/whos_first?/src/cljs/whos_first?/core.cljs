@@ -8,9 +8,9 @@
   (r/atom {:dir :right
            :current [0 0]
            :count 0
+           :dices {:a "PLAY" :b "PLAY"}
            :board []
-           :paths {:a-path []
-                   :b-path []}
+           :paths {:a-path [] :b-path []}
            :multiplier? false
            :table []}))
 
@@ -79,6 +79,8 @@
          :count 10)
   (while (> (get-in @game-board [:count]) 0)
     (swap! game-board update-in [:paths :b-path] into (make-move "lime")))
+  (swap! game-board assoc-in [:table 4 5 :color] "#FF4136")
+  (swap! game-board assoc-in [:table 5 4 :color] "#FF4136")
   (get @game-board :paths))
 
 
@@ -98,32 +100,55 @@
          (range size)))])
 
 (defn change-pos [player moves path]
-  (let [[i j] (first (get-in @game-board [:paths path]))
-        new-path (doall (drop moves (get-in @game-board [:paths path])))
-        [x y] (first new-path)]
-    (swap! game-board assoc-in [:table i j :val] "")
-    (swap! game-board assoc-in [:table x y :val] player)
-    (swap! game-board assoc-in [:paths path] new-path)
-    (log "CHanged POSition")
-    (log (:table @game-board))
-    ))
+  (let [curr-path (doall (get-in @game-board [:paths path]))]
+    (if (< moves (count curr-path))
+      (let [[i j] (first curr-path)
+            new-path (doall (drop moves curr-path))
+            [x y] (first new-path)]
+        (swap! game-board assoc-in [:table i j :val] "")
+        (swap! game-board assoc-in [:table x y :val] player)
+        (swap! game-board assoc-in [:paths path] new-path)
+        #_(println "Put" player "from" [i j] "to" [x y])
+        (log "Changed Position")
+        new-path)
+      (js/alert (str "Cant Move : " moves " Try in Next Turn"))
+      )))
+
+(defn setup []
+  (init 10)
+  (traverse))
+
+(setup)
+
+(defn multiplier? [moves]
+  (if (:multiplier @game-board)
+    (do (swap! game-board assoc-in [:multiplier] false)
+      (* moves 2))
+    moves))
 
 (defn play [player]
-  (let [moves (rand-nth [1 2 3 4 5 6])]
-    #_(when (:multiplier))
+  (let [moves (rand-nth [0 1 2 3 4 5 6 "X2"])]
+    (swap! game-board assoc-in [:dices player] moves)
     (log moves)
-    (cond (= 1 player) (change-pos "A" moves :a-path)
-          (= 2 player) (change-pos "B" moves :b-path))
-    ))
-
-(init 10)
-(traverse)
+    (if (= "X2" moves)
+      (swap! game-board assoc-in [:multiplier] true)
+      (let [path (condp = player
+                   :a (do (set! (.-disabled (.getElementById js/document "a-btn")) true)
+                          (set! (.-disabled (.getElementById js/document "b-btn")) false)
+                          (change-pos "A" (multiplier? moves) :a-path))
+                   :b (do (set! (.-disabled (.getElementById js/document "a-btn")) false)
+                          (set! (.-disabled (.getElementById js/document "b-btn")) true)
+                          (change-pos "B" (multiplier? moves) :b-path)))]
+        (when (= 1 (count path))
+          (js/alert "YOU WON!! GAMEOVER..!!")
+          (.reload js/location true))))))
 
 (defn home-page []
-  (log ">>>>>>>>>>>>> TRAVERSED")
+  (log ">>>>>> board" (:table @game-board))
   [:div
-   [:button {:on-click #(play 1)} "CLICK A"]
-   [:button {:on-click #(play 2)} "CLICK B"]
+   [:h3 "A " [:button {:id "a-btn" :on-click #(play :a)} (get-in @game-board [:dices :a])]
+    " WHO'S FIRST? "
+    [:button {:id "b-btn" :on-click #(play :b)} (get-in @game-board [:dices :b])] " B "]
    [init-board 10]])
 
 ;; -------------------------

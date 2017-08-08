@@ -61,8 +61,7 @@
       :up (do
             (let [arr (for [i (reverse (range (- (inc x)  n) (inc x)))]
                         (do (swap! game-board assoc-in [:table i y]
-                                   {:pos (get-in @game-board [:board i y])
-                                    :val "" :color color})
+                                   {:val "" :color color})
                             (get-in @game-board [:board i y])))]
               (swap! game-board assoc
                      :current [(- x (dec n)) (inc y)]
@@ -80,14 +79,19 @@
     (swap! game-board update-in [:paths :b-path] into (make-move "green")))
   (get @game-board :paths))
 
+
 (defn change-pos [player moves path]
-  (let [[i j] (first (get-in @game-board [:paths path]))
-        new-path (drop moves (get-in @game-board [:paths path]))
-        [x y] (first new-path)]
-    (swap! game-board assoc-in [:table i j :val] "")
-    (swap! game-board assoc-in [:table x y :val] player)
-    (swap! game-board assoc-in [:paths path] new-path)
-    ))
+  (let [curr-path (get-in @game-board [:paths path])]
+    (if (< moves (count curr-path))
+      (let [[i j] (first curr-path)
+            new-path (drop moves curr-path)
+            [x y] (first new-path)]
+        (swap! game-board assoc-in [:table i j :val] "")
+        (swap! game-board assoc-in [:table x y :val] player)
+        (swap! game-board assoc-in [:paths path] new-path)
+        (println "Put" player "from" [i j] "to" [x y]))
+      (println "Cant move" moves)
+      )))
 
 (defn play [player]
   (let [moves (rand-nth [1 2 3 4 5 6])]
