@@ -54,9 +54,6 @@
         "lime"))))
 
 
-
-
-
 (defn fill-board
   []
   (let [size (:size @board)]
@@ -168,7 +165,36 @@
 (fill-board)
 (set-paths)
 
+(defn game-over?
+  []
+  (let [a-count (count (:path (:a @board)))
+        b-count (count (:path (:b @board)))]
+    (when (zero? a-count)
+      (js/alert "A wins")
+      true)
+    (when (zero? b-count)
+      (js/alert "B wins")
+      true)))
 
+(defn play-move
+  [player moves]
+  (let [path (:path (player @board))
+        pos (last (take moves path))
+        rem-path (vec (drop moves path))]
+    #_(set! (.-value (.getElementById js/document 0))
+          "A")
+    (swap! board update-in [player] assoc-in [:path] rem-path)))
+
+(defn play-game
+  [player]
+  (let [dcount (rand-int 7)
+        path (:path (player @board))
+        movrem (count path)]
+    (log "!@#" (game-over?))
+    (swap! board assoc :chance dcount)
+    (if (> dcount movrem)
+      (js/alert "Invalid Move! Next player plays")
+      (play-move player dcount))))
 
 ;; -------------------------
 ;; Views
@@ -177,16 +203,25 @@
   #_(log "^^^^^" @board)
   [:div [:h2 "Welcome to whos-first-game"]
    [:input {:type "button" :value "PLAYER A" :style {:height "40px"
-                                                     :width "200px"}}]
+                                                     :width "200px"}
+            :on-click #(play-game :a)}]
    [:input {:type "button" :value "PLAYER B" :style {:height "40px"
-                                                     :width "200px"}}]
+                                                     :width "200px"}
+            :on-click #(play-game :b)}]
+   [:input {:type "button" :disabled true
+            :style {:height "40px"
+                    :width "200px"}
+            :value (str "Dice count:" (:chance @board))}]
    (doall (for [i (range 8)]
             ^{:key i} [:div (doall (for [j (range 8)]
                                ^{:key j} [:input {:type "button"
                                                   :style {:background-color (do #_(log "i" i "j" j (get-color i j))
+                                                                                #_(log (:value (get-element i j)))
                                                                                 (get-color i j))
                                                           :height "50px"
-                                                          :width "50px"}}]))]))])
+                                                          :width "50px"}
+                                                  :id (+ (* i 8) j)
+                                                  }]))]))])
 
 
 ;; -------------------------
