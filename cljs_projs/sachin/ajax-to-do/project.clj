@@ -30,6 +30,7 @@
                  [ring-webjars "0.2.0"]
                  [ring/ring-core "1.6.2"]
                  [ring/ring-defaults "0.3.1"]
+                 [venantius/accountant "0.2.0"]
                  [secretary "1.2.3"]
                  [selmer "1.11.0"]]
 

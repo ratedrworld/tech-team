@@ -2,7 +2,14 @@
   (:require [reagent.core :as r]
             [reagent.session :as session]
             [ajax.core :refer [GET POST]]
+            [accountant.core :as accountant]
             [secretary.core :as secretary :refer-macros [defroute]]))
+
+
+(accountant/configure-navigation! {:nav-handler (fn [path]
+                                                  (secretary/dispatch! path))
+                                   :path-exists? (fn [path]
+                                                   (secretary/locate-route path))})
 
 (defn log
   [& msgs]
