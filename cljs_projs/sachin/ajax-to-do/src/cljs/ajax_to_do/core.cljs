@@ -1,16 +1,20 @@
 (ns ajax-to-do.core
   (:require [reagent.core :as r]
-            [ajax.core :refer [GET POST]]))
-
-(def task-atom (r/atom {:current-user ""
-                        :current-page :login-page
-                        :tasks []}))
-
-(def server "http://localhost:3000/")
+            [reagent.session :as session]
+            [ajax.core :refer [GET POST]]
+            [secretary.core :as secretary :refer-macros [defroute]]))
 
 (defn log
   [& msgs]
   (.log js/console (apply str msgs)))
+
+
+(def task-atom (r/atom {:current-user ""
+
+                        :tasks []}))
+
+  (def server "http://localhost:3000/")
+
 
 (defn get-input
   [id]
@@ -34,9 +38,11 @@
   [[response]]
   (let [auth (:auth response)
         user (:user response)]
+    #_(log "USERVALID")
     (if auth
       (do (swap! task-atom assoc-in [:current-user] user)
-          (swap! task-atom assoc-in [:current-page] :to-do-page)
+          #_(js/alert "Changing route")
+          (secretary/dispatch! "/todos")
           (GET (str server "user-todo")
                {:params {:user user}
                 :format :json
@@ -114,7 +120,7 @@
                                      :error-handler error-handler})))}
          [:input {:type "text" :id "task"}]
          [:input {:type "submit" :value "Add"}]
-         [:input {:type "button" :value "Log Out" :on-click #(swap! task-atom assoc-in [:current-page] :login-page)}]]]
+         [:input {:type "button" :value "Log Out" :on-click #(secretary/dispatch! "/")}]]]
        [:td
         [:h2 "Update Task"]
         [:form {:action "#"
@@ -137,10 +143,30 @@
        [c-todo]]]]])
 
 
-(defn home-page []
+#_(defn home-page []
   [:div  (condp = (:current-page @task-atom)
            :login-page [login-page]
            :to-do-page [to-do-page])])
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(secretary/set-config! :prefix "#")
+
+(defn page []
+  [(session/get :current-page)])
+
+(defroute "/" []
+  (session/put! :current-page login-page))
+
+(defroute "/todos" []
+  (session/put! :current-page to-do-page))
+
+#_(session/put! :current-page login-page)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+
 
 ;; -------------------------
 ;; Initialize app
@@ -148,7 +174,8 @@
 
 
 (defn mount-components []
-  (r/render [home-page] (.getElementById js/document "app")))
+  (session/put! :current-page login-page)
+  (r/render [#'page] (.getElementById js/document "app")))
 
 (defn init! []
   (mount-components))
