@@ -1,0 +1,539 @@
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 1.022 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/goog/deps.js
+notifying browser that file changed:  target/cljsbuild/public/js/out/cljs_deps.js
+notifying browser that file changed:  target/cljsbuild/public/js/out/todo_app/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.885 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/todo_app/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.692 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/todo_app/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.915 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/todo_app/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.664 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/todo_app/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 1.186 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/goog/deps.js
+notifying browser that file changed:  target/cljsbuild/public/js/out/cljs_deps.js
+notifying browser that file changed:  target/cljsbuild/public/js/out/todo_app/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.819 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/todo_app/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.762 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/todo_app/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.72 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/todo_app/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.702 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/todo_app/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.616 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/todo_app/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 1.363 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/goog/deps.js
+notifying browser that file changed:  target/cljsbuild/public/js/out/cljs_deps.js
+notifying browser that file changed:  target/cljsbuild/public/js/out/todo_app/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.827 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/todo_app/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.791 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/todo_app/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 1.05 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/todo_app/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.832 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/todo_app/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.68 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/todo_app/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.708 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/todo_app/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.671 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/todo_app/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.666 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/todo_app/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.641 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/todo_app/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.559 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/todo_app/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.504 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/todo_app/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.443 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/todo_app/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.498 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/todo_app/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.411 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/todo_app/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.431 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/todo_app/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.434 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/todo_app/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[31mFailed to compile "target/cljsbuild/public/js/app.js" in 0.178 seconds.[0m
+[36m----  Could not Analyze  src/cljs/todo_app/core.cljs   line:31  column:1  ----[0m
+
+  [1mParameter declaration missing[0m
+
+  [33m31[0m  [1m(defn pages[0m
+  [0m  [0m  [33m^--- Parameter declaration missing[0m
+  [36m32[0m  [36m  {:home #'home-page[0m
+  [36m33[0m  [36m   :todo #'todo-page})[0m
+
+[36m----  Analysis Error : Please see src/cljs/todo_app/core.cljs  ----[0m
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[31mFailed to compile "target/cljsbuild/public/js/app.js" in 0.262 seconds.[0m
+[36m----  Could not Analyze  src/cljs/todo_app/core.cljs   line:31  column:1  ----[0m
+
+  [1mParameter declaration missing[0m
+
+  [33m31[0m  [1m(defn pages[0m
+  [0m  [0m  [33m^--- Parameter declaration missing[0m
+  [36m32[0m  [36m  {:home #'home-page[0m
+  [36m33[0m  [36m   :todo #'todo-page})[0m
+
+[36m----  Analysis Error : Please see src/cljs/todo_app/core.cljs  ----[0m
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[31mFailed to compile "target/cljsbuild/public/js/app.js" in 0.338 seconds.[0m
+[36m----  Could not Analyze  src/cljs/todo_app/core.cljs   line:31  column:1  ----[0m
+
+  [1mUnable to resolve var: home-page in this context at line 31 src/cljs/todo_app/core.cljs[0m
+
+  [33m31[0m  [1m(def pages[0m
+  [0m  [0m  [33m^--- Unable to resolve var: home-page in this context at line 31 src/cljs/todo_app/core.cljs[0m
+  [36m32[0m  [36m  {:home #'home-page[0m
+  [36m33[0m  [36m   :todo #'todo-page})[0m
+
+[36m----  Analysis Error : Please see src/cljs/todo_app/core.cljs  ----[0m
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[36m----  Compiler Warning on   src/cljs/todo_app/core.cljs   line:83  column:25  ----[0m
+
+  [1mUse of undeclared Var secretary.core/dispatch[0m
+
+  [36m79[0m  [36m             {:params {:user @user-atom}[0m
+  [36m80[0m  [36m              :format :json[0m
+  [36m81[0m  [36m              :response-format :json[0m
+  [36m82[0m  [36m              :keywords? true[0m
+  [33m83[0m  [1m              :handler (secretary/dispatch "/user")[0m
+  [0m  [0m  [33m                        ^--- Use of undeclared Var secretary.core/dispatch[0m
+  [36m84[0m  [36m              :error-handler error-handler}))))[0m
+  [36m85[0m  [36m[0m
+  [36m86[0m  [36m(defn login-error[0m
+  [36m87[0m  [36m  [flag][0m
+  [36m88[0m  [36m  nil)[0m
+
+[36m----  Compiler Warning : Please see src/cljs/todo_app/core.cljs  ----[0m
+[36m----  Compiler Warning on   src/cljs/todo_app/core.cljs   line:89  column:1  ----[0m
+
+  [1mUse of undeclared Var todo-app.core/pp[0m
+
+  [36m86[0m  [36m(defn login-error[0m
+  [36m87[0m  [36m  [flag][0m
+  [36m88[0m  [36m  nil)[0m
+  [33m89[0m  [1mpp[0m
+  [0m  [0m  [33m^--- Use of undeclared Var todo-app.core/pp[0m
+  [36m90[0m  [36m(defn logout[0m
+  [36m91[0m  [36m  [][0m
+  [36m92[0m  [36m  (reset! cur-page "login"))[0m
+  [36m93[0m  [36m[0m
+  [36m94[0m  [36m(defn login-page [][0m
+
+[36m----  Compiler Warning : Please see src/cljs/todo_app/core.cljs  ----[0m
+[31mFailed to compile "target/cljsbuild/public/js/app.js" in 0.413 seconds.[0m
+[36m----  Could not Analyze  src/cljs/todo_app/core.cljs   line:136  column:1  ----[0m
+
+  [1mUnable to resolve var: home-page in this context at line 136 src/cljs/todo_app/core.cljs[0m
+
+  [36m134[0m  [36m     [c-show-output]]]])[0m
+  [36m135[0m  [36m[0m
+  [33m136[0m  [1m(def pages[0m
+  [0m   [0m  [33m^--- Unable to resolve var: home-page in this context at line 136 src/cljs/todo_app/core.cljs[0m
+  [36m137[0m  [36m  {:home #'home-page[0m
+  [36m138[0m  [36m   :todo #'todo-page})[0m
+
+[36m----  Analysis Error : Please see src/cljs/todo_app/core.cljs  ----[0m
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[36m----  Compiler Warning on   src/cljs/todo_app/core.cljs   line:83  column:25  ----[0m
+
+  [1mUse of undeclared Var secretary.core/dispatch[0m
+
+  [36m79[0m  [36m             {:params {:user @user-atom}[0m
+  [36m80[0m  [36m              :format :json[0m
+  [36m81[0m  [36m              :response-format :json[0m
+  [36m82[0m  [36m              :keywords? true[0m
+  [33m83[0m  [1m              :handler (secretary/dispatch "/user")[0m
+  [0m  [0m  [33m                        ^--- Use of undeclared Var secretary.core/dispatch[0m
+  [36m84[0m  [36m              :error-handler error-handler}))))[0m
+  [36m85[0m  [36m[0m
+  [36m86[0m  [36m(defn login-error[0m
+  [36m87[0m  [36m  [flag][0m
+  [36m88[0m  [36m  nil)[0m
+
+[36m----  Compiler Warning : Please see src/cljs/todo_app/core.cljs  ----[0m
+[36m----  Compiler Warning on   src/cljs/todo_app/core.cljs   line:89  column:1  ----[0m
+
+  [1mUse of undeclared Var todo-app.core/pp[0m
+
+  [36m86[0m  [36m(defn login-error[0m
+  [36m87[0m  [36m  [flag][0m
+  [36m88[0m  [36m  nil)[0m
+  [33m89[0m  [1mpp[0m
+  [0m  [0m  [33m^--- Use of undeclared Var todo-app.core/pp[0m
+  [36m90[0m  [36m(defn logout[0m
+  [36m91[0m  [36m  [][0m
+  [36m92[0m  [36m  (reset! cur-page "login"))[0m
+  [36m93[0m  [36m[0m
+  [36m94[0m  [36m(defn login-page [][0m
+
+[36m----  Compiler Warning : Please see src/cljs/todo_app/core.cljs  ----[0m
+[31mFailed to compile "target/cljsbuild/public/js/app.js" in 0.298 seconds.[0m
+[36m----  Could not Analyze  src/cljs/todo_app/core.cljs   line:140  column:1  ----[0m
+
+  [1mUnsupported binding form: (pages (session/get :page))[0m
+
+  [36m138[0m  [36m   :todo #'todo-page})[0m
+  [36m139[0m  [36m[0m
+  [33m140[0m  [1m(defn page[0m
+  [0m   [0m  [33m^--- Unsupported binding form: (pages (session/get :page))[0m
+  [36m141[0m  [36m  [(pages (session/get :page))])[0m
+  [36m142[0m  [36m[0m
+  [36m143[0m  [36m(defroute "/user" [][0m
+
+[36m----  Analysis Error : Please see src/cljs/todo_app/core.cljs  ----[0m
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[36m----  Compiler Warning on   src/cljs/todo_app/core.cljs   line:83  column:25  ----[0m
+
+  [1mUse of undeclared Var secretary.core/dispatch[0m
+
+  [36m79[0m  [36m             {:params {:user @user-atom}[0m
+  [36m80[0m  [36m              :format :json[0m
+  [36m81[0m  [36m              :response-format :json[0m
+  [36m82[0m  [36m              :keywords? true[0m
+  [33m83[0m  [1m              :handler (secretary/dispatch "/user")[0m
+  [0m  [0m  [33m                        ^--- Use of undeclared Var secretary.core/dispatch[0m
+  [36m84[0m  [36m              :error-handler error-handler}))))[0m
+  [36m85[0m  [36m[0m
+  [36m86[0m  [36m(defn login-error[0m
+  [36m87[0m  [36m  [flag][0m
+  [36m88[0m  [36m  nil)[0m
+
+[36m----  Compiler Warning : Please see src/cljs/todo_app/core.cljs  ----[0m
+[36m----  Compiler Warning on   src/cljs/todo_app/core.cljs   line:89  column:1  ----[0m
+
+  [1mUse of undeclared Var todo-app.core/pp[0m
+
+  [36m86[0m  [36m(defn login-error[0m
+  [36m87[0m  [36m  [flag][0m
+  [36m88[0m  [36m  nil)[0m
+  [33m89[0m  [1mpp[0m
+  [0m  [0m  [33m^--- Use of undeclared Var todo-app.core/pp[0m
+  [36m90[0m  [36m(defn logout[0m
+  [36m91[0m  [36m  [][0m
+  [36m92[0m  [36m  (reset! cur-page "login"))[0m
+  [36m93[0m  [36m[0m
+  [36m94[0m  [36m(defn login-page [][0m
+
+[36m----  Compiler Warning : Please see src/cljs/todo_app/core.cljs  ----[0m
+[36m----  Compiler Warning on   src/cljs/todo_app/core.cljs   line:149  column:2  ----[0m
+
+  [1mUse of undeclared Var todo-app.core/defrout[0m
+
+  [36m146[0m  [36m(defroute "/user" [][0m
+  [36m147[0m  [36m  (session/put! :page :todo))[0m
+  [36m148[0m  [36m[0m
+  [33m149[0m  [1m(defrout "/" [][0m
+  [0m   [0m  [33m ^--- Use of undeclared Var todo-app.core/defrout[0m
+  [36m150[0m  [36m  (session/put! :page :home))[0m
+  [36m151[0m  [36m[0m
+  [36m152[0m  [36m[0m
+  [36m153[0m  [36m(defn show-page [][0m
+  [36m154[0m  [36m  (condp = @cur-page[0m
+
+[36m----  Compiler Warning : Please see src/cljs/todo_app/core.cljs  ----[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.784 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/todo_app/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[36m----  Compiler Warning on   src/cljs/todo_app/core.cljs   line:89  column:1  ----[0m
+
+  [1mUse of undeclared Var todo-app.core/pp[0m
+
+  [36m86[0m  [36m(defn login-error[0m
+  [36m87[0m  [36m  [flag][0m
+  [36m88[0m  [36m  nil)[0m
+  [33m89[0m  [1mpp[0m
+  [0m  [0m  [33m^--- Use of undeclared Var todo-app.core/pp[0m
+  [36m90[0m  [36m(defn logout[0m
+  [36m91[0m  [36m  [][0m
+  [36m92[0m  [36m  (reset! cur-page "login"))[0m
+  [36m93[0m  [36m[0m
+  [36m94[0m  [36m(defn login-page [][0m
+
+[36m----  Compiler Warning : Please see src/cljs/todo_app/core.cljs  ----[0m
+[36m----  Compiler Warning on   src/cljs/todo_app/core.cljs   line:149  column:2  ----[0m
+
+  [1mUse of undeclared Var todo-app.core/defrout[0m
+
+  [36m146[0m  [36m(defroute "/user" [][0m
+  [36m147[0m  [36m  (session/put! :page :todo))[0m
+  [36m148[0m  [36m[0m
+  [33m149[0m  [1m(defrout "/" [][0m
+  [0m   [0m  [33m ^--- Use of undeclared Var todo-app.core/defrout[0m
+  [36m150[0m  [36m  (session/put! :page :home))[0m
+  [36m151[0m  [36m[0m
+  [36m152[0m  [36m[0m
+  [36m153[0m  [36m(defn show-page [][0m
+  [36m154[0m  [36m  (condp = @cur-page[0m
+
+[36m----  Compiler Warning : Please see src/cljs/todo_app/core.cljs  ----[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.59 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/todo_app/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[36m----  Compiler Warning on   src/cljs/todo_app/core.cljs   line:149  column:2  ----[0m
+
+  [1mUse of undeclared Var todo-app.core/defrout[0m
+
+  [36m146[0m  [36m(defroute "/user" [][0m
+  [36m147[0m  [36m  (session/put! :page :todo))[0m
+  [36m148[0m  [36m[0m
+  [33m149[0m  [1m(defrout "/" [][0m
+  [0m   [0m  [33m ^--- Use of undeclared Var todo-app.core/defrout[0m
+  [36m150[0m  [36m  (session/put! :page :home))[0m
+  [36m151[0m  [36m[0m
+  [36m152[0m  [36m[0m
+  [36m153[0m  [36m(defn show-page [][0m
+  [36m154[0m  [36m  (condp = @cur-page[0m
+
+[36m----  Compiler Warning : Please see src/cljs/todo_app/core.cljs  ----[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.601 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/todo_app/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.481 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/todo_app/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.519 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/todo_app/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[36m----  Compiler Warning on   src/cljs/todo_app/core.cljs   line:83  column:29  ----[0m
+
+  [1mWrong number of args (0) passed to todo-app.core/h-update-atom![0m
+
+  [36m79[0m  [36m             {:params {:user @user-atom}[0m
+  [36m80[0m  [36m              :format :json[0m
+  [36m81[0m  [36m              :response-format :json[0m
+  [36m82[0m  [36m              :keywords? true[0m
+  [33m83[0m  [1m              :handler #(do (h-update-atom!)  (secretary/dispatch! "/user"))[0m
+  [0m  [0m  [33m                            ^--- Wrong number of args (0) passed to todo-app.core/h-update-atom![0m
+  [36m84[0m  [36m              :error-handler error-handler}))))[0m
+  [36m85[0m  [36m[0m
+  [36m86[0m  [36m(defn login-error[0m
+  [36m87[0m  [36m  [flag][0m
+  [36m88[0m  [36m  nil)[0m
+
+[36m----  Compiler Warning : Please see src/cljs/todo_app/core.cljs  ----[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.508 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/todo_app/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[36m----  Compiler Warning on   src/cljs/todo_app/core.cljs   line:83  column:24  ----[0m
+
+  [1mWrong number of args (0) passed to todo-app.core/h-update-atom![0m
+
+  [36m79[0m  [36m             {:params {:user @user-atom}[0m
+  [36m80[0m  [36m              :format :json[0m
+  [36m81[0m  [36m              :response-format :json[0m
+  [36m82[0m  [36m              :keywords? true[0m
+  [33m83[0m  [1m              :handler (h-update-atom!)[0m
+  [0m  [0m  [33m                       ^--- Wrong number of args (0) passed to todo-app.core/h-update-atom![0m
+  [36m84[0m  [36m              :error-handler error-handler}))))[0m
+  [36m85[0m  [36m[0m
+  [36m86[0m  [36m(defn login-error[0m
+  [36m87[0m  [36m  [flag][0m
+  [36m88[0m  [36m  nil)[0m
+
+[36m----  Compiler Warning : Please see src/cljs/todo_app/core.cljs  ----[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.523 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/todo_app/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.473 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/todo_app/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[36m----  Compiler Warning on   src/cljs/todo_app/core.cljs   line:77  column:10  ----[0m
+
+  [1mNo such namespace: secretaty, could not locate secretaty.cljs, secretaty.cljc, or JavaScript source providing ""[0m
+
+  [36m74[0m  [36m(defn login-handler[0m
+  [36m75[0m  [36m  [flag][0m
+  [36m76[0m  [36m  (if flag[0m
+  [33m77[0m  [1m    (do (secretaty/dispath! "/user")[0m
+  [0m  [0m  [33m         ^--- No such namespace: secretaty, could not locate secretaty.cljs, secretaty.cljc, or JavaScript source providing ""[0m
+  [36m78[0m  [36m        (GET (str server "tasks")[0m
+  [36m79[0m  [36m             {:params {:user @user-atom}[0m
+  [36m80[0m  [36m              :format :json[0m
+  [36m81[0m  [36m              :response-format :json[0m
+  [36m82[0m  [36m              :keywords? true[0m
+
+[36m----  Compiler Warning : Please see src/cljs/todo_app/core.cljs  ----[0m
+[36m----  Compiler Warning on   src/cljs/todo_app/core.cljs   line:77  column:10  ----[0m
+
+  [1mUse of undeclared Var secretaty/dispath![0m
+
+  [36m74[0m  [36m(defn login-handler[0m
+  [36m75[0m  [36m  [flag][0m
+  [36m76[0m  [36m  (if flag[0m
+  [33m77[0m  [1m    (do (secretaty/dispath! "/user")[0m
+  [0m  [0m  [33m         ^--- Use of undeclared Var secretaty/dispath![0m
+  [36m78[0m  [36m        (GET (str server "tasks")[0m
+  [36m79[0m  [36m             {:params {:user @user-atom}[0m
+  [36m80[0m  [36m              :format :json[0m
+  [36m81[0m  [36m              :response-format :json[0m
+  [36m82[0m  [36m              :keywords? true[0m
+
+[36m----  Compiler Warning : Please see src/cljs/todo_app/core.cljs  ----[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.446 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/todo_app/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[36m----  Compiler Warning on   src/cljs/todo_app/core.cljs   line:77  column:10  ----[0m
+
+  [1mUse of undeclared Var secretary.core/dispath![0m
+
+  [36m74[0m  [36m(defn login-handler[0m
+  [36m75[0m  [36m  [flag][0m
+  [36m76[0m  [36m  (if flag[0m
+  [33m77[0m  [1m    (do (secretary/dispath! "/user")[0m
+  [0m  [0m  [33m         ^--- Use of undeclared Var secretary.core/dispath![0m
+  [36m78[0m  [36m        (GET (str server "tasks")[0m
+  [36m79[0m  [36m             {:params {:user @user-atom}[0m
+  [36m80[0m  [36m              :format :json[0m
+  [36m81[0m  [36m              :response-format :json[0m
+  [36m82[0m  [36m              :keywords? true[0m
+
+[36m----  Compiler Warning : Please see src/cljs/todo_app/core.cljs  ----[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.452 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/todo_app/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.381 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/todo_app/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.381 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/todo_app/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.375 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/todo_app/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.592 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/todo_app/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.595 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/todo_app/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.496 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/todo_app/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[36m----  Compiler Warning on   src/cljs/todo_app/core.cljs   line:77  column:10  ----[0m
+
+  [1mUse of undeclared Var secretary.core/dispath![0m
+
+  [36m74[0m  [36m(defn login-handler[0m
+  [36m75[0m  [36m  [flag][0m
+  [36m76[0m  [36m  (if flag[0m
+  [33m77[0m  [1m    (do (secretary/dispath! "/user")[0m
+  [0m  [0m  [33m         ^--- Use of undeclared Var secretary.core/dispath![0m
+  [36m78[0m  [36m        (GET (str server "tasks")[0m
+  [36m79[0m  [36m             {:params {:user @user-atom}[0m
+  [36m80[0m  [36m              :format :json[0m
+  [36m81[0m  [36m              :response-format :json[0m
+  [36m82[0m  [36m              :keywords? true[0m
+
+[36m----  Compiler Warning : Please see src/cljs/todo_app/core.cljs  ----[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.579 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/todo_app/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.483 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/todo_app/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.441 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/todo_app/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.475 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/todo_app/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.496 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/todo_app/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.441 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/todo_app/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.548 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/todo_app/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[31mFailed to compile "target/cljsbuild/public/js/app.js" in 0.46 seconds.[0m
+[36m----  Could not Compile  src/cljs/todo_app/core.cljs  ----[0m
+
+  [1mfailed compiling file:/home/bhavesh/tech-team/cljs_projs/bhavesh/todo-app/src/cljs/todo_app/core.cljs[0m
+
+[36m----  Compiler Error : Please see src/cljs/todo_app/core.cljs  ----[0m
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.808 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/goog/deps.js
+notifying browser that file changed:  target/cljsbuild/public/js/out/cljs_deps.js
+notifying browser that file changed:  target/cljsbuild/public/js/out/todo_app/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.753 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/todo_app/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.558 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/todo_app/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.553 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/todo_app/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.616 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/todo_app/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.506 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/todo_app/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[31mFailed to compile "target/cljsbuild/public/js/app.js" in 0.25 seconds.[0m
+[36m----  Could not Analyze  src/cljs/todo_app/core.cljs  ----[0m
+
+  [1mNo such namespace: accountant/core, could not locate accountant_SLASH_core.cljs, accountant_SLASH_core.cljc, or JavaScript source providing "core" [0m
+
+[36m----  Analysis Error : Please see src/cljs/todo_app/core.cljs  ----[0m
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.694 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/goog/deps.js
+notifying browser that file changed:  target/cljsbuild/public/js/out/cljs_deps.js
+notifying browser that file changed:  target/cljsbuild/public/js/out/todo_app/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.51 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/todo_app/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.475 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/todo_app/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.485 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/todo_app/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.506 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/todo_app/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.5 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/todo_app/core.js

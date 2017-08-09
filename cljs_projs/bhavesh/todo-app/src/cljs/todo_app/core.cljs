@@ -2,12 +2,17 @@
   (:require [reagent.core :as r]
             [reagent.session :as session]
             [todo-app.ajax :refer [load-interceptors!]]
-            [ajax.core :refer [GET POST]])
-  (:import goog.History))
+            [ajax.core :refer [GET POST]]
+            [secretary.core :as secretary :refer-macros [defroute]]
+            [accountant.core :as accountant]))
+
+#_(accountant/configure-navigation! {:nav-handler (fn [path]
+                                                  (secretary/dispatch! path))
+                                   :path-exists? (fn [path]
+                                                   (secretary/locate-route path))})
+
 
 (def status (r/atom {}))
-
-(def cur-page (r/atom "login"))
 
 (def user-atom (r/atom nil))
 
@@ -18,6 +23,14 @@
 (def server "http://localhost:3000/")
 
 (defn error-handler [] (log "error!"))
+
+
+#_(defroute "/users/:id" [id query-params]
+  (.log js/console (str "User :" id))
+  (.log js/console (pr-str query-params)))
+
+#_(secretary/dispatch! "/users/gf3?action=delete")
+
 
 
 (defn h-update-atom!
@@ -65,7 +78,7 @@
 (defn login-handler
   [flag]
   (if flag
-    (do (reset! cur-page "todo")
+    (do (secretary/dispatch! "/user")
         (GET (str server "tasks")
              {:params {:user @user-atom}
               :format :json
@@ -78,9 +91,7 @@
   [flag]
   nil)
 
-(defn logout
-  []
-  (reset! cur-page "login"))
+
 
 (defn login-page []
   [:div
@@ -120,17 +131,37 @@
     [:div [:input {:type "text"
                    :id "todo-input"}]
      [:input {:type "submit" :value "Add-task"}]
-     [:input {:type "button" :value "Logout" :on-click logout}]]
+     [:input {:type "button" :value "Logout" :on-click #(secretary/dispatch! "/")}]]
     [:div [:h2 "all tasks"]
      [c-show-output]]]])
 
-(defn show-page []
+
+
+(def pages
+  {:home login-page
+   :todo todo-page})
+
+(session/put! :page :home)
+
+(defn page []
+  [(pages (session/get :page))])
+
+
+
+(defroute "/user" []
+  (session/put! :page :todo))
+
+(defroute "/" []
+  (session/put! :page :home))
+
+
+#_(defn show-page []
   (condp = @cur-page
     "login" [login-page]
     "todo" [todo-page]))
 
 (defn mount-components []
-  (r/render [show-page] (.getElementById js/document "app")))
+  (r/render [page] (.getElementById js/document "app")))
 
 (defn init! []
   (mount-components))
