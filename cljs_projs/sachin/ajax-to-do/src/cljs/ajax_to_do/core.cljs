@@ -16,7 +16,7 @@
   (.log js/console (apply str msgs)))
 
 
-(def task-atom (r/atom {:current-user ""
+#_(def task-atom (r/atom {:current-user ""
 
                         :tasks []}))
 
@@ -39,7 +39,8 @@
   [[response]]
   (let [body (:content response)
         tasks (mapv #(:task %) body)]
-    (swap! task-atom assoc-in [:tasks] tasks)))
+    #_(swap! task-atom assoc-in [:tasks] tasks)
+    (session/put! :tasks tasks)))
 
 (defn user-valid
   [[response]]
@@ -47,8 +48,9 @@
         user (:user response)]
     #_(log "USERVALID")
     (if auth
-      (do (swap! task-atom assoc-in [:current-user] user)
+      (do #_(swap! task-atom assoc-in [:current-user] user)
           #_(js/alert "Changing route")
+          (session/put! :current-user user)
           (secretary/dispatch! "/todos")
           (GET (str server "user-todo")
                {:params {:user user}
@@ -64,7 +66,7 @@
   (set! (.-disabled (.getElementById js/document id))
         true)
   (GET (str server "mark-done")
-       {:params {:user (:current-user @task-atom)
+       {:params {:user (session/get :current-user)
                  :task (get-input id)}
         :format :json
         :response-format :json
@@ -78,10 +80,10 @@
   []
   [:div
    [:h3 "TASK-LIST"]
-   (doall  (for [i (range (count (:tasks @task-atom)))]
+   (doall  (for [i (range (count (session/get :tasks)))]
              [:input {:type "button"
                       :id i
-                      :value (get (:tasks @task-atom) i)
+                      :value (get (session/get :tasks) i)
                       :on-click #(update-status-done i)}]))])
 
 
@@ -102,8 +104,8 @@
                                 :handler user-valid
                                 :error-handler error-handler})))}
     [:h2 "Login"]
-    [:div [:input {:type "text" :id "user-name"}]]
-    [:div [:input {:type "text" :id "password"}]]
+    [:div [:input {:type "text" :id "user-name" :placeholder "Enter Username"}]]
+    [:div [:input {:type "text" :id "password" :placeholder "Enter Password"}]]
     [:div [:input {:type "submit" :value "Submit"}]]]])
 
 (defn to-do-page []
@@ -119,13 +121,13 @@
                              (let [t (get-input "task")]
                                (GET (str server "todo")
                                     {:params {:task t
-                                              :user (:current-user @task-atom)}
+                                              :user (session/get :current-user)}
                                      :format :json
                                      :response-format :json
                                      :keywords? true
                                      :handler add-todo
                                      :error-handler error-handler})))}
-         [:input {:type "text" :id "task"}]
+         [:input {:type "text" :id "task" :placeholder "Enter Task"}]
          [:input {:type "submit" :value "Add"}]
          [:input {:type "button" :value "Log Out" :on-click #(secretary/dispatch! "/")}]]]
        [:td
@@ -135,7 +137,7 @@
                              (let [orig (get-input "original-task")
                                    upd (get-input "updated-task")]
                                (GET (str server "update-todo")
-                                    {:params {:user (:current-user @task-atom)
+                                    {:params {:user (session/get :current-user)
                                               :task orig
                                               :new-task upd}
                                      :format :json
@@ -143,8 +145,8 @@
                                      :keywords? true
                                      :handler do-nothing
                                      :error-handler error-handler})))}
-         [:input {:type "text" :id "original-task"}]
-         [:input {:type "text" :id "updated-task"}]
+         [:input {:type "text" :id "original-task" :placeholder "Enter Original Task"}]
+         [:input {:type "text" :id "updated-task" :placeholder "Enter Updated Task"}]
          [:input {:type "submit" :value "Update" }]]]]
       [:tr
        [c-todo]]]]])
@@ -182,6 +184,8 @@
 
 (defn mount-components []
   (session/put! :current-page login-page)
+  (session/put! :current-user "")
+  (session/put! :tasks [])
   (r/render [#'page] (.getElementById js/document "app")))
 
 (defn init! []
