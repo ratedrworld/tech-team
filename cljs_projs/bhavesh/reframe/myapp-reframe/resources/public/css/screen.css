@@ -1,0 +1,108 @@
+html,
+body {
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  height: 100%;
+  background-image: url("/img/todo_background.jpg")
+}
+
+.task{
+
+    font: italic bold 25px Georgia;
+}
+
+.taskdone{
+    font: italic 25px Georgia;
+    color: green
+}
+
+.markdone {
+    font: bold 10px Serif;
+    position: relative;
+    width: 100px;
+    height: 30px;
+    margin-left: 10px;
+}
+
+.quote-head {
+    font-family: 'Serif';
+    color: brown;
+    postion: relative;
+    margin-top: 30px;
+}
+
+.quote {
+    font: italic bold 20px Georgia;
+}
+.buttonclass {
+    background-color: blue;
+    color: white;
+    position: relative;
+    width: 100px;
+    height: 35px;
+    margin-left: 147px;
+    margin-top: 10px
+}
+
+.navbar {
+  margin-bottom: 10px;
+  border-radius: 0px;
+}
+.navbar-brand {
+  float: none;
+}
+.navbar-nav .nav-item {
+  float: none;
+}
+.navbar-divider,
+.navbar-nav .nav-item+.nav-item,
+.navbar-nav .nav-link + .nav-link {
+  margin-left: 0;
+}
+@media (min-width: 34em) {
+  .navbar-brand {
+    float: left;
+  }
+  .navbar-nav .nav-item {
+    float: left;
+  }
+  .navbar-divider,
+  .navbar-nav .nav-item+.nav-item,
+  .navbar-nav .nav-link + .nav-link {
+    margin-left: 1rem;
+  }
+}
+
+@-moz-keyframes three-quarters-loader {
+    0% {
+        -moz-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -moz-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+@-webkit-keyframes three-quarters-loader {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+@keyframes three-quarters-loader {
+    0% {
+        -moz-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -moz-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}

@@ -1,0 +1,1 @@
+web: java $JVM_OPTS -cp target/uberjar/myapp-reframe.jar clojure.main -m myapp-reframe.core
