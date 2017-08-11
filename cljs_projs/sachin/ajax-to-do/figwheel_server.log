@@ -1,0 +1,339 @@
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.673 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/goog/deps.js
+notifying browser that file changed:  target/cljsbuild/public/js/out/cljs_deps.js
+notifying browser that file changed:  target/cljsbuild/public/js/out/ajax_to_do/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.567 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/ajax_to_do/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.509 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/ajax_to_do/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.564 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/ajax_to_do/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.472 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/ajax_to_do/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.447 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/ajax_to_do/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.461 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/ajax_to_do/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.457 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/ajax_to_do/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.506 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/ajax_to_do/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.413 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/ajax_to_do/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.445 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/ajax_to_do/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.419 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/ajax_to_do/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.426 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/ajax_to_do/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.467 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/ajax_to_do/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.416 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/ajax_to_do/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.412 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/ajax_to_do/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.424 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/ajax_to_do/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.478 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/ajax_to_do/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.401 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/ajax_to_do/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.429 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/ajax_to_do/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.457 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/ajax_to_do/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.406 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/ajax_to_do/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.445 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/ajax_to_do/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.401 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/ajax_to_do/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.425 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/ajax_to_do/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.399 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/ajax_to_do/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.429 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/ajax_to_do/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.416 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/ajax_to_do/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.418 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/ajax_to_do/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.392 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/ajax_to_do/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.423 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/ajax_to_do/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.389 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/ajax_to_do/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.395 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/ajax_to_do/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.398 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/ajax_to_do/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.429 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/ajax_to_do/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.394 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/ajax_to_do/core.js
+Notifying browser that CSS file changed: resources/public/css/screen.css
+Notifying browser that CSS file changed: resources/public/css/screen.css
+Notifying browser that CSS file changed: resources/public/css/screen.css
+Notifying browser that CSS file changed: resources/public/css/screen.css
+Notifying browser that CSS file changed: resources/public/css/screen.css
+Notifying browser that CSS file changed: resources/public/css/screen.css
+Notifying browser that CSS file changed: resources/public/css/screen.css
+Notifying browser that CSS file changed: resources/public/css/screen.css
+Notifying browser that CSS file changed: resources/public/css/screen.css
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.387 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/ajax_to_do/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.389 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/ajax_to_do/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.427 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/ajax_to_do/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.389 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/ajax_to_do/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.401 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/ajax_to_do/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.4 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/ajax_to_do/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[36m----  Compiler Warning on   src/cljs/ajax_to_do/core.cljs   line:110  column:25  ----[0m
+
+  [1mUse of undeclared Var ajax-to-do.core/btn-primary[0m
+
+  [36m106[0m  [36m                                 :error-handler error-handler})))}[0m
+  [36m107[0m  [36m     [:h2 "Login"][0m
+  [36m108[0m  [36m     [:div.row-xs-4  [:input {:type "text" :id "user-name" :placeholder "Enter Username" :class "form-control"}]][0m
+  [36m109[0m  [36m     [:div.row-xs-4 [:input {:type "password" :id "password" :placeholder "Enter Password" :class "form-control"}]][0m
+  [33m110[0m  [1m     [:div [:button.btn btn-primary {:type "submit" :value "Submit"}]]]]])[0m
+  [0m   [0m  [33m                        ^--- Use of undeclared Var ajax-to-do.core/btn-primary[0m
+  [36m111[0m  [36m[0m
+  [36m112[0m  [36m(defn to-do-page [][0m
+  [36m113[0m  [36m  [:div.container[0m
+  [36m114[0m  [36m   [:h1 "TO-DO LIST"][0m
+  [36m115[0m  [36m   [:table[0m
+
+[36m----  Compiler Warning : Please see src/cljs/ajax_to_do/core.cljs  ----[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.456 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/ajax_to_do/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.394 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/ajax_to_do/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.392 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/ajax_to_do/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.428 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/ajax_to_do/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.384 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/ajax_to_do/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.392 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/ajax_to_do/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.381 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/ajax_to_do/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.416 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/ajax_to_do/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.382 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/ajax_to_do/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.382 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/ajax_to_do/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.416 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/ajax_to_do/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.402 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/ajax_to_do/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.383 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/ajax_to_do/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.428 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/ajax_to_do/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.386 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/ajax_to_do/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.393 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/ajax_to_do/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.415 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/ajax_to_do/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.388 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/ajax_to_do/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.392 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/ajax_to_do/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.412 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/ajax_to_do/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.384 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/ajax_to_do/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.386 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/ajax_to_do/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.402 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/ajax_to_do/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.382 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/ajax_to_do/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.402 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/ajax_to_do/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.383 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/ajax_to_do/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.379 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/ajax_to_do/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.396 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/ajax_to_do/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.39 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/ajax_to_do/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.387 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/ajax_to_do/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.402 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/ajax_to_do/core.js
+Notifying browser that CSS file changed: resources/public/css/screen.css
+Notifying browser that CSS file changed: resources/public/css/screen.css
+Notifying browser that CSS file changed: resources/public/css/screen.css
+Notifying browser that CSS file changed: resources/public/css/screen.css
+Notifying browser that CSS file changed: resources/public/css/screen.css
+Notifying browser that CSS file changed: resources/public/css/screen.css
+Notifying browser that CSS file changed: resources/public/css/screen.css
+Notifying browser that CSS file changed: resources/public/css/screen.css
+Notifying browser that CSS file changed: resources/public/css/screen.css
+Notifying browser that CSS file changed: resources/public/css/screen.css
+Notifying browser that CSS file changed: resources/public/css/screen.css
+Notifying browser that CSS file changed: resources/public/css/screen.css
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.388 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/ajax_to_do/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[31mFailed to compile "target/cljsbuild/public/js/app.js" in 0.254 seconds.[0m
+[36m----  Could not Read  src/cljs/ajax_to_do/core.cljs   line:196 ----[0m
+
+  [1m/home/sachin/projects/mindseed-euler/tech-team/cljs_projs/sachin/ajax-to-do/src/cljs/ajax_to_do/core.cljs [line 196, col 6] Unmatched delimiter ).[0m
+
+  [36m194[0m  [36m    [c-todo]]][0m
+  [36m195[0m  [36m[0m
+  [33m196[0m  [1m  #_)(defn home-page [][0m
+  [0m   [0m  [33m  /home/sachin/projects/mindseed-euler/tech-team/cljs_projs/sachin/ajax-to-do/src/cljs/ajax_to_do/core.cljs [line 196, col 6] Unmatched delimiter ).[0m
+  [36m197[0m  [36m  [:div  (condp = (:current-page @task-atom)[0m
+  [36m198[0m  [36m           :login-page [login-page][0m
+  [36m199[0m  [36m           :to-do-page [to-do-page])])[0m
+
+[36m----  Reader Error : Please see src/cljs/ajax_to_do/core.cljs  ----[0m
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.374 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/ajax_to_do/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.368 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/ajax_to_do/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.396 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/ajax_to_do/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.379 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/ajax_to_do/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.384 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/ajax_to_do/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.377 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/ajax_to_do/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.389 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/ajax_to_do/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.386 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/ajax_to_do/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.404 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/ajax_to_do/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.377 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/ajax_to_do/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.39 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/ajax_to_do/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.368 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/ajax_to_do/core.js
+Notifying browser that CSS file changed: resources/public/css/screen.css
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.382 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/ajax_to_do/core.js
+Notifying browser that CSS file changed: resources/public/css/screen.css
+Notifying browser that CSS file changed: resources/public/css/screen.css
+Notifying browser that CSS file changed: resources/public/css/screen.css
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.388 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/ajax_to_do/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.379 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/ajax_to_do/core.js
+Notifying browser that CSS file changed: resources/public/css/screen.css
+Notifying browser that CSS file changed: resources/public/css/screen.css
+Notifying browser that CSS file changed: resources/public/css/screen.css
+Notifying browser that CSS file changed: resources/public/css/screen.css
+Notifying browser that CSS file changed: resources/public/css/screen.css
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.678 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/goog/deps.js
+notifying browser that file changed:  target/cljsbuild/public/js/out/cljs_deps.js
+notifying browser that file changed:  target/cljsbuild/public/js/out/ajax_to_do/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.507 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/ajax_to_do/core.js

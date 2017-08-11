@@ -86,29 +86,27 @@
                       :value (get (session/get :tasks) i)
                       :on-click #(update-status-done i)}]))])
 
-
-
-
 (defn login-page []
-  [:div
-   [:form {:action "#"
-           :on-submit (fn [e]
-                        (let [u (get-input "user-name")
-                              p (get-input "password")]
-                          (GET (str server "auth")
-                               {:params {:user u
-                                         :pass p}
-                                :format :json
-                                :response-format :json
-                                :keywords? true
-                                :handler user-valid
-                                :error-handler error-handler})))}
-    [:h2 "Login"]
-    [:div [:input {:type "text" :id "user-name" :placeholder "Enter Username"}]]
-    [:div [:input {:type "text" :id "password" :placeholder "Enter Password"}]]
-    [:div [:input {:type "submit" :value "Submit"}]]]])
+  [:div.container
+   [:div.row
+    [:form {:action "#"
+            :on-submit (fn [e]
+                         (let [u (get-input "user-name")
+                               p (get-input "password")]
+                           (GET (str server "auth")
+                                {:params {:user u
+                                          :pass p}
+                                 :format :json
+                                 :response-format :json
+                                 :keywords? true
+                                 :handler user-valid
+                                 :error-handler error-handler})))}
+     [:h1 "Login"]
+     [:div.row-xs-4  [:input {:type "text" :id "user-name" :placeholder "Enter Username" :class "form-control"}]]
+     [:div.row-xs-4 [:input {:type "password" :id "password" :placeholder "Enter Password" :class "form-control"}]]
+     [:div [:input {:type "submit" :value "Submit"}]]]]])
 
-(defn to-do-page []
+#_(defn to-do-page []
   [:div.container
    [:h1 "TO-DO LIST"]
    [:table
@@ -151,15 +149,52 @@
       [:tr
        [c-todo]]]]])
 
+(defn to-do-page []
+  [:div.container
+   [:h1 "TO-DO LIST"]
+   [:div.row
+    [:div.col-md-6
+     [:form {:action "#"
+                :on-submit (fn [e]
+                             (let [t (get-input "task")]
+                               (GET (str server "todo")
+                                    {:params {:task t
+                                              :user (session/get :current-user)}
+                                     :format :json
+                                     :response-format :json
+                                     :keywords? true
+                                     :handler add-todo
+                                     :error-handler error-handler})))}
+      [:div.row
+       [:h2 "Add Task"]
+       [:input.row.xs-4 {:type "text" :id "task" :placeholder "Enter Task"}]]
+      [:div.col [:input {:type "submit" :value "Add"}]
+       [:input {:type "button" :value "Log Out" :on-click #(secretary/dispatch! "/")}]]]]
+    [:div.col-md-6
+     [:h2 "Update Task"]
+     [:form {:action "#"
+             :on-submit (fn [e]
+                          (let [orig (get-input "original-task")
+                                upd (get-input "updated-task")]
+                            (GET (str server "update-todo")
+                                 {:params {:user (session/get :current-user)
+                                           :task orig
+                                           :new-task upd}
+                                  :format :json
+                                  :response-format :json
+                                  :keywords? true
+                                  :handler do-nothing
+                                  :error-handler error-handler})))}
+      [:input {:type "text" :id "original-task" :placeholder "Enter Original Task"}]
+      [:input {:type "text" :id "updated-task" :placeholder "Enter Updated Task"}]
+      [:input {:type "submit" :value "Update" }]]]]
+   [:div.row
+    [c-todo]]])
 
-#_(defn home-page []
-  [:div  (condp = (:current-page @task-atom)
-           :login-page [login-page]
-           :to-do-page [to-do-page])])
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (secretary/set-config! :prefix "#")
+
+
 
 (defn page []
   [(session/get :current-page)])
