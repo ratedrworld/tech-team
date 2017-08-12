@@ -20,7 +20,6 @@
 
 (defn log [& params] (.log js/console (apply str params)))
 
-
 (defn error-handler [] (log "error!"))
 
 (defn set-by-id [id value] (set! (.-value (.getElementById js/document id))
