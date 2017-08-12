@@ -7,7 +7,8 @@ body {
 
 .task{
 
-    font: italic bold 25px Georgia;
+    font: italic 25px Georgia;
+    margin-top: 10px;
 }
 
 .taskdone{
@@ -20,7 +21,7 @@ body {
     position: relative;
     width: 100px;
     height: 30px;
-    margin-left: 10px;
+    margin-top: 10px;
 }
 
 .quote-head {
@@ -30,6 +31,12 @@ body {
     margin-top: 30px;
 }
 
+.inputclass{
+    position: relative;
+    width: 30%;
+    height: 30%;
+}
+
 .quote {
     font: italic bold 20px Georgia;
 }
@@ -37,10 +44,10 @@ body {
     background-color: blue;
     color: white;
     position: relative;
-    width: 100px;
-    height: 35px;
-    margin-left: 147px;
-    margin-top: 10px
+    width: 30%;
+    height: 30%;
+
+
 }
 
 .navbar {

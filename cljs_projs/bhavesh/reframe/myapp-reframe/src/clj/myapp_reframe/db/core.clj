@@ -38,3 +38,14 @@
   [user task]
   (mc/update db user {:task task}
              {$set {:status "Complete"}}))
+
+
+(defn delete-task
+  [user task]
+  (mc/remove db user {:task task}))
+
+
+(defn update-task
+  [user task new-task]
+  (mc/update db user {:task task}
+             {$set {:task new-task}}))

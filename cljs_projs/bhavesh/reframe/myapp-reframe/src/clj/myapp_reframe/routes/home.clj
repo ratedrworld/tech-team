@@ -10,23 +10,21 @@
   (layout/render "home.html"))
 
 
-(defn all-tasks
-  [user]
-  (layout/render-json (view/return-all-tasks user)))
 
-(defn mark-complete
-  [user task]
-  (layout/render-json (view/mark-done user task)))
 
 
 (defroutes home-routes
   (GET "/" []
        (home-page))
   (GET "/todo" [task user]
-       (view/add-todo task user))
+       (layout/render-json (view/add-todo task user)))
   (GET "/user" [user password]
-       (view/check-user user password))
+       (layout/render-json (view/check-user user password)))
   (GET "/tasks" [user]
-       (all-tasks user))
+       (layout/render-json (view/return-all-tasks user)))
   (GET "/done" [user task]
-       (mark-complete user task)))
+       (layout/render-json (view/mark-done user task)))
+  (GET "/delete" [user task]
+       (layout/render-json (view/delete-task user task)))
+  (GET "/update" [user task new-task]
+       (layout/render-json (view/update-task user task new-task))))

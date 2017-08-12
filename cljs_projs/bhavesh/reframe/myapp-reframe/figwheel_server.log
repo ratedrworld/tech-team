@@ -667,3 +667,369 @@ notifying browser that file changed:  target/cljsbuild/public/js/out/myapp_refra
 [0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
 [32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.48 seconds.[0m
 notifying browser that file changed:  target/cljsbuild/public/js/out/myapp_reframe/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.84 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/goog/deps.js
+notifying browser that file changed:  target/cljsbuild/public/js/out/cljs_deps.js
+notifying browser that file changed:  target/cljsbuild/public/js/out/myapp_reframe/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.84 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/myapp_reframe/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.767 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/myapp_reframe/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.725 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/myapp_reframe/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.708 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/myapp_reframe/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[31mFailed to compile "target/cljsbuild/public/js/app.js" in 0.392 seconds.[0m
+[36m----  Could not Read  src/cljs/myapp_reframe/core.cljs   line:130 ----[0m
+
+  [1m/home/bhavesh/tech-team/cljs_projs/bhavesh/reframe/myapp-reframe/src/cljs/myapp_reframe/core.cljs [line 130, col 69] The map literal starting with :id on line 130 column 30 contains 5 form(s). Map literals must contain an even number of forms.[0m
+
+  [36m128[0m  [36m[:div [:input {:type "text"[0m
+  [36m129[0m  [36m               :id "todo-input"}][0m
+  [33m130[0m  [1m [:input.btn.btn-primary {:id  :type "submit" :value "Add-task"}][0m
+  [0m   [0m  [33m /home/bhavesh/tech-team/cljs_projs/bhavesh/reframe/myapp-reframe/src/cljs/myapp_reframe/core.cljs [line 130, col 69] The map literal starting with :id on line 130 column 30 contains 5 form(s). Map literals must contain an even number of forms.[0m
+  [36m131[0m  [36m [:input.btn.btn-primary {:type "button" :value "Logout" :on-click #(secretary/dispatch! "/")}]][0m
+  [36m132[0m  [36m[:div [:h2 "all tasks"][0m
+  [36m133[0m  [36m [c-show-output]]]])[0m
+
+[36m----  Reader Error : Please see src/cljs/myapp_reframe/core.cljs  ----[0m
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.635 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/myapp_reframe/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[31mFailed to compile "target/cljsbuild/public/js/app.js" in 0.366 seconds.[0m
+[36m----  Could not Read  src/cljs/myapp_reframe/core.cljs   line:129 ----[0m
+
+  [1m/home/bhavesh/tech-team/cljs_projs/bhavesh/reframe/myapp-reframe/src/cljs/myapp_reframe/core.cljs [line 129, col 69] The map literal starting with :id on line 129 column 30 contains 5 form(s). Map literals must contain an even number of forms.[0m
+
+  [36m127[0m  [36m[:div [:input {:type "text"[0m
+  [36m128[0m  [36m               :id "todo-input"}][0m
+  [33m129[0m  [1m [:input.btn.btn-primary {:id  :type "submit" :value "Add-task"}][0m
+  [0m   [0m  [33m /home/bhavesh/tech-team/cljs_projs/bhavesh/reframe/myapp-reframe/src/cljs/myapp_reframe/core.cljs [line 129, col 69] The map literal starting with :id on line 129 column 30 contains 5 form(s). Map literals must contain an even number of forms.[0m
+  [36m130[0m  [36m [:input.btn.btn-primary {:type "button" :value "Logout" :on-click #(secretary/dispatch! "/")}]][0m
+  [36m131[0m  [36m[:div [:h2 "all tasks"][0m
+  [36m132[0m  [36m [c-show-output]]]])[0m
+
+[36m----  Reader Error : Please see src/cljs/myapp_reframe/core.cljs  ----[0m
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.678 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/myapp_reframe/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.695 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/myapp_reframe/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.613 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/myapp_reframe/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.621 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/myapp_reframe/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[31mFailed to compile "target/cljsbuild/public/js/app.js" in 0.319 seconds.[0m
+[36m----  Could not Analyze  src/cljs/myapp_reframe/core.cljs   line:82  column:6  ----[0m
+
+  [1mWrong number of args (5) passed to: core/if-not[0m
+
+  [36m80[0m  [36m    (log task status)[0m
+  [36m81[0m  [36m    [:div[0m
+  [33m82[0m  [1m     (if-not (= "Complete" status)[0m
+  [0m  [0m  [33m     ^--- Wrong number of args (5) passed to: core/if-not[0m
+  [36m83[0m  [36m       (do [:li.task task[0m
+  [36m84[0m  [36m[0m
+  [36m85[0m  [36m            [:input.markdone {:type "button" :value "Mark done" :on-click #(mark-done task)}]])[0m
+
+[36m----  Analysis Error : Please see src/cljs/myapp_reframe/core.cljs  ----[0m
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.651 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/myapp_reframe/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.679 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/myapp_reframe/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.634 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/myapp_reframe/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.631 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/myapp_reframe/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.573 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/myapp_reframe/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.614 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/myapp_reframe/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.646 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/myapp_reframe/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.551 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/myapp_reframe/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.538 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/myapp_reframe/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.593 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/myapp_reframe/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.529 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/myapp_reframe/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.576 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/myapp_reframe/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.556 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/myapp_reframe/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.586 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/myapp_reframe/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.552 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/myapp_reframe/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.556 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/myapp_reframe/core.js
+Notifying browser that CSS file changed: resources/public/css/screen.css
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.556 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/myapp_reframe/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.551 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/myapp_reframe/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.526 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/myapp_reframe/core.js
+Notifying browser that CSS file changed: resources/public/css/screen.css
+Notifying browser that CSS file changed: resources/public/css/screen.css
+Notifying browser that CSS file changed: resources/public/css/screen.css
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.554 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/myapp_reframe/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.514 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/myapp_reframe/core.js
+Notifying browser that CSS file changed: resources/public/css/screen.css
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[36m----  Compiler Warning on   src/cljs/myapp_reframe/core.cljs   line:128  column:28  ----[0m
+
+  [1mUse of undeclared Var re-frame.core/subsribe[0m
+
+  [36m126[0m  [36m(defn todo-page [][0m
+  [36m127[0m  [36m  [:div[0m
+  [33m128[0m  [1m   [:h6 (str "Welcome :" @(rf/subsribe [:user]))][0m
+  [0m   [0m  [33m                           ^--- Use of undeclared Var re-frame.core/subsribe[0m
+  [36m129[0m  [36m   [:h2.quote-head "Todo-list"][0m
+  [36m130[0m  [36m   [:form {:action "#" :method "get"[0m
+  [36m131[0m  [36m           :on-submit (fn [e][0m
+  [36m132[0m  [36m                        (let [t (get-by-id "todo-input")][0m
+  [36m133[0m  [36m                          (when-not (empty? t)[0m
+
+[36m----  Compiler Warning : Please see src/cljs/myapp_reframe/core.cljs  ----[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.635 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/cljs_deps.js
+notifying browser that file changed:  target/cljsbuild/public/js/out/myapp_reframe/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.546 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/myapp_reframe/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.578 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/myapp_reframe/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.514 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/myapp_reframe/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.535 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/myapp_reframe/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.543 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/myapp_reframe/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.521 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/myapp_reframe/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.538 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/myapp_reframe/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.552 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/myapp_reframe/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.552 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/myapp_reframe/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.546 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/myapp_reframe/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.528 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/myapp_reframe/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.55 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/myapp_reframe/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[31mFailed to compile "target/cljsbuild/public/js/app.js" in 0.295 seconds.[0m
+[36m----  Could not Analyze  src/cljs/myapp_reframe/core.cljs   line:95  column:6  ----[0m
+
+  [1mWrong number of args (4) passed to: core/if-not[0m
+
+  [36m93[0m  [36m(log task status)[0m
+  [36m94[0m  [36m[:div.row[0m
+  [33m95[0m  [1m (if-not (= "Complete" status)[0m
+  [0m  [0m  [33m ^--- Wrong number of args (4) passed to: core/if-not[0m
+  [36m96[0m  [36m    [:input.form-control {:value task}][0m
+  [36m97[0m  [36m    [:input.markdone {:type "button" :value "Mark done" :on-click #(mark-done task)}][0m
+  [36m98[0m  [36m    (do [:li.taskdone  [:strike task][0m
+
+[36m----  Analysis Error : Please see src/cljs/myapp_reframe/core.cljs  ----[0m
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.528 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/myapp_reframe/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.53 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/myapp_reframe/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.53 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/myapp_reframe/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.53 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/myapp_reframe/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.524 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/myapp_reframe/core.js
+Notifying browser that CSS file changed: resources/public/css/screen.css
+Notifying browser that CSS file changed: resources/public/css/screen.css
+Notifying browser that CSS file changed: resources/public/css/screen.css
+Notifying browser that CSS file changed: resources/public/css/screen.css
+Notifying browser that CSS file changed: resources/public/css/screen.css
+Notifying browser that CSS file changed: resources/public/css/screen.css
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.538 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/myapp_reframe/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.541 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/myapp_reframe/core.js
+Notifying browser that CSS file changed: resources/public/css/screen.css
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[36m----  Compiler Warning on   src/cljs/myapp_reframe/core.cljs   line:98  column:77  ----[0m
+
+  [1mUse of undeclared Var myapp-reframe.core/update-task[0m
+
+  [36m 94[0m  [36m[:div.row[0m
+  [36m 95[0m  [36m (if-not (= "Complete" status)[0m
+  [36m 96[0m  [36m    [:li.task task[0m
+  [36m 97[0m  [36m     [:div [:input.markdone {:type "button" :value "Mark done" :on-click #(mark-done task)}][0m
+  [33m 98[0m  [1m      [:input.markdone {:type "button" :value "Update task" :on-click #(update-task task)}]]][0m
+  [0m   [0m  [33m                                                                        ^--- Use of undeclared Var myapp-reframe.core/update-task[0m
+  [36m 99[0m  [36m    (do [:li.taskdone  [:strike task][0m
+  [36m100[0m  [36m         [:div [:input.markdone {:type "button" :value "Delete" :on-click #(delete-task task)}] ]]))]))[0m
+
+[36m----  Compiler Warning : Please see src/cljs/myapp_reframe/core.cljs  ----[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.595 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/myapp_reframe/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.523 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/myapp_reframe/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.611 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/myapp_reframe/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.543 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/myapp_reframe/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[31mFailed to compile "target/cljsbuild/public/js/app.js" in 0.298 seconds.[0m
+[36m----  Could not Analyze  src/cljs/myapp_reframe/core.cljs   line:88  column:3  ----[0m
+
+  [1mUnknown dot form of (. nil promt nil) with classification [:cljs.analyzer/error :cljs.analyzer/symbol ()][0m
+
+  [36m86[0m  [36m(defn update-task[0m
+  [36m87[0m  [36m  [task][0m
+  [33m88[0m  [1m  (.promt ))[0m
+  [0m  [0m  [33m  ^--- Unknown dot form of (. nil promt nil) with classification [:cljs.analyzer/error :cljs.analyzer/symbol ()][0m
+  [36m89[0m  [36m[0m
+  [36m90[0m  [36m[0m
+  [36m91[0m  [36m(defn show-tasks[0m
+
+[36m----  Analysis Error : Please see src/cljs/myapp_reframe/core.cljs  ----[0m
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[31mFailed to compile "target/cljsbuild/public/js/app.js" in 0.288 seconds.[0m
+[36m----  Could not Analyze  src/cljs/myapp_reframe/core.cljs   line:88  column:3  ----[0m
+
+  [1mUnknown dot form of (. nil prompt nil) with classification [:cljs.analyzer/error :cljs.analyzer/symbol ()][0m
+
+  [36m86[0m  [36m(defn update-task[0m
+  [36m87[0m  [36m  [task][0m
+  [33m88[0m  [1m  (.prompt ))[0m
+  [0m  [0m  [33m  ^--- Unknown dot form of (. nil prompt nil) with classification [:cljs.analyzer/error :cljs.analyzer/symbol ()][0m
+  [36m89[0m  [36m[0m
+  [36m90[0m  [36m[0m
+  [36m91[0m  [36m(defn show-tasks[0m
+
+[36m----  Analysis Error : Please see src/cljs/myapp_reframe/core.cljs  ----[0m
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[31mFailed to compile "target/cljsbuild/public/js/app.js" in 0.314 seconds.[0m
+[36m----  Could not Analyze  src/cljs/myapp_reframe/core.cljs   line:88  column:3  ----[0m
+
+  [1mUnknown dot form of (. nil prompt nil) with classification [:cljs.analyzer/error :cljs.analyzer/symbol ()][0m
+
+  [36m86[0m  [36m(defn update-task[0m
+  [36m87[0m  [36m  [task][0m
+  [33m88[0m  [1m  (.prompt ))[0m
+  [0m  [0m  [33m  ^--- Unknown dot form of (. nil prompt nil) with classification [:cljs.analyzer/error :cljs.analyzer/symbol ()][0m
+  [36m89[0m  [36m[0m
+  [36m90[0m  [36m[0m
+  [36m91[0m  [36m(defn show-tasks[0m
+
+[36m----  Analysis Error : Please see src/cljs/myapp_reframe/core.cljs  ----[0m
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.539 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/myapp_reframe/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.545 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/myapp_reframe/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.542 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/myapp_reframe/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.533 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/myapp_reframe/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.54 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/myapp_reframe/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.556 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/myapp_reframe/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.544 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/myapp_reframe/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.549 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/myapp_reframe/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 1.045 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/goog/deps.js
+notifying browser that file changed:  target/cljsbuild/public/js/out/cljs_deps.js
+notifying browser that file changed:  target/cljsbuild/public/js/out/myapp_reframe/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[36m----  Compiler Warning on   src/cljs/myapp_reframe/core.cljs   line:179  column:42  ----[0m
+
+  [1mUse of undeclared Var myapp-reframe.core/login-handler[0m
+
+  [36m175[0m  [36m                                      :password pass}[0m
+  [36m176[0m  [36m                             :format :json[0m
+  [36m177[0m  [36m                             :response-format :json[0m
+  [36m178[0m  [36m                             :keywords? true[0m
+  [33m179[0m  [1m                             :handler login-handler[0m
+  [0m   [0m  [33m                                      ^--- Use of undeclared Var myapp-reframe.core/login-handler[0m
+  [36m180[0m  [36m                             :error-handler error-handler})))}[0m
+  [36m181[0m  [36m [:div.form-group  [:input.form-control.inputclass {:type "text" :id "user" :placeholder "Enter Username"}]][0m
+  [36m182[0m  [36m [:div.form-group  [:input.form-control.inputclass {:type "text" :id "pass" :placeholder "Enter Password"}]][0m
+  [36m183[0m  [36m [:div.form-group [:input.form-control.buttonclass {:type "submit" :value "Login"}]]][0m
+  [36m184[0m  [36m[:h2.quote-head "Quote of the day!"][0m
+
+[36m----  Compiler Warning : Please see src/cljs/myapp_reframe/core.cljs  ----[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.995 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/myapp_reframe/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.916 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/myapp_reframe/core.js

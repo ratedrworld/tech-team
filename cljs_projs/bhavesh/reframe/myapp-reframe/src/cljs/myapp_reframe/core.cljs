@@ -8,18 +8,23 @@
             [ajax.core :refer [GET POST]]
             [myapp-reframe.ajax :refer [load-interceptors!]]
             [myapp-reframe.handlers]
-            [myapp-reframe.subscriptions])
+            [myapp-reframe.subscriptions]
+            [clojure.string :as str])
   (:import goog.History))
+
+
+
+(def server "http://localhost:3000/")
 
 (defn get-by-id [id] (.-value (.getElementById js/document id)))
 
 (defn log [& params] (.log js/console (apply str params)))
 
-(def server "http://localhost:3000/")
 
 (defn error-handler [] (log "error!"))
 
-
+(defn set-by-id [id value] (set! (.-value (.getElementById js/document id))
+                                 value))
 
 (defn nav-link [uri title page collapsed?]
   (let [selected-page (rf/subscribe [:page])]
@@ -49,7 +54,8 @@
    [:div.row
     [:div.col-md-12
      [:h2 (str "Value of count : " @(rf/subscribe [:count]))]
-     [:input {:type "button" :value "Inc" :on-click #(rf/dispatch [:inc-count])}]]]])
+     [:input.btn.btn-primary {:type "button" :value "Inc"
+                              :on-click #(rf/dispatch [:inc-count])}]]]])
 
 (defn about-page []
   [:div.container
@@ -70,31 +76,52 @@
         :handler #(rf/dispatch [:update-task %])
         :error-handler error-handler}))
 
+(defn delete-task
+  [task]
+  (GET (str server "delete")
+       {:params {:user @(rf/subscribe [:user])
+                 :task task}
+        :format :json
+        :response-format :json
+        :keywords? true
+        :handler #(rf/dispatch [:update-task %])
+        :error-handler error-handler}))
+
+(defn update-task
+  [task]
+  (let [new-task (js/prompt (str "Task : " task "\n" "Update with? "))]
+    (if new-task
+      (GET (str server "update")
+           {:params {:user @(rf/subscribe [:user])
+                     :task task
+                     :new-task new-task}
+            :format :json
+            :response-format :json
+            :keywords? true
+            :handler #(rf/dispatch [:update-task %])
+            :error-handler error-handler}))))
+
 
 (defn show-tasks
   "shows the task, the status, and a button to mark the task complete if it is incomplete"
   [map-task]
   (log map-task)
-  (let [task (:task map-task)
-        status (:status map-task)]
+  (let [{:keys [task status]} map-task]
     (log task status)
-    [:div
+    [:li
      (if-not (= "Complete" status)
-       (do [:li.task task
-            [:input.markdone {:type "button" :value "Mark done" :on-click #(mark-done task)}]])
-       [:li.taskdone  [:strike task]])]))
-
-
+        [:div.task task
+         [:div [:input.markdone {:type "button" :value "Mark done" :on-click #(mark-done task)}]
+          [:input.markdone {:type "button" :value "Update task" :on-click #(update-task task)}]]]
+        [:div.taskdone [:strike task]
+         [:div [:input.markdone {:type "button" :value "Delete" :on-click #(delete-task task)}]]])]))
 
 (defn c-show-output
   []
   [:ul
    (doall (map show-tasks @(rf/subscribe [:task])))])
 
-
-
-
-(defn login-handler
+(defn h-login
   [flag]
   (if flag
     (do (secretary/dispatch! "/todo")
@@ -111,25 +138,27 @@
 
 (defn todo-page []
   [:div
-   [:h2 "Todo-list"]
+   [:h6 (str "Welcome " @(rf/subscribe [:user]) "!")]
+   [:h2.quote-head "Todo-list"]
    [:form {:action "#" :method "get"
            :on-submit (fn [e]
                         (let [t (get-by-id "todo-input")]
-                          (if-not (empty? t)
-                            (GET (str server "todo")
-                                 {:params {:task t
-                                           :user @(rf/subscribe [:user])}
-                                  :format :json
-                                  :response-format :json
-                                  :keywords? true
-                                  :handler #(rf/dispatch [:update-task %])
-                                  :error-handler error-handler}))))}
+                          (when-not (empty? t)
+                             (set-by-id "todo-input" "")
+                             (GET (str server "todo")
+                                    {:params {:task t
+                                              :user @(rf/subscribe [:user])}
+                                     :format :json
+                                     :response-format :json
+                                     :keywords? true
+                                     :handler #(rf/dispatch [:update-task %])
+                                     :error-handler error-handler}))))}
     [:div [:input {:type "text"
-                   :id "todo-input"}]
+                   :id "todo-input" :placeholder "Enter a task"}]
      [:input {:type "submit" :value "Add-task"}]
      [:input {:type "button" :value "Logout" :on-click #(secretary/dispatch! "/")}]]
-    [:div [:h2 "all tasks"]
-     [c-show-output]]]])
+    [:div.quote-head [:h2 "All tasks:"]]
+    [c-show-output]]])
 
 
 (defn home-page []
@@ -147,11 +176,11 @@
                                 :format :json
                                 :response-format :json
                                 :keywords? true
-                                :handler login-handler
+                                :handler h-login
                                 :error-handler error-handler})))}
-    [:div.row [:h4.col-md-2 "Username"] [:input.col-md-3 {:type "text" :id "user"}]]
-    [:div.row [:h4.col-md-2 "Password"] [:input.col-md-3 {:type "text" :id "pass"}]]
-    [:div [:input.buttonclass {:type "submit" :value "Login"}]]]
+    [:div.form-group  [:input.form-control.inputclass {:type "text" :id "user" :placeholder "Enter Username"}]]
+    [:div.form-group  [:input.form-control.inputclass {:type "text" :id "pass" :placeholder "Enter Password"}]]
+    [:div.form-group [:input.form-control.buttonclass {:type "submit" :value "Login"}]]]
    [:h2.quote-head "Quote of the day!"]
    [:p.quote "Successful people always have two things on their lips, 1. Silence 2. Smile"]])
 
@@ -186,7 +215,7 @@
 ;; must be called after routes have been defined
 (defn hook-browser-navigation! []
   (doto (History.)
-    (events/listenpp
+    (events/listen
       HistoryEventType/NAVIGATE
       (fn [event]
         (secretary/dispatch! (.-token event))))
@@ -194,8 +223,7 @@
 
 ;; -------------------------
 ;; Initialize app
-(defn fetch-docs! []
-  (GET "/docs" {:handler #(rf/dispatch [:set-docs %])}))
+
 
 (defn mount-components []
   (rf/clear-subscription-cache!)
@@ -204,6 +232,6 @@
 (defn init! []
   (rf/dispatch-sync [:initialize-db])
   (load-interceptors!)
-  (fetch-docs!)
+
   (hook-browser-navigation!)
   (mount-components))
