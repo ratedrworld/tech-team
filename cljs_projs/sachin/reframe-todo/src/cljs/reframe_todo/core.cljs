@@ -29,33 +29,19 @@
 
 (defn error-handler
   [response]
-  (log "@@@@@@@@@@@@" response))
+  (log "ERROR @@@" response))
 
 (defn add-todo
-  [[response]]
+  [response]
+  (log response)
   (let [body (:content response)
         tasks (mapv #(:task %) body)]
-    (log "!!!!!!!!" @(rf/subscribe [:current-user]))
     (rf/dispatch  [:set-tasks tasks])))
 
 
-(defn do-nothing
-  [[response]]
-  (log "######" response))
-
-(defn update-todos
-  [[response]]
-  (GET (str server "user-todo")
-       {:params {:user @(rf/subscribe [:current-user])}
-        :format :json
-        :response-format :json
-        :keywords? true
-        :handler add-todo
-        :error-handler error-handler}))
-
 
 (defn user-valid
-  [[response]]
+  [response]
   (let [auth (:auth response)
         user (:user response)]
     (if auth
@@ -72,8 +58,8 @@
 
 (defn update-status-done
   [id]
-  (log "Status Change")
-  (set! (.-disabled (.getElementById js/document id))
+    #_(log "Status Change" id)
+  #_(set! (.-disabled (.getElementById js/document id))
         true)
   (GET (str server "mark-done")
        {:params {:user @(rf/subscribe [:current-user])
@@ -81,43 +67,43 @@
         :format :json
         :response-format :json
         :keywords? true
-        :handler update-todos
+        :handler add-todo
         :error-handler error-handler}))
 
 (defn c-todo
   []
   [:div
-   [:h3 "TASK-LIST"]
-   (doall  (for [i (range (count @(rf/subscribe [:tasks])))]
-           ^{:key i}   [:input {:type "button"
-                         :id i
-                         :value (get @(rf/subscribe [:tasks]) i)
-                         :on-click #(update-status-done i)}]))])
+   [:h2.text-center "TASK-LIST"]
+   [:div
+    (doall  (for [i (range (count @(rf/subscribe [:tasks])))]
+              ^{:key i} [:input.btn.btn-block.btn-danger {:type "button"
+                                 :id i
+                                 :value (get @(rf/subscribe [:tasks]) i)
+                                 :on-click #(update-status-done i)}]))]])
 
 
 (defn todo-page []
   [:div.container
-   [:h1 "TO-DO LIST"]
    [:div.row
     [:div.col-md-6
-     [:form {:action "#"
+     [:form {:action "#" :method "get"
                 :on-submit (fn [e]
                              (let [t (get-input "task")]
+                               (log "tttttt" t)
                                (GET (str server "todo")
-                                    {:params {:task t
-                                              :user @(rf/subscribe [:current-user])}
+                                    {:params {:user @(rf/subscribe [:current-user])
+                                              :task t}
                                      :format :json
                                      :response-format :json
                                      :keywords? true
                                      :handler add-todo
                                      :error-handler error-handler})))}
-      [:div.row
-       [:h2 "Add Task"]
-       [:input.row.xs-4 {:type "text" :id "task" :placeholder "Enter Task"}]]
-      [:div.col [:input {:type "submit" :value "Add"}]
-       [:input {:type "button" :value "Log Out" :on-click #(secretary/dispatch! "/")}]]]]
+      [:h2.text-center "Add Task"]
+      [:div.form-group [:input.form-control {:type "text" :id "task" :placeholder "Enter Task"}]]
+      [:div.form-group [:input.form-control.btn.btn-block.btn-success {:type "submit" :value "Add"}]]
+      [:div.form-group [:input.form-control.btn.btn-block.btn-warning {:value "Log Out" :on-click #(secretary/dispatch! "/")}]]]]
     [:div.col-md-6
-     [:h2 "Update Task"]
+     [:h2.text-center "Update Task"]
      [:form {:action "#"
              :on-submit (fn [e]
                           (let [orig (get-input "original-task")
@@ -129,11 +115,11 @@
                                   :format :json
                                   :response-format :json
                                   :keywords? true
-                                  :handler do-nothing
+                                  :handler add-todo
                                   :error-handler error-handler})))}
-      [:input {:type "text" :id "original-task" :placeholder "Enter Original Task"}]
-      [:input {:type "text" :id "updated-task" :placeholder "Enter Updated Task"}]
-      [:input {:type "submit" :value "Update" }]]]]
+      [:div.form-group [:input.form-control {:type "text" :id "original-task" :placeholder "Enter Original Task"}]]
+      [:div.form-group [:input.form-control {:type "text" :id "updated-task" :placeholder "Enter Updated Task"}]]
+      [:div.form-group [:input.form-control.btn.btm-block.btn-success {:type "submit" :value "Update" }]]]]]
    [:div.row
     [c-todo]]])
 
@@ -152,7 +138,7 @@
       {:on-click #(swap! collapsed? not)} "☰"]
      [:div.collapse.navbar-toggleable-xs
       (when-not @collapsed? {:class "in"})
-      [:a.navbar-brand {:href "#/"} "reframe-todo"]
+      [:a.navbar-brand {:href "#/"} "TO-DO App"]
       [:ul.nav.navbar-nav
        [nav-link "#/" "Home" :home collapsed?]
        [nav-link "#/about" "About" :about collapsed?]]]]))
@@ -178,9 +164,9 @@
                                              :handler user-valid
                                              :error-handler error-handler})))}
     [:h2.form-signin-heading "Please sign in"]
-    [:input {:type "text" :id "username" :placeholder "Enter Username" :class "form-control"}]
-    [:input {:type "password" :id "password" :placeholder "Enter Password" :class "form-control"}]
-    [:input {:type "submit" :value "Submit" :class "btn btn-lg btn-primary btn-block"}]]])
+    [:div.form-group [:input.form-control {:type "text" :id "username" :placeholder "Enter Username" }]]
+    [:div.form-group [:input.form-control {:type "password" :id "password" :placeholder "Enter Password"}]]
+    [:div.form-group [:input.form-control.btn.btn-primary {:type "submit" :value "Submit"}]]]])
 
 (def pages
   {:home #'home-page

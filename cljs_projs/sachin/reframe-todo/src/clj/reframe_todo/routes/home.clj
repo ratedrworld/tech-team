@@ -11,23 +11,23 @@
 
 (defn get-todos
   [user]
-  (view/get-result user))
+  (layout/render-json (view/get-result user)))
 
 (defn add-todo
-  [task user]
-  (view/add-todo task user))
+  [user task]
+  (layout/render-json (view/add-task user task)))
 
 (defn verify?
   [user pass]
-  (view/authenticate-user user pass))
+  (layout/render-json (view/authenticate-user user pass)))
 
 (defn change-status
   [user task]
-  (view/mark-done user task))
+  (layout/render-json (view/mark-done user task)))
 
 (defn update-task
   [user task new-task]
-  (view/update-task user task new-task))
+  (layout/render-json (view/update-task user task new-task)))
 
 (defroutes home-routes
   (GET "/" []
@@ -35,8 +35,9 @@
 
   (GET "/auth" [user pass]
        (verify? user pass))
-  (GET "/todo" [task user]
-       (add-todo task user))
+
+  (GET "/todo" [user task]
+       (add-todo user task))
 
   (GET "/user-todo"
        [user]

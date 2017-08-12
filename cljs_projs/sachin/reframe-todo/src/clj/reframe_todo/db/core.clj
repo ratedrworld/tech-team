@@ -23,9 +23,11 @@
   (not (empty? (mc/find-maps db "users" {:user-name user :password pass}))))
 
 (defn add-task
-  [task user]
-  (let [operation (mc/insert db "todos" {:user user :task task :completed? false} )]
-    (acknowledged? operation)))
+  [user task]
+  (let [op (mc/insert db "todos" {:user user
+                                  :task task
+                                  :completed? false})]
+    (acknowledged? op)))
 
 (defn display-all-tasks
   [user]
@@ -34,12 +36,12 @@
 
 (defn mark-complete
   [user task]
-  (mc/update db "todos" {:user user :task task}
-             {$set {:completed? true}})
-  true)
+  (let [op (mc/update db "todos" {:user user :task task :completed? false}
+                      {$set {:completed? true}})]
+    (acknowledged? op)))
 
 (defn update-task
   [user task new-task]
-  (mc/update db "todos" {:user user :task task}
-             {$set {:task new-task}})
-  true)
+  (let [op (mc/update db "todos" {:user user :task task}
+                      {$set {:task new-task}})]
+    (acknowledged? op)))

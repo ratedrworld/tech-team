@@ -1,44 +1,39 @@
 (ns reframe-todo.view
-  (:require [reframe-todo.db.core :as db]
-            [reframe-todo.layout :as layout]))
+  (:require [reframe-todo.db.core :as db]))
 
 (defn get-result
   [user]
-  (layout/render-json
-   {:status true
-    :content (map (fn [x] (dissoc
-                           x
-                           :_id))
-                  (db/display-all-tasks user))}))
+  {:status true
+   :content (map (fn [x] (dissoc x :_id))
+                 (db/display-all-tasks user))})
 
 (defn get-error-result
   []
-  (layout/render-json {:status false
-                       :content nil}))
-
-
+  {:status false
+   :content nil})
 
 
 (defn authenticate-user
   "If user is valid, return user-name else return false"
   [user pass]
   (if (db/authenticate? user pass)
-    (layout/render-json {:auth true
-                         :user user})
-    (layout/render-json {:auth false})))
+    {:auth true
+     :user user}
+    {:auth false}))
 
-
-(defn add-todo
-  [task user]
-  (if (db/add-task task user)
+(defn do-operation
+  [user operation]
+  (if operation
     (get-result user)
     (get-error-result)))
 
+(defn add-task
+  [user task]
+  (do-operation user (db/add-task user task)))
 (defn mark-done
   [user task]
-  (layout/render-json
-   (db/mark-complete user task)))
+  (do-operation user (db/mark-complete user task)))
 
 (defn update-task
   [user task new-task]
-  (layout/render-json  (db/update-task user task new-task)))
+  (do-operation user (db/update-task user task new-task)))

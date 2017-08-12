@@ -77,3 +77,25 @@ body {
         transform: rotate(360deg);
     }
 }
+
+h2{
+    font-family: "Comic Sans MS";
+}
+
+h1{
+    font-family: "Verdana";
+}
+
+.text-center{
+    text-align: center;
+}
+
+.card{
+    background-color: #eee;
+  padding: .75rem;;
+  border: 1;
+}
+
+.tbtn{
+    width: 100%;
+}

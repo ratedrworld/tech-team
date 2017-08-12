@@ -27,7 +27,7 @@
 
 (defn render-json
   "renders the HTML template located relative to resources/templates"
-  [& params]
+  [params]
   (content-type
    (ok
     (json/json-str params))
