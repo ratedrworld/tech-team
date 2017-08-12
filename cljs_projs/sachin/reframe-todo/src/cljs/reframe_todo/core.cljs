@@ -70,16 +70,22 @@
         :handler add-todo
         :error-handler error-handler}))
 
+(defn updated-todo
+  [id]
+  (let [orig (get-input id)]
+    (set! (.-value (.getElementById js/document "original-task"))
+          orig)))
+
 (defn c-todo
   []
   [:div
    [:h2.text-center "TASK-LIST"]
    [:div
     (doall  (for [i (range (count @(rf/subscribe [:tasks])))]
-              ^{:key i} [:input.btn.btn-block.btn-danger {:type "button"
-                                 :id i
-                                 :value (get @(rf/subscribe [:tasks]) i)
-                                 :on-click #(update-status-done i)}]))]])
+              ^{:key i} [:div
+                         [:input {:type "text" :id i :value (get @(rf/subscribe [:tasks]) i)}]
+                         [:input {:type "button" :value "Completed" :on-click #(update-status-done i)}]
+                         [:input {:type "button" :value "Update" :on-click #(updated-todo i)}]]))]])
 
 
 (defn todo-page []

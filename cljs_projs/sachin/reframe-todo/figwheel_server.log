@@ -1564,3 +1564,98 @@ notifying browser that file changed:  target/cljsbuild/public/js/out/reframe_tod
 [0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
 [32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.515 seconds.[0m
 notifying browser that file changed:  target/cljsbuild/public/js/out/reframe_todo/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.503 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/reframe_todo/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.49 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/reframe_todo/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.48 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/reframe_todo/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[36m----  Compiler Warning on   src/cljs/reframe_todo/core.cljs   line:82  column:78  ----[0m
+
+  [1mUse of undeclared Var reframe-todo.core/update-to-do[0m
+
+  [36m78[0m  [36m    (doall  (for [i (range (count @(rf/subscribe [:tasks])))][0m
+  [36m79[0m  [36m              ^{:key i} [:div[0m
+  [36m80[0m  [36m                         [:input {:type "text" :id i :value (get @(rf/subscribe [:tasks]) i)}][0m
+  [36m81[0m  [36m                         [:input {:type "button" :value "Completed" :on-click #(update-status-done i)}][0m
+  [33m82[0m  [1m                         [:input {:type "button" :value "Update" :on-click #(update-to-do i)}]]))]])[0m
+  [0m  [0m  [33m                                                                             ^--- Use of undeclared Var reframe-todo.core/update-to-do[0m
+  [36m83[0m  [36m[0m
+  [36m84[0m  [36m[0m
+  [36m85[0m  [36m(defn todo-page [][0m
+  [36m86[0m  [36m  [:div.container[0m
+  [36m87[0m  [36m   [:div.row[0m
+
+[36m----  Compiler Warning : Please see src/cljs/reframe_todo/core.cljs  ----[0m
+[36m----  Compiler Warning on   src/cljs/reframe_todo/core.cljs   line:82  column:78  ----[0m
+
+  [1mUse of undeclared Var reframe-todo.core/update-to-do[0m
+
+  [36m78[0m  [36m    (doall  (for [i (range (count @(rf/subscribe [:tasks])))][0m
+  [36m79[0m  [36m              ^{:key i} [:div[0m
+  [36m80[0m  [36m                         [:input {:type "text" :id i :value (get @(rf/subscribe [:tasks]) i)}][0m
+  [36m81[0m  [36m                         [:input {:type "button" :value "Completed" :on-click #(update-status-done i)}][0m
+  [33m82[0m  [1m                         [:input {:type "button" :value "Update" :on-click #(update-to-do i)}]]))]])[0m
+  [0m  [0m  [33m                                                                             ^--- Use of undeclared Var reframe-todo.core/update-to-do[0m
+  [36m83[0m  [36m[0m
+  [36m84[0m  [36m[0m
+  [36m85[0m  [36m(defn todo-page [][0m
+  [36m86[0m  [36m  [:div.container[0m
+  [36m87[0m  [36m   [:div.row[0m
+
+[36m----  Compiler Warning : Please see src/cljs/reframe_todo/core.cljs  ----[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.566 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/reframe_todo/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[36m----  Compiler Warning on   src/cljs/reframe_todo/core.cljs   line:82  column:78  ----[0m
+
+  [1mUse of undeclared Var reframe-todo.core/updated-todo[0m
+
+  [36m78[0m  [36m    (doall  (for [i (range (count @(rf/subscribe [:tasks])))][0m
+  [36m79[0m  [36m              ^{:key i} [:div[0m
+  [36m80[0m  [36m                         [:input {:type "text" :id i :value (get @(rf/subscribe [:tasks]) i)}][0m
+  [36m81[0m  [36m                         [:input {:type "button" :value "Completed" :on-click #(update-status-done i)}][0m
+  [33m82[0m  [1m                         [:input {:type "button" :value "Update" :on-click #(updated-todo i)}]]))]])[0m
+  [0m  [0m  [33m                                                                             ^--- Use of undeclared Var reframe-todo.core/updated-todo[0m
+  [36m83[0m  [36m[0m
+  [36m84[0m  [36m[0m
+  [36m85[0m  [36m(defn todo-page [][0m
+  [36m86[0m  [36m  [:div.container[0m
+  [36m87[0m  [36m   [:div.row[0m
+
+[36m----  Compiler Warning : Please see src/cljs/reframe_todo/core.cljs  ----[0m
+[36m----  Compiler Warning on   src/cljs/reframe_todo/core.cljs   line:82  column:78  ----[0m
+
+  [1mUse of undeclared Var reframe-todo.core/updated-todo[0m
+
+  [36m78[0m  [36m    (doall  (for [i (range (count @(rf/subscribe [:tasks])))][0m
+  [36m79[0m  [36m              ^{:key i} [:div[0m
+  [36m80[0m  [36m                         [:input {:type "text" :id i :value (get @(rf/subscribe [:tasks]) i)}][0m
+  [36m81[0m  [36m                         [:input {:type "button" :value "Completed" :on-click #(update-status-done i)}][0m
+  [33m82[0m  [1m                         [:input {:type "button" :value "Update" :on-click #(updated-todo i)}]]))]])[0m
+  [0m  [0m  [33m                                                                             ^--- Use of undeclared Var reframe-todo.core/updated-todo[0m
+  [36m83[0m  [36m[0m
+  [36m84[0m  [36m[0m
+  [36m85[0m  [36m(defn todo-page [][0m
+  [36m86[0m  [36m  [:div.container[0m
+  [36m87[0m  [36m   [:div.row[0m
+
+[36m----  Compiler Warning : Please see src/cljs/reframe_todo/core.cljs  ----[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.536 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/reframe_todo/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.498 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/reframe_todo/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.492 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/reframe_todo/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.504 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/reframe_todo/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.501 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/reframe_todo/core.js
