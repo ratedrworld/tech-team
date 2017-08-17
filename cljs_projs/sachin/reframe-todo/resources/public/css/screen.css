@@ -90,12 +90,8 @@ h1{
     text-align: center;
 }
 
-.card{
-    background-color: #eee;
-  padding: .75rem;;
-  border: 1;
-}
-
-.tbtn{
-    width: 100%;
+.flex-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
 }

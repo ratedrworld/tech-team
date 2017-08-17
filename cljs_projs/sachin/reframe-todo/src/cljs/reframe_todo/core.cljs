@@ -8,7 +8,8 @@
             [ajax.core :refer [GET POST]]
             [reframe-todo.ajax :refer [load-interceptors!]]
             [reframe-todo.handlers]
-            [reframe-todo.subscriptions])
+            [reframe-todo.subscriptions]
+            [soda-ash.core :as sa])
   (:import goog.History))
 
 
@@ -58,12 +59,13 @@
 
 (defn update-status-done
   [id]
-    #_(log "Status Change" id)
+  #_(log "Status Change" id)
+  #_(log "TExt:" (.-innerText (.getElementById js/document id)))
   #_(set! (.-disabled (.getElementById js/document id))
         true)
   (GET (str server "mark-done")
        {:params {:user @(rf/subscribe [:current-user])
-                 :task (get-input id)}
+                 :task (.-innerText (.getElementById js/document id))}
         :format :json
         :response-format :json
         :keywords? true
@@ -72,38 +74,38 @@
 
 (defn updated-todo
   [id]
-  (let [orig (get-input id)]
+  (let [orig (.-innerText (.getElementById js/document id))]
     (set! (.-value (.getElementById js/document "original-task"))
           orig)))
 
 (defn c-todo
   []
-  [:div
-   [:h2.text-center "TASK-LIST"]
-   [:div
-    (doall  (for [i (range (count @(rf/subscribe [:tasks])))]
-              ^{:key i} [:div
-                         [:input {:type "text" :id i :value (get @(rf/subscribe [:tasks]) i)}]
-                         [:input {:type "button" :value "Completed" :on-click #(update-status-done i)}]
-                         [:input {:type "button" :value "Update" :on-click #(updated-todo i)}]]))]])
-
+  [:div.flex-container
+   (doall  (for [i (range (count @(rf/subscribe [:tasks])))]
+             ^{:key i} [sa/Card
+                        [sa/CardContent
+                         [sa/CardDescription [:p {:id i} (get @(rf/subscribe [:tasks]) i)]]]
+                        [:div.ui.buttons
+                         [sa/Button {:on-click #(update-status-done i)} "Completed?" ]
+                         [:div.or]
+                         [sa/Button {:on-click #(updated-todo i)} "Update?"]]]))])
 
 (defn todo-page []
-  [:div.container
+ [:div.container
    [:div.row
     [:div.col-md-6
      [:form {:action "#" :method "get"
-                :on-submit (fn [e]
-                             (let [t (get-input "task")]
-                               (log "tttttt" t)
-                               (GET (str server "todo")
-                                    {:params {:user @(rf/subscribe [:current-user])
-                                              :task t}
-                                     :format :json
-                                     :response-format :json
-                                     :keywords? true
-                                     :handler add-todo
-                                     :error-handler error-handler})))}
+             :on-submit (fn [e]
+                          (let [t (get-input "task")]
+                            #_(log "tttttt" t)
+                            (GET (str server "todo")
+                                 {:params {:user @(rf/subscribe [:current-user])
+                                           :task t}
+                                  :format :json
+                                  :response-format :json
+                                  :keywords? true
+                                  :handler add-todo
+                                  :error-handler error-handler})))}
       [:h2.text-center "Add Task"]
       [:div.form-group [:input.form-control {:type "text" :id "task" :placeholder "Enter Task"}]]
       [:div.form-group [:input.form-control.btn.btn-block.btn-success {:type "submit" :value "Add"}]]
