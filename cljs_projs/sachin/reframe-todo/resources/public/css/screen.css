@@ -91,7 +91,13 @@ h1{
 }
 
 .flex-container{
+    height : 100%;
+    width : 100%;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-evenly;
+    justify-content: space-around;
+}
+.todo-card {
+    margin : 0 !important;
+    height : 100% !important;
 }
