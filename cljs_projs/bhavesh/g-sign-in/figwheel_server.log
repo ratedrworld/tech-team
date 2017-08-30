@@ -1,0 +1,101 @@
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.62 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/goog/deps.js
+notifying browser that file changed:  target/cljsbuild/public/js/out/cljs_deps.js
+notifying browser that file changed:  target/cljsbuild/public/js/out/g_sign_in/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.624 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/g_sign_in/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.558 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/g_sign_in/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.703 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/g_sign_in/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.514 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/g_sign_in/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.507 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/g_sign_in/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.475 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/g_sign_in/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.483 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/g_sign_in/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.553 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/g_sign_in/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.445 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/g_sign_in/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.434 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/g_sign_in/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.471 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/g_sign_in/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.416 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/g_sign_in/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.455 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/g_sign_in/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.438 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/g_sign_in/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.44 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/g_sign_in/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[31mFailed to compile "target/cljsbuild/public/js/app.js" in 0.197 seconds.[0m
+[36m----  Could not Read  src/cljs/g_sign_in/core.cljs   line:44 ----[0m
+
+  [1m/home/bhavesh/tech-team/cljs_projs/bhavesh/g-sign-in/src/cljs/g_sign_in/core.cljs [line 44, col 25] Invalid symbol: ID:.[0m
+
+  [36m42[0m  [36m// Useful data for your client-side scripts:[0m
+  [36m43[0m  [36mvar profile = googleUser.getBasicProfile();[0m
+  [33m44[0m  [1mconsole.log("ID: " + profile.getId()); // Don't send this directly to your server![0m
+  [0m  [0m  [33m/home/bhavesh/tech-team/cljs_projs/bhavesh/g-sign-in/src/cljs/g_sign_in/core.cljs [line 44, col 25] Invalid symbol: ID:.[0m
+  [36m45[0m  [36mconsole.log('Full Name: ' + profile.getName());[0m
+  [36m46[0m  [36mconsole.log('Given Name: ' + profile.getGivenName());[0m
+  [36m47[0m  [36mconsole.log('Family Name: ' + profile.getFamilyName());[0m
+
+[36m----  Reader Error : Please see src/cljs/g_sign_in/core.cljs  ----[0m
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.426 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/g_sign_in/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.495 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/g_sign_in/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.56 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/g_sign_in/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.389 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/g_sign_in/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.407 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/g_sign_in/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.409 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/g_sign_in/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.453 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/g_sign_in/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.398 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/g_sign_in/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.382 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/g_sign_in/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.422 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/g_sign_in/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.507 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/g_sign_in/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.408 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/g_sign_in/core.js

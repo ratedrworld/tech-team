@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://apis.google.com/js/platform.js" async defer></script>
+        <meta name="google-signin-client_id" content="238926724664-hcp8p20nmqmrt1o4vg7qvfo4lr7t6smu.apps.googleusercontent.com">
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>Welcome to g-sign-in</title>
+  </head>
+  <body>
+    <div id="navbar"></div>
+    <div id="app">
+
+    </div>
+   <a href="#" onclick="signOut();">Sign out</a>
+
+
+    </div>
+
+    <!-- scripts and styles -->
+    {% style "/assets/bootstrap/css/bootstrap.min.css" %}
+    {% style "/assets/font-awesome/css/font-awesome.min.css" %}
+    {% style "/css/screen.css" %}
+    <script>
+    function onSignIn(googleUser) {
+    var profile = googleUser.getBasicProfile();
+    console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+    console.log('Name: ' + profile.getName());
+    console.log('Image URL: ' + profile.getImageUrl());
+    console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+     }
+    </script>
+    <script>
+     function signOut() {
+         var auth2 = gapi.auth2.getAuthInstance();
+         auth2.signOut().then(function () {
+             console.log('User signed out.');
+         });
+     }
+    </script>
+     <script type="text/javascript">
+     var context = "{{servlet-context}}";
+     var csrfToken = "{{csrf-token}}";
+    </script>
+    {% script "/js/app.js" %}
+  </body>
+</html>

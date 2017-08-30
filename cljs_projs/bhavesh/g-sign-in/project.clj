@@ -1,12 +1,10 @@
-(defproject reframe-todo "0.1.0-SNAPSHOT"
+(defproject g-sign-in "0.1.0-SNAPSHOT"
 
   :description "FIXME: write description"
   :url "http://example.com/FIXME"
 
   :dependencies [[clj-time "0.14.0"]
                  [cljs-ajax "0.6.0"]
-                 [com.google.guava/guava "20.0"]
-                 [com.novemberain/monger "3.1.0" :exclusions [com.google.guava/guava]]
                  [compojure "1.6.0"]
                  [cprop "0.1.11"]
                  [funcool/struct "1.0.0"]
@@ -24,17 +22,13 @@
                  [org.webjars.bower/tether "1.4.0"]
                  [org.webjars/bootstrap "4.0.0-alpha.5"]
                  [org.webjars/font-awesome "4.7.0"]
-                 [org.clojure/data.json "0.2.6"]
-                 [re-frame "0.9.4"]
                  [reagent "0.7.0"]
                  [reagent-utils "0.2.1"]
-                 [re-frisk "0.4.5"]
                  [ring-webjars "0.2.0"]
                  [ring/ring-core "1.6.2"]
                  [ring/ring-defaults "0.3.1"]
                  [secretary "1.2.3"]
-                 [selmer "1.11.0"]
-                 [soda-ash "0.3.0"]]
+                 [selmer "1.11.0"]]
 
   :min-lein-version "2.0.0"
 
@@ -43,7 +37,7 @@
   :test-paths ["test/clj"]
   :resource-paths ["resources" "target/cljsbuild"]
   :target-path "target/%s/"
-  :main ^:skip-aot reframe-todo.core
+  :main ^:skip-aot g-sign-in.core
 
   :plugins [[lein-cprop "1.0.3"]
             [lein-cljsbuild "1.1.5"]
@@ -55,7 +49,7 @@
    :nrepl-port 7002
    :css-dirs ["resources/public/css"]
    :nrepl-middleware [cemerick.piggieback/wrap-cljs-repl]}
-
+  
 
   :profiles
   {:uberjar {:omit-source true
@@ -71,10 +65,10 @@
                  :closure-warnings
                  {:externs-validation :off :non-standard-jsdoc :off}
                  :externs ["react/externs/react.js"]}}}}
-
-
+             
+             
              :aot :all
-             :uberjar-name "reframe-todo.jar"
+             :uberjar-name "g-sign-in.jar"
              :source-paths ["env/prod/clj"]
              :resource-paths ["env/prod/resources"]}
 
@@ -97,18 +91,18 @@
                   {:builds
                    {:app
                     {:source-paths ["src/cljs" "src/cljc" "env/dev/cljs"]
-                     :figwheel {:on-jsload "reframe-todo.core/mount-components"}
+                     :figwheel {:on-jsload "g-sign-in.core/mount-components"}
                      :compiler
-                     {:main "reframe-todo.app"
+                     {:main "g-sign-in.app"
                       :asset-path "/js/out"
                       :output-to "target/cljsbuild/public/js/app.js"
                       :output-dir "target/cljsbuild/public/js/out"
                       :source-map true
                       :optimizations :none
                       :pretty-print true}}}}
-
-
-
+                  
+                  
+                  
                   :doo {:build "test"}
                   :source-paths ["env/dev/clj"]
                   :resource-paths ["env/dev/resources"]
@@ -122,10 +116,10 @@
                     {:source-paths ["src/cljc" "src/cljs" "test/cljs"]
                      :compiler
                      {:output-to "target/test.js"
-                      :main "reframe-todo.doo-runner"
+                      :main "g-sign-in.doo-runner"
                       :optimizations :whitespace
                       :pretty-print true}}}}
-
+                  
                   }
    :profiles/dev {}
    :profiles/test {}})

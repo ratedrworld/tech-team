@@ -7,8 +7,10 @@
             [markdown.core :refer [md->html]]
             [ajax.core :refer [GET POST]]
             [reframe-todo.ajax :refer [load-interceptors!]]
-            [reframe-todo.handlers]
-            [reframe-todo.subscriptions])
+            [re-frisk.core :refer [enable-re-frisk!]]
+            [reframe-todo.events]
+            [reframe-todo.subscriptions]
+            [soda-ash.core :as sa])
   (:import goog.History))
 
 
@@ -19,19 +21,16 @@
 
 
 
-(def server "http://localhost:3000/")
-
-
 (defn get-input
   [id]
   (.-value (.getElementById js/document id)))
 
 
-(defn error-handler
+#_(defn error-handler
   [response]
   (log "ERROR @@@" response))
 
-(defn add-todo
+#_(defn add-todo
   [response]
   (log response)
   (let [body (:content response)
@@ -40,94 +39,58 @@
 
 
 
-(defn user-valid
-  [response]
-  (let [auth (:auth response)
-        user (:user response)]
-    (if auth
-      (do (rf/dispatch [:set-current-user user])
-          (rf/dispatch [:set-active-page :todos])
-          (GET (str server "user-todo")
-               {:params {:user user}
-                :format :json
-                :response-format :json
-                :keywords? true
-                :handler add-todo
-                :error-handler error-handler}))
-      (js/alert "Invalid username / password. Please try again "))))
+
 
 (defn update-status-done
   [id]
-    #_(log "Status Change" id)
-  #_(set! (.-disabled (.getElementById js/document id))
-        true)
-  (GET (str server "mark-done")
-       {:params {:user @(rf/subscribe [:current-user])
-                 :task (get-input id)}
-        :format :json
-        :response-format :json
-        :keywords? true
-        :handler add-todo
-        :error-handler error-handler}))
+  (let [u @(rf/subscribe [:current-user])
+        t (.-innerText (.getElementById js/document id))]
+    (rf/dispatch [:mark-complete {:user u :task t}])))
 
 (defn updated-todo
   [id]
-  (let [orig (get-input id)]
+  (let [orig (.-innerText (.getElementById js/document id))]
     (set! (.-value (.getElementById js/document "original-task"))
           orig)))
 
 (defn c-todo
   []
-  [:div
-   [:h2.text-center "TASK-LIST"]
-   [:div
-    (doall  (for [i (range (count @(rf/subscribe [:tasks])))]
-              ^{:key i} [:div
-                         [:input {:type "text" :id i :value (get @(rf/subscribe [:tasks]) i)}]
-                         [:input {:type "button" :value "Completed" :on-click #(update-status-done i)}]
-                         [:input {:type "button" :value "Update" :on-click #(updated-todo i)}]]))]])
-
+  [:div.flex-container
+   (doall  (for [i (range (count @(rf/subscribe [:tasks])))]
+             ^{:key i} [sa/Card {:className "todo-card"}
+                        [sa/CardContent
+                         [sa/CardDescription [:p {:id i} (get @(rf/subscribe [:tasks]) i)]]]
+                        [:div.ui.buttons
+                         [sa/Button {:on-click #(update-status-done i)} "Completed?"]
+                         [:div.or]
+                         [sa/Button {:on-click #(updated-todo i)} "Update?"]]]))])
 
 (defn todo-page []
   [:div.container
-   [:div.row
-    [:div.col-md-6
-     [:form {:action "#" :method "get"
-                :on-submit (fn [e]
-                             (let [t (get-input "task")]
-                               (log "tttttt" t)
-                               (GET (str server "todo")
-                                    {:params {:user @(rf/subscribe [:current-user])
-                                              :task t}
-                                     :format :json
-                                     :response-format :json
-                                     :keywords? true
-                                     :handler add-todo
-                                     :error-handler error-handler})))}
-      [:h2.text-center "Add Task"]
-      [:div.form-group [:input.form-control {:type "text" :id "task" :placeholder "Enter Task"}]]
-      [:div.form-group [:input.form-control.btn.btn-block.btn-success {:type "submit" :value "Add"}]]
-      [:div.form-group [:input.form-control.btn.btn-block.btn-warning {:value "Log Out" :on-click #(secretary/dispatch! "/")}]]]]
-    [:div.col-md-6
-     [:h2.text-center "Update Task"]
-     [:form {:action "#"
-             :on-submit (fn [e]
-                          (let [orig (get-input "original-task")
-                                upd (get-input "updated-task")]
-                            (GET (str server "update-todo")
-                                 {:params {:user @(rf/subscribe [:current-user])
-                                           :task orig
-                                           :new-task upd}
-                                  :format :json
-                                  :response-format :json
-                                  :keywords? true
-                                  :handler add-todo
-                                  :error-handler error-handler})))}
-      [:div.form-group [:input.form-control {:type "text" :id "original-task" :placeholder "Enter Original Task"}]]
-      [:div.form-group [:input.form-control {:type "text" :id "updated-task" :placeholder "Enter Updated Task"}]]
-      [:div.form-group [:input.form-control.btn.btm-block.btn-success {:type "submit" :value "Update" }]]]]]
-   [:div.row
-    [c-todo]]])
+       [:div.row
+        [:div.col-md-6
+         [:form {:action "#" :method "get"
+                 :on-submit (fn [e]
+                              (let [u @(rf/subscribe [:current-user])
+                                    t (get-input "task")]
+                                (rf/dispatch [:add-todo {:user u :task t}])))}
+          [:h2.text-center "Add Task"]
+          [:div.form-group [:input.form-control {:type "text" :id "task" :placeholder "Enter Task"}]]
+          [:div.form-group [:input.form-control.btn.btn-block.btn-success {:type "submit" :value "Add"}]]
+          [:div.form-group [:input.form-control.btn.btn-block.btn-warning {:defaultValue "Log Out" :on-click #(rf/dispatch [:set-active-page :home])}]]]]
+        [:div.col-md-6
+           [:h2.text-center "Update Task"]
+           [:form {:action "#"
+                   :on-submit (fn [e]
+                                (let [user @(rf/subscribe [:current-user])
+                                      orig (get-input "original-task")
+                                      upd (get-input "updated-task")]
+                                  (rf/dispatch [:update-todo {:user user :orig orig :upd upd}])))}
+            [:div.form-group [:input.form-control {:type "text" :id "original-task" :placeholder "Enter Original Task"}]]
+            [:div.form-group [:input.form-control {:type "text" :id "updated-task" :placeholder "Enter Updated Task"}]]
+            [:div.form-group [:input.form-control.btn.btm-block.btn-success {:type "submit" :value "Update" }]]]]]
+       [:div.row
+        [c-todo]]])
 
 (defn nav-link [uri title page collapsed?]
   (let [selected-page (rf/subscribe [:page])]
@@ -147,7 +110,8 @@
       [:a.navbar-brand {:href "#/"} "TO-DO App"]
       [:ul.nav.navbar-nav
        [nav-link "#/" "Home" :home collapsed?]
-       [nav-link "#/about" "About" :about collapsed?]]]]))
+       [nav-link "#/about" "About" :about collapsed?]
+       [nav-link "#/semantic" "Semantic" :semantic collapsed?]]]]))
 
 (defn about-page []
   [:div.container
@@ -155,29 +119,74 @@
     [:div.col-md-12
      [:img {:src (str js/context "/img/warning_clojure.png")}]]]])
 
+
 (defn home-page []
   [:div.container
    [:form.form-signin  {:action "#"
                         :on-submit (fn [e]
                                      (let [u (get-input "username")
                                            p (get-input "password")]
-                                       (GET (str server "auth")
-                                            {:params {:user u
-                                                      :pass p}
-                                             :format :json
-                                             :response-format :json
-                                             :keywords? true
-                                             :handler user-valid
-                                             :error-handler error-handler})))}
+                                       (rf/dispatch [:validate-login {:username u :password p}])))}
     [:h2.form-signin-heading "Please sign in"]
     [:div.form-group [:input.form-control {:type "text" :id "username" :placeholder "Enter Username" }]]
     [:div.form-group [:input.form-control {:type "password" :id "password" :placeholder "Enter Password"}]]
     [:div.form-group [:input.form-control.btn.btn-primary {:type "submit" :value "Submit"}]]]])
 
+
+
+
+#_(defn semantic-page1 []
+  (let [visible (r/atom false)
+        on-click (fn []
+                   (reset! visible (not @visible)))]
+    (fn []
+      (log @visible)
+      [:div
+       [sa/Button {:onClick on-click} "Toggle Visibility"]
+       [sa/SidebarPushable {:as (aget js/semanticUIReact "Segment")}
+        [sa/Sidebar {:as (aget js/semanticUIReact "Menu")
+                     :animation "overlay"
+                     :width "thin"
+                     :visible @visible
+                     :icon "labeled"
+                     :vertical true
+                     :inverted true
+                     }
+         [sa/MenuItem {:name "home"}
+          [sa/Icon {:name "home"}]
+          "Home"]]
+        [sa/SidebarPusher
+         [sa/Segment {:basic true}]
+         [sa/Header "Application Content"]]]])))
+
+(defn semantic-page []
+  (let [visible (r/atom false)
+        on-click (fn []
+                   (reset! visible (not @visible)))]
+    (fn []
+      [:div
+       [sa/Button {:onClick on-click} "Toggle"]
+       [sa/SidebarPushable {:as (aget js/semanticUIReact "Segment")}
+        [sa/Sidebar {:as (aget js/semanticUIReact "Menu")
+                     :animation "push"
+                     :width "thin"
+                     :visible @visible
+                     :icon "labeled"
+                     :vertical true
+                     :inverted true}
+         [sa/MenuItem {:name "home"}
+          [sa/Icon {:name "home"}]
+          "Home"]]
+        [sa/SidebarPusher
+         [sa/Segment {:basic true}]
+         [sa/Header "Application Content"]]]])))
+
+
 (def pages
   {:home #'home-page
    :about #'about-page
-   :todos #'todo-page})
+   :todos #'todo-page
+   :semantic #'semantic-page})
 
 (defn page []
   [:div
@@ -197,6 +206,9 @@
 (secretary/defroute "/todos" []
   (rf/dispatch [:set-active-page :todos]))
 
+(secretary/defroute "/semantic" []
+  (rf/dispatch [:set-active-page :semantic]))
+
 ;; -------------------------
 ;; History
 ;; must be called after routes have been defined
@@ -210,7 +222,7 @@
 
 ;; -------------------------
 ;; Initialize app
-(defn fetch-docs! []
+#_(defn fetch-docs! []
   (GET "/docs" {:handler #(rf/dispatch [:set-docs %])}))
 
 (defn mount-components []
@@ -219,7 +231,8 @@
 
 (defn init! []
   (rf/dispatch-sync [:initialize-db])
+  (enable-re-frisk!)
   (load-interceptors!)
-  (fetch-docs!)
+  #_(fetch-docs!)
   (hook-browser-navigation!)
   (mount-components))

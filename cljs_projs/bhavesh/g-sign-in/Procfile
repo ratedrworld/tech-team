@@ -1,0 +1,1 @@
+web: java $JVM_OPTS -cp target/uberjar/g-sign-in.jar clojure.main -m g-sign-in.core

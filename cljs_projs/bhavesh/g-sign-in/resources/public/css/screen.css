@@ -1,8 +1,7 @@
 html,
 body {
 	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  height: 100%;
-  background-color: #eee;
+    height: 100%;
 }
 .navbar {
   margin-bottom: 10px;
@@ -18,16 +17,6 @@ body {
 .navbar-nav .nav-item+.nav-item,
 .navbar-nav .nav-link + .nav-link {
   margin-left: 0;
-}
-.container {
-    padding-top: 100px;
-    padding-bottom: 40px;
-
-}
-.form-signin {
-  max-width: 330px;
-  padding: 15px;
-  margin: 0 auto;
 }
 @media (min-width: 34em) {
   .navbar-brand {
@@ -78,26 +67,3 @@ body {
     }
 }
 
-h2{
-    font-family: "Comic Sans MS";
-}
-
-h1{
-    font-family: "Verdana";
-}
-
-.text-center{
-    text-align: center;
-}
-
-.flex-container{
-    height : 100%;
-    width : 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-}
-.todo-card {
-    margin : 0 !important;
-    height : 100% !important;
-}
