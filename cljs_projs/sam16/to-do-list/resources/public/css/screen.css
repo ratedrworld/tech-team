@@ -20,12 +20,25 @@ body {
 }
 .todo {
     border : 1px;
-    border-radius : 0.5px;
-    backgroud-color : silver;
+    width: 500px;
+    background-color: #008CBA;
+    color : black;
     margin : 5px;
     padding : 3px;
     font-size : 25sp;
 }
+
+button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
 @media (min-width: 34em) {
   .navbar-brand {
     float: left;

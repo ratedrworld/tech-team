@@ -1,6 +1,9 @@
 (ns to-do-list.core
   (:require [reagent.core :as r]
-            [ajax.core :refer [GET POST]]))
+            [reagent.session :as session]
+            [ajax.core :refer [GET POST]]
+            [accountant.core :as accountant]
+            [secretary.core :as secretary :include-macros true]))
 
 ;; Server address for requests
 (def server "http://localhost:3000/")
@@ -13,7 +16,7 @@
   (.log js/console (apply str msgs)))
 
 ;; Atom to store current page
-(def pages (r/atom :login))
+#_(def pages (r/atom :login))
 
 
 ;; Atom to store todos of a user
@@ -31,14 +34,27 @@
 (defn show-todos []
   (log @todos)
   [:div (doall (map (fn [x]
-                      [:div.todo [:div (:title x)] [:div (:content x)]
-                       [:button "Done"]])
+                      [:div.todo
+                       [:div (:title x)
+                        [:button "Done"
+                         {:on-click: (fn [e]
+                                       (let [title (:title x)]
+                                         (log "DONE TODO  >>>" user pass)
+                                         (GET (str server "todo")
+                                              {:params {:user user
+                                                        :pass pass}
+                                               :format :json
+                                               :response-format :json
+                                               :keywords? true
+                                               :handler logged-in?
+                                               :error-handler error-handler})))}]]
+                       [:div (:content x) [:button "Update"]]])
                     (:todolist @todos)))]
   #_[:table
-   [:thead [:tr [:th "Title"] [:th "Content"]]]
-   [:tbody (doall (map (fn [x]
-                         [:tr [:td (:title x)] [:td (:content x)]])
-                       @todos))]])
+     [:thead [:tr [:th "Title"] [:th "Content"]]]
+     [:tbody (doall (map (fn [x]
+                           [:tr [:td (:title x)] [:td (:content x)]])
+                         @todos))]])
 
 ;; Add Todo handler
 (defn added-todo? [response]
@@ -71,14 +87,18 @@
     [:div [:input {:type "submit" :value "Add A New Todo"}]]]
    [:button {:on-click (fn [e]
                          (js/alert (str  "Bye " (:user @todos) " Have a Gr8 Day"))
-                         (reset! pages :login))} "Logout"]
+                         #_(reset! pages :login) #_(session/put! :current-page login-page)
+                         (secretary/dispatch! "/login"))} "Logout"]
    [:div [show-todos]]])
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;; LOGIN PAGE COMPONENTS
 (defn logged-in? [response]
   (if (:login response)
-    (do (reset! pages :todo)
-        (swap! todos assoc-in [:user] (:user response)))
+    (do #_(reset! pages :todo)
+        #_(secretary/dispatch! "/todo")
+        (session/put! :current-page todo-page)
+        (swap! todos assoc-in [:user] (:user response))
+        (swap! todos assoc-in [:todolist] (:content response)))
     (js/alert "Login failed..!! Plz try again")))
 
 ;;; Login Page
@@ -104,15 +124,40 @@
     [:div [:input {:type "submit" :value "LOGIN"}]]]])
 
 
+;; Secretary Components
+(defn page []
+  [(session/get :current-page)])
+
+(secretary/set-config! :prefix "#")
+
+(secretary/defroute  "/" []
+  (session/put! :current-page login-page))
+
+(secretary/defroute "/todo" []
+  (session/put! :current-page todo-page))
+
+(secretary/defroute "/login" []
+  (session/put! :current-page login-page))
+
 ;;; PARENT COMPONENT TO SWITCH PAGES
-(defn page-switcher []
+#_(defn page-switcher []
   (condp = @pages
     :login [login-page]
     :todo [todo-page]))
 
+
 ;;;;;;;;;;;;;; Initialization
 (defn mount-components []
-  (r/render [page-switcher] (.getElementById js/document "app")))
+  (session/put! :current-page login-page)
+  (r/render [page] (.getElementById js/document "app")))
 
 (defn init! []
+  (accountant/configure-navigation!
+   {:nav-handler
+    (fn [path]
+      (secretary/dispatch! path))
+    :path-exists?
+    (fn [path]
+      (secretary/locate-route path))})
+  (accountant/dispatch-current!)
   (mount-components))

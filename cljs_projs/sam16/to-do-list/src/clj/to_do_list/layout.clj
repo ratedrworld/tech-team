@@ -26,7 +26,7 @@
    "text/html; charset=utf-8"))
 
 (defn render-json
-  "renders the HTML template located relative to resources/templates"
+  "renders the HTML template into JSON"
   [params]
   (content-type
    (ok

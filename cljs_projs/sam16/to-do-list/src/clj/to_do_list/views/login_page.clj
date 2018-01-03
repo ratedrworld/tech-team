@@ -5,6 +5,10 @@
 (defn user-login? [user pass]
   (let [result (db/user-login? user pass)]
     (if result
-      (do {:login true
-           :user user})
+      (do (let [rslt (db/display-todos user)]
+            {:login true :user user
+             :content (mapv #(select-keys % [:title :content :status]) rslt)}))
       {:login false})))
+
+(defn done-todo [user title]
+  (let []))

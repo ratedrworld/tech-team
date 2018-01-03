@@ -1,0 +1,527 @@
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.871 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/goog/deps.js
+notifying browser that file changed:  target/cljsbuild/public/js/out/cljs_deps.js
+notifying browser that file changed:  target/cljsbuild/public/js/out/to_do_list/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[36m----  Compiler Warning on   src/cljs/to_do_list/core.cljs   line:76  column:78  ----[0m
+
+  [1mUse of undeclared Var to-do-list.core/login-page[0m
+
+  [36m72[0m  [36m    [:div [:input {:type "text" :id "todo-content" :placeholder "Todo Content"}]][0m
+  [36m73[0m  [36m    [:div [:input {:type "submit" :value "Add A New Todo"}]]][0m
+  [36m74[0m  [36m   [:button {:on-click (fn [e][0m
+  [36m75[0m  [36m                         (js/alert (str  "Bye " (:user @todos) " Have a Gr8 Day"))[0m
+  [33m76[0m  [1m                         #_(reset! pages :login) (session/put! :current-page login-page))} "Logout"][0m
+  [0m  [0m  [33m                                                                             ^--- Use of undeclared Var to-do-list.core/login-page[0m
+  [36m77[0m  [36m   [:div [show-todos]]])[0m
+  [36m78[0m  [36m[0m
+  [36m79[0m  [36m;;;;;;;;;;;;;;;;;;;;;;;;;; LOGIN PAGE COMPONENTS[0m
+  [36m80[0m  [36m(defn logged-in? [response][0m
+  [36m81[0m  [36m  (if (:login response)[0m
+
+[36m----  Compiler Warning : Please see src/cljs/to_do_list/core.cljs  ----[0m
+[36m----  Compiler Warning on   src/cljs/to_do_list/core.cljs   line:83  column:37  ----[0m
+
+  [1mUse of undeclared Var to-do-list.core/home-page[0m
+
+  [36m79[0m  [36m;;;;;;;;;;;;;;;;;;;;;;;;;; LOGIN PAGE COMPONENTS[0m
+  [36m80[0m  [36m(defn logged-in? [response][0m
+  [36m81[0m  [36m  (if (:login response)[0m
+  [36m82[0m  [36m    (do #_(reset! pages :todo)[0m
+  [33m83[0m  [1m        (session/put! :current-page home-page)[0m
+  [0m  [0m  [33m                                    ^--- Use of undeclared Var to-do-list.core/home-page[0m
+  [36m84[0m  [36m        (swap! todos assoc-in [:user] (:user response)))[0m
+  [36m85[0m  [36m    (js/alert "Login failed..!! Plz try again")))[0m
+  [36m86[0m  [36m[0m
+  [36m87[0m  [36m;;; Login Page[0m
+  [36m88[0m  [36m(defn login-page [][0m
+
+[36m----  Compiler Warning : Please see src/cljs/to_do_list/core.cljs  ----[0m
+[36m----  Compiler Warning on   src/cljs/to_do_list/core.cljs   line:116  column:1  ----[0m
+
+  [1mtodo-page at line 53 is being replaced[0m
+
+  [36m112[0m  [36m  [(session/get :current-page)])[0m
+  [36m113[0m  [36m[0m
+  [36m114[0m  [36m(secretary/set-config! :prefix "#")[0m
+  [36m115[0m  [36m[0m
+  [33m116[0m  [1m(secretary/defroute todo-page "/" [][0m
+  [0m   [0m  [33m^--- todo-page at line 53 is being replaced[0m
+  [36m117[0m  [36m  (session/put! :current-page login-page))[0m
+  [36m118[0m  [36m[0m
+  [36m119[0m  [36m(secretary/defroute todo-page "/todo" [][0m
+  [36m120[0m  [36m  (session/put! :current-page todo-page))[0m
+
+[36m----  Compiler Warning : Please see src/cljs/to_do_list/core.cljs  ----[0m
+[36m----  Compiler Warning on   src/cljs/to_do_list/core.cljs   line:119  column:1  ----[0m
+
+  [1mtodo-page at line 116 is being replaced[0m
+
+  [36m116[0m  [36m(secretary/defroute todo-page "/" [][0m
+  [36m117[0m  [36m  (session/put! :current-page login-page))[0m
+  [36m118[0m  [36m[0m
+  [33m119[0m  [1m(secretary/defroute todo-page "/todo" [][0m
+  [0m   [0m  [33m^--- todo-page at line 116 is being replaced[0m
+  [36m120[0m  [36m  (session/put! :current-page todo-page))[0m
+  [36m121[0m  [36m[0m
+  [36m122[0m  [36m(secretary/defroute login-page "/login" [][0m
+  [36m123[0m  [36m  (session/put! :current-page login-page))[0m
+
+[36m----  Compiler Warning : Please see src/cljs/to_do_list/core.cljs  ----[0m
+[36m----  Compiler Warning on   src/cljs/to_do_list/core.cljs   line:122  column:1  ----[0m
+
+  [1mlogin-page at line 88 is being replaced[0m
+
+  [36m119[0m  [36m(secretary/defroute todo-page "/todo" [][0m
+  [36m120[0m  [36m  (session/put! :current-page todo-page))[0m
+  [36m121[0m  [36m[0m
+  [33m122[0m  [1m(secretary/defroute login-page "/login" [][0m
+  [0m   [0m  [33m^--- login-page at line 88 is being replaced[0m
+  [36m123[0m  [36m  (session/put! :current-page login-page))[0m
+  [36m124[0m  [36m[0m
+  [36m125[0m  [36m;;; PARENT COMPONENT TO SWITCH PAGES[0m
+  [36m126[0m  [36m#_(defn page-switcher [][0m
+  [36m127[0m  [36m  (condp = @pages[0m
+
+[36m----  Compiler Warning : Please see src/cljs/to_do_list/core.cljs  ----[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.678 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/cljs_deps.js
+notifying browser that file changed:  target/cljsbuild/public/js/out/to_do_list/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[36m----  Compiler Warning on   src/cljs/to_do_list/core.cljs   line:76  column:78  ----[0m
+
+  [1mUse of undeclared Var to-do-list.core/login-page[0m
+
+  [36m72[0m  [36m    [:div [:input {:type "text" :id "todo-content" :placeholder "Todo Content"}]][0m
+  [36m73[0m  [36m    [:div [:input {:type "submit" :value "Add A New Todo"}]]][0m
+  [36m74[0m  [36m   [:button {:on-click (fn [e][0m
+  [36m75[0m  [36m                         (js/alert (str  "Bye " (:user @todos) " Have a Gr8 Day"))[0m
+  [33m76[0m  [1m                         #_(reset! pages :login) (session/put! :current-page login-page))} "Logout"][0m
+  [0m  [0m  [33m                                                                             ^--- Use of undeclared Var to-do-list.core/login-page[0m
+  [36m77[0m  [36m   [:div [show-todos]]])[0m
+  [36m78[0m  [36m[0m
+  [36m79[0m  [36m;;;;;;;;;;;;;;;;;;;;;;;;;; LOGIN PAGE COMPONENTS[0m
+  [36m80[0m  [36m(defn logged-in? [response][0m
+  [36m81[0m  [36m  (if (:login response)[0m
+
+[36m----  Compiler Warning : Please see src/cljs/to_do_list/core.cljs  ----[0m
+[36m----  Compiler Warning on   src/cljs/to_do_list/core.cljs   line:83  column:37  ----[0m
+
+  [1mUse of undeclared Var to-do-list.core/home-page[0m
+
+  [36m79[0m  [36m;;;;;;;;;;;;;;;;;;;;;;;;;; LOGIN PAGE COMPONENTS[0m
+  [36m80[0m  [36m(defn logged-in? [response][0m
+  [36m81[0m  [36m  (if (:login response)[0m
+  [36m82[0m  [36m    (do #_(reset! pages :todo)[0m
+  [33m83[0m  [1m        (session/put! :current-page home-page)[0m
+  [0m  [0m  [33m                                    ^--- Use of undeclared Var to-do-list.core/home-page[0m
+  [36m84[0m  [36m        (swap! todos assoc-in [:user] (:user response)))[0m
+  [36m85[0m  [36m    (js/alert "Login failed..!! Plz try again")))[0m
+  [36m86[0m  [36m[0m
+  [36m87[0m  [36m;;; Login Page[0m
+  [36m88[0m  [36m(defn login-page [][0m
+
+[36m----  Compiler Warning : Please see src/cljs/to_do_list/core.cljs  ----[0m
+[36m----  Compiler Warning on   src/cljs/to_do_list/core.cljs   line:119  column:1  ----[0m
+
+  [1mtodo-page at line 53 is being replaced[0m
+
+  [36m116[0m  [36m(secretary/defroute  "/" [][0m
+  [36m117[0m  [36m  (session/put! :current-page login-page))[0m
+  [36m118[0m  [36m[0m
+  [33m119[0m  [1m(secretary/defroute todo-page "/todo" [][0m
+  [0m   [0m  [33m^--- todo-page at line 53 is being replaced[0m
+  [36m120[0m  [36m  (session/put! :current-page todo-page))[0m
+  [36m121[0m  [36m[0m
+  [36m122[0m  [36m(secretary/defroute login-page "/login" [][0m
+  [36m123[0m  [36m  (session/put! :current-page login-page))[0m
+
+[36m----  Compiler Warning : Please see src/cljs/to_do_list/core.cljs  ----[0m
+[36m----  Compiler Warning on   src/cljs/to_do_list/core.cljs   line:122  column:1  ----[0m
+
+  [1mlogin-page at line 88 is being replaced[0m
+
+  [36m119[0m  [36m(secretary/defroute todo-page "/todo" [][0m
+  [36m120[0m  [36m  (session/put! :current-page todo-page))[0m
+  [36m121[0m  [36m[0m
+  [33m122[0m  [1m(secretary/defroute login-page "/login" [][0m
+  [0m   [0m  [33m^--- login-page at line 88 is being replaced[0m
+  [36m123[0m  [36m  (session/put! :current-page login-page))[0m
+  [36m124[0m  [36m[0m
+  [36m125[0m  [36m;;; PARENT COMPONENT TO SWITCH PAGES[0m
+  [36m126[0m  [36m#_(defn page-switcher [][0m
+  [36m127[0m  [36m  (condp = @pages[0m
+
+[36m----  Compiler Warning : Please see src/cljs/to_do_list/core.cljs  ----[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.551 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/to_do_list/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[36m----  Compiler Warning on   src/cljs/to_do_list/core.cljs   line:76  column:78  ----[0m
+
+  [1mUse of undeclared Var to-do-list.core/login-page[0m
+
+  [36m72[0m  [36m    [:div [:input {:type "text" :id "todo-content" :placeholder "Todo Content"}]][0m
+  [36m73[0m  [36m    [:div [:input {:type "submit" :value "Add A New Todo"}]]][0m
+  [36m74[0m  [36m   [:button {:on-click (fn [e][0m
+  [36m75[0m  [36m                         (js/alert (str  "Bye " (:user @todos) " Have a Gr8 Day"))[0m
+  [33m76[0m  [1m                         #_(reset! pages :login) (session/put! :current-page login-page))} "Logout"][0m
+  [0m  [0m  [33m                                                                             ^--- Use of undeclared Var to-do-list.core/login-page[0m
+  [36m77[0m  [36m   [:div [show-todos]]])[0m
+  [36m78[0m  [36m[0m
+  [36m79[0m  [36m;;;;;;;;;;;;;;;;;;;;;;;;;; LOGIN PAGE COMPONENTS[0m
+  [36m80[0m  [36m(defn logged-in? [response][0m
+  [36m81[0m  [36m  (if (:login response)[0m
+
+[36m----  Compiler Warning : Please see src/cljs/to_do_list/core.cljs  ----[0m
+[36m----  Compiler Warning on   src/cljs/to_do_list/core.cljs   line:83  column:37  ----[0m
+
+  [1mUse of undeclared Var to-do-list.core/home-page[0m
+
+  [36m79[0m  [36m;;;;;;;;;;;;;;;;;;;;;;;;;; LOGIN PAGE COMPONENTS[0m
+  [36m80[0m  [36m(defn logged-in? [response][0m
+  [36m81[0m  [36m  (if (:login response)[0m
+  [36m82[0m  [36m    (do #_(reset! pages :todo)[0m
+  [33m83[0m  [1m        (session/put! :current-page home-page)[0m
+  [0m  [0m  [33m                                    ^--- Use of undeclared Var to-do-list.core/home-page[0m
+  [36m84[0m  [36m        (swap! todos assoc-in [:user] (:user response)))[0m
+  [36m85[0m  [36m    (js/alert "Login failed..!! Plz try again")))[0m
+  [36m86[0m  [36m[0m
+  [36m87[0m  [36m;;; Login Page[0m
+  [36m88[0m  [36m(defn login-page [][0m
+
+[36m----  Compiler Warning : Please see src/cljs/to_do_list/core.cljs  ----[0m
+[36m----  Compiler Warning on   src/cljs/to_do_list/core.cljs   line:119  column:1  ----[0m
+
+  [1mtodo-page at line 53 is being replaced[0m
+
+  [36m116[0m  [36m(secretary/defroute  "/" [][0m
+  [36m117[0m  [36m  (session/put! :current-page login-page))[0m
+  [36m118[0m  [36m[0m
+  [33m119[0m  [1m(secretary/defroute todo-page "/todo" [][0m
+  [0m   [0m  [33m^--- todo-page at line 53 is being replaced[0m
+  [36m120[0m  [36m  (session/put! :current-page todo-page))[0m
+  [36m121[0m  [36m[0m
+  [36m122[0m  [36m(secretary/defroute login-page "/login" [][0m
+  [36m123[0m  [36m  (session/put! :current-page login-page))[0m
+
+[36m----  Compiler Warning : Please see src/cljs/to_do_list/core.cljs  ----[0m
+[36m----  Compiler Warning on   src/cljs/to_do_list/core.cljs   line:122  column:1  ----[0m
+
+  [1mlogin-page at line 88 is being replaced[0m
+
+  [36m119[0m  [36m(secretary/defroute todo-page "/todo" [][0m
+  [36m120[0m  [36m  (session/put! :current-page todo-page))[0m
+  [36m121[0m  [36m[0m
+  [33m122[0m  [1m(secretary/defroute login-page "/login" [][0m
+  [0m   [0m  [33m^--- login-page at line 88 is being replaced[0m
+  [36m123[0m  [36m  (session/put! :current-page login-page))[0m
+  [36m124[0m  [36m[0m
+  [36m125[0m  [36m;;; PARENT COMPONENT TO SWITCH PAGES[0m
+  [36m126[0m  [36m#_(defn page-switcher [][0m
+  [36m127[0m  [36m  (condp = @pages[0m
+
+[36m----  Compiler Warning : Please see src/cljs/to_do_list/core.cljs  ----[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.604 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/to_do_list/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[36m----  Compiler Warning on   src/cljs/to_do_list/core.cljs   line:57  column:37  ----[0m
+
+  [1mUse of undeclared Var to-do-list.core/home-page[0m
+
+  [36m53[0m  [36m;;;;;;;;;;;;;;;;;;;;;;;;;; LOGIN PAGE COMPONENTS[0m
+  [36m54[0m  [36m(defn logged-in? [response][0m
+  [36m55[0m  [36m  (if (:login response)[0m
+  [36m56[0m  [36m    (do #_(reset! pages :todo)[0m
+  [33m57[0m  [1m        (session/put! :current-page home-page)[0m
+  [0m  [0m  [33m                                    ^--- Use of undeclared Var to-do-list.core/home-page[0m
+  [36m58[0m  [36m        (swap! todos assoc-in [:user] (:user response)))[0m
+  [36m59[0m  [36m    (js/alert "Login failed..!! Plz try again")))[0m
+  [36m60[0m  [36m[0m
+  [36m61[0m  [36m;;; Login Page[0m
+  [36m62[0m  [36m(defn login-page [][0m
+
+[36m----  Compiler Warning : Please see src/cljs/to_do_list/core.cljs  ----[0m
+[36m----  Compiler Warning on   src/cljs/to_do_list/core.cljs   line:123  column:1  ----[0m
+
+  [1mtodo-page at line 85 is being replaced[0m
+
+  [36m120[0m  [36m(secretary/defroute  "/" [][0m
+  [36m121[0m  [36m  (session/put! :current-page login-page))[0m
+  [36m122[0m  [36m[0m
+  [33m123[0m  [1m(secretary/defroute todo-page "/todo" [][0m
+  [0m   [0m  [33m^--- todo-page at line 85 is being replaced[0m
+  [36m124[0m  [36m  (session/put! :current-page todo-page))[0m
+  [36m125[0m  [36m[0m
+  [36m126[0m  [36m(secretary/defroute login-page "/login" [][0m
+  [36m127[0m  [36m  (session/put! :current-page login-page))[0m
+
+[36m----  Compiler Warning : Please see src/cljs/to_do_list/core.cljs  ----[0m
+[36m----  Compiler Warning on   src/cljs/to_do_list/core.cljs   line:126  column:1  ----[0m
+
+  [1mlogin-page at line 62 is being replaced[0m
+
+  [36m123[0m  [36m(secretary/defroute todo-page "/todo" [][0m
+  [36m124[0m  [36m  (session/put! :current-page todo-page))[0m
+  [36m125[0m  [36m[0m
+  [33m126[0m  [1m(secretary/defroute login-page "/login" [][0m
+  [0m   [0m  [33m^--- login-page at line 62 is being replaced[0m
+  [36m127[0m  [36m  (session/put! :current-page login-page))[0m
+  [36m128[0m  [36m[0m
+  [36m129[0m  [36m;;; PARENT COMPONENT TO SWITCH PAGES[0m
+  [36m130[0m  [36m#_(defn page-switcher [][0m
+  [36m131[0m  [36m  (condp = @pages[0m
+
+[36m----  Compiler Warning : Please see src/cljs/to_do_list/core.cljs  ----[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.595 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/to_do_list/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[36m----  Compiler Warning on   src/cljs/to_do_list/core.cljs   line:76  column:78  ----[0m
+
+  [1mUse of undeclared Var to-do-list.core/login-page[0m
+
+  [36m72[0m  [36m    [:div [:input {:type "text" :id "todo-content" :placeholder "Todo Content"}]][0m
+  [36m73[0m  [36m    [:div [:input {:type "submit" :value "Add A New Todo"}]]][0m
+  [36m74[0m  [36m   [:button {:on-click (fn [e][0m
+  [36m75[0m  [36m                         (js/alert (str  "Bye " (:user @todos) " Have a Gr8 Day"))[0m
+  [33m76[0m  [1m                         #_(reset! pages :login) (session/put! :current-page login-page))} "Logout"][0m
+  [0m  [0m  [33m                                                                             ^--- Use of undeclared Var to-do-list.core/login-page[0m
+  [36m77[0m  [36m   [:div [show-todos]]])[0m
+  [36m78[0m  [36m[0m
+  [36m79[0m  [36m;;;;;;;;;;;;;;;;;;;;;;;;;; LOGIN PAGE COMPONENTS[0m
+  [36m80[0m  [36m(defn logged-in? [response][0m
+  [36m81[0m  [36m  (if (:login response)[0m
+
+[36m----  Compiler Warning : Please see src/cljs/to_do_list/core.cljs  ----[0m
+[36m----  Compiler Warning on   src/cljs/to_do_list/core.cljs   line:83  column:37  ----[0m
+
+  [1mUse of undeclared Var to-do-list.core/home-page[0m
+
+  [36m79[0m  [36m;;;;;;;;;;;;;;;;;;;;;;;;;; LOGIN PAGE COMPONENTS[0m
+  [36m80[0m  [36m(defn logged-in? [response][0m
+  [36m81[0m  [36m  (if (:login response)[0m
+  [36m82[0m  [36m    (do #_(reset! pages :todo)[0m
+  [33m83[0m  [1m        (session/put! :current-page home-page)[0m
+  [0m  [0m  [33m                                    ^--- Use of undeclared Var to-do-list.core/home-page[0m
+  [36m84[0m  [36m        (swap! todos assoc-in [:user] (:user response)))[0m
+  [36m85[0m  [36m    (js/alert "Login failed..!! Plz try again")))[0m
+  [36m86[0m  [36m[0m
+  [36m87[0m  [36m;;; Login Page[0m
+  [36m88[0m  [36m(defn login-page [][0m
+
+[36m----  Compiler Warning : Please see src/cljs/to_do_list/core.cljs  ----[0m
+[36m----  Compiler Warning on   src/cljs/to_do_list/core.cljs   line:119  column:1  ----[0m
+
+  [1mtodo-page at line 53 is being replaced[0m
+
+  [36m116[0m  [36m(secretary/defroute  "/" [][0m
+  [36m117[0m  [36m  (session/put! :current-page login-page))[0m
+  [36m118[0m  [36m[0m
+  [33m119[0m  [1m(secretary/defroute todo-page "/todo" [][0m
+  [0m   [0m  [33m^--- todo-page at line 53 is being replaced[0m
+  [36m120[0m  [36m  (session/put! :current-page todo-page))[0m
+  [36m121[0m  [36m[0m
+  [36m122[0m  [36m(secretary/defroute login-page "/login" [][0m
+  [36m123[0m  [36m  (session/put! :current-page login-page))[0m
+
+[36m----  Compiler Warning : Please see src/cljs/to_do_list/core.cljs  ----[0m
+[36m----  Compiler Warning on   src/cljs/to_do_list/core.cljs   line:122  column:1  ----[0m
+
+  [1mlogin-page at line 88 is being replaced[0m
+
+  [36m119[0m  [36m(secretary/defroute todo-page "/todo" [][0m
+  [36m120[0m  [36m  (session/put! :current-page todo-page))[0m
+  [36m121[0m  [36m[0m
+  [33m122[0m  [1m(secretary/defroute login-page "/login" [][0m
+  [0m   [0m  [33m^--- login-page at line 88 is being replaced[0m
+  [36m123[0m  [36m  (session/put! :current-page login-page))[0m
+  [36m124[0m  [36m[0m
+  [36m125[0m  [36m;;; PARENT COMPONENT TO SWITCH PAGES[0m
+  [36m126[0m  [36m#_(defn page-switcher [][0m
+  [36m127[0m  [36m  (condp = @pages[0m
+
+[36m----  Compiler Warning : Please see src/cljs/to_do_list/core.cljs  ----[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.593 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/to_do_list/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[36m----  Compiler Warning on   src/cljs/to_do_list/core.cljs   line:121  column:1  ----[0m
+
+  [1mtodo-page at line 53 is being replaced[0m
+
+  [36m118[0m  [36m(secretary/defroute  "/" [][0m
+  [36m119[0m  [36m  (session/put! :current-page login-page))[0m
+  [36m120[0m  [36m[0m
+  [33m121[0m  [1m(secretary/defroute todo-page "/todo" [][0m
+  [0m   [0m  [33m^--- todo-page at line 53 is being replaced[0m
+  [36m122[0m  [36m  (session/put! :current-page todo-page))[0m
+  [36m123[0m  [36m[0m
+  [36m124[0m  [36m(secretary/defroute login-page "/login" [][0m
+  [36m125[0m  [36m  (session/put! :current-page login-page))[0m
+
+[36m----  Compiler Warning : Please see src/cljs/to_do_list/core.cljs  ----[0m
+[36m----  Compiler Warning on   src/cljs/to_do_list/core.cljs   line:124  column:1  ----[0m
+
+  [1mlogin-page at line 90 is being replaced[0m
+
+  [36m121[0m  [36m(secretary/defroute todo-page "/todo" [][0m
+  [36m122[0m  [36m  (session/put! :current-page todo-page))[0m
+  [36m123[0m  [36m[0m
+  [33m124[0m  [1m(secretary/defroute login-page "/login" [][0m
+  [0m   [0m  [33m^--- login-page at line 90 is being replaced[0m
+  [36m125[0m  [36m  (session/put! :current-page login-page))[0m
+  [36m126[0m  [36m[0m
+  [36m127[0m  [36m;;; PARENT COMPONENT TO SWITCH PAGES[0m
+  [36m128[0m  [36m#_(defn page-switcher [][0m
+  [36m129[0m  [36m  (condp = @pages[0m
+
+[36m----  Compiler Warning : Please see src/cljs/to_do_list/core.cljs  ----[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.529 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/to_do_list/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.401 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/to_do_list/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[36m----  Compiler Warning on   src/cljs/to_do_list/core.cljs   line:85  column:37  ----[0m
+
+  [1mUse of undeclared Var to-do-list.core/home-page[0m
+
+  [36m81[0m  [36m(defn logged-in? [response][0m
+  [36m82[0m  [36m  (if (:login response)[0m
+  [36m83[0m  [36m    (do #_(reset! pages :todo)[0m
+  [36m84[0m  [36m        #_(secretary/dispatch! "/todo")[0m
+  [33m85[0m  [1m        (session/put! :current-page home-page)[0m
+  [0m  [0m  [33m                                    ^--- Use of undeclared Var to-do-list.core/home-page[0m
+  [36m86[0m  [36m        (swap! todos assoc-in [:user] (:user response)))[0m
+  [36m87[0m  [36m    (js/alert "Login failed..!! Plz try again")))[0m
+  [36m88[0m  [36m[0m
+  [36m89[0m  [36m;;; Login Page[0m
+  [36m90[0m  [36m(defn login-page [][0m
+
+[36m----  Compiler Warning : Please see src/cljs/to_do_list/core.cljs  ----[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.468 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/to_do_list/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.469 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/to_do_list/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[36m----  Compiler Warning on   src/cljs/to_do_list/core.cljs   line:136  column:6  ----[0m
+
+  [1mNo such namespace: events, could not locate events.cljs, events.cljc, or JavaScript source providing ""[0m
+
+  [36m132[0m  [36m    :todo [todo-page]))[0m
+  [36m133[0m  [36m[0m
+  [36m134[0m  [36m(defn hook-browser-navigation! [][0m
+  [36m135[0m  [36m  (doto (History.)[0m
+  [33m136[0m  [1m    (events/listen[0m
+  [0m   [0m  [33m     ^--- No such namespace: events, could not locate events.cljs, events.cljc, or JavaScript source providing ""[0m
+  [36m137[0m  [36m     HistoryEventType/NAVIGATE[0m
+  [36m138[0m  [36m     (fn [event][0m
+  [36m139[0m  [36m       (secretary/dispatch! (.-token event))))[0m
+  [36m140[0m  [36m    (.setEnabled true)))[0m
+
+[36m----  Compiler Warning : Please see src/cljs/to_do_list/core.cljs  ----[0m
+[36m----  Compiler Warning on   src/cljs/to_do_list/core.cljs   line:136  column:6  ----[0m
+
+  [1mUse of undeclared Var events/listen[0m
+
+  [36m132[0m  [36m    :todo [todo-page]))[0m
+  [36m133[0m  [36m[0m
+  [36m134[0m  [36m(defn hook-browser-navigation! [][0m
+  [36m135[0m  [36m  (doto (History.)[0m
+  [33m136[0m  [1m    (events/listen[0m
+  [0m   [0m  [33m     ^--- Use of undeclared Var events/listen[0m
+  [36m137[0m  [36m     HistoryEventType/NAVIGATE[0m
+  [36m138[0m  [36m     (fn [event][0m
+  [36m139[0m  [36m       (secretary/dispatch! (.-token event))))[0m
+  [36m140[0m  [36m    (.setEnabled true)))[0m
+
+[36m----  Compiler Warning : Please see src/cljs/to_do_list/core.cljs  ----[0m
+[36m----  Compiler Warning on   src/cljs/to_do_list/core.cljs   line:137  column:6  ----[0m
+
+  [1mNo such namespace: HistoryEventType, could not locate HistoryEventType.cljs, HistoryEventType.cljc, or JavaScript source providing ""[0m
+
+  [36m134[0m  [36m(defn hook-browser-navigation! [][0m
+  [36m135[0m  [36m  (doto (History.)[0m
+  [36m136[0m  [36m    (events/listen[0m
+  [33m137[0m  [1m     HistoryEventType/NAVIGATE[0m
+  [0m   [0m  [33m     ^--- No such namespace: HistoryEventType, could not locate HistoryEventType.cljs, HistoryEventType.cljc, or JavaScript source providing ""[0m
+  [36m138[0m  [36m     (fn [event][0m
+  [36m139[0m  [36m       (secretary/dispatch! (.-token event))))[0m
+  [36m140[0m  [36m    (.setEnabled true)))[0m
+  [36m141[0m  [36m[0m
+  [36m142[0m  [36m;;;;;;;;;;;;;; Initialization[0m
+
+[36m----  Compiler Warning : Please see src/cljs/to_do_list/core.cljs  ----[0m
+[36m----  Compiler Warning on   src/cljs/to_do_list/core.cljs   line:137  column:6  ----[0m
+
+  [1mUse of undeclared Var HistoryEventType/NAVIGATE[0m
+
+  [36m134[0m  [36m(defn hook-browser-navigation! [][0m
+  [36m135[0m  [36m  (doto (History.)[0m
+  [36m136[0m  [36m    (events/listen[0m
+  [33m137[0m  [1m     HistoryEventType/NAVIGATE[0m
+  [0m   [0m  [33m     ^--- Use of undeclared Var HistoryEventType/NAVIGATE[0m
+  [36m138[0m  [36m     (fn [event][0m
+  [36m139[0m  [36m       (secretary/dispatch! (.-token event))))[0m
+  [36m140[0m  [36m    (.setEnabled true)))[0m
+  [36m141[0m  [36m[0m
+  [36m142[0m  [36m;;;;;;;;;;;;;; Initialization[0m
+
+[36m----  Compiler Warning : Please see src/cljs/to_do_list/core.cljs  ----[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.523 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/cljs_deps.js
+notifying browser that file changed:  target/cljsbuild/public/js/out/to_do_list/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[31mFailed to compile "target/cljsbuild/public/js/app.js" in 0.196 seconds.[0m
+[36m----  Could not Analyze  src/cljs/to_do_list/core.cljs  ----[0m
+
+  [1mNo such namespace: accountant.core, could not locate accountant/core.cljs, accountant/core.cljc, or JavaScript source providing "accountant.core" [0m
+
+[36m----  Analysis Error : Please see src/cljs/to_do_list/core.cljs  ----[0m
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.591 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/goog/deps.js
+notifying browser that file changed:  target/cljsbuild/public/js/out/cljs_deps.js
+notifying browser that file changed:  target/cljsbuild/public/js/out/to_do_list/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.495 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/to_do_list/core.js
+Notifying browser that CSS file changed: resources/public/css/screen.css
+Notifying browser that CSS file changed: resources/public/css/screen.css
+Notifying browser that CSS file changed: resources/public/css/screen.css
+Notifying browser that CSS file changed: resources/public/css/screen.css
+Notifying browser that CSS file changed: resources/public/css/screen.css
+Notifying browser that CSS file changed: resources/public/css/screen.css
+Notifying browser that CSS file changed: resources/public/css/screen.css
+Notifying browser that CSS file changed: resources/public/css/screen.css
+Notifying browser that CSS file changed: resources/public/css/screen.css
+Notifying browser that CSS file changed: resources/public/css/screen.css
+Notifying browser that CSS file changed: resources/public/css/screen.css
+Notifying browser that CSS file changed: resources/public/css/screen.css
+Notifying browser that CSS file changed: resources/public/css/screen.css
+Notifying browser that CSS file changed: resources/public/css/screen.css
+Notifying browser that CSS file changed: resources/public/css/screen.css
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.466 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/to_do_list/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.443 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/to_do_list/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.505 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/to_do_list/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[31mFailed to compile "target/cljsbuild/public/js/app.js" in 0.212 seconds.[0m
+[36m----  Could not Read  src/cljs/to_do_list/core.cljs   line:40 ----[0m
+
+  [1m/home/yash/tech-team/cljs_projs/sam16/to-do-list/src/cljs/to_do_list/core.cljs [line 40, col 37] Invalid keyword: :on-click:.[0m
+
+  [36m38[0m  [36m[:div (:title x)[0m
+  [36m39[0m  [36m [:button "Done"[0m
+  [33m40[0m  [1m  {:on-click: (fn [e][0m
+  [0m  [0m  [33m  /home/yash/tech-team/cljs_projs/sam16/to-do-list/src/cljs/to_do_list/core.cljs [line 40, col 37] Invalid keyword: :on-click:.[0m
+  [36m41[0m  [36m                (let [title (:title x)][0m
+  [36m42[0m  [36m                  (log "DONE TODO  >>>" user pass)[0m
+  [36m43[0m  [36m                  (GET (str server "todo")[0m
+
+[36m----  Reader Error : Please see src/cljs/to_do_list/core.cljs  ----[0m

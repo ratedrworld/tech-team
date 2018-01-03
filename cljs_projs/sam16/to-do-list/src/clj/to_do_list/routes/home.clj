@@ -15,7 +15,11 @@
 (defn user-login? [user pass]
   (layout/render-json (login/user-login? user pass)))
 
+(defn done-todo [user title]
+  (layout/render-json (login/done-todo user title)))
+
 (defroutes home-routes
   (GET "/" [](home-page))
-  (GET "/todo" [user title content] (add-todo user content title))
+  (GET "/todo" [user title content] (add-todo user title content))
+  (GET "/donetodo" [user title] (done-todo user title))
   (GET "/user" [user pass] (user-login? user pass)))
